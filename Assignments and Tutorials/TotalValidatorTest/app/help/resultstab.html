@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Results Options | Documentation | Total Validator</title>
+  <meta name="author" content="Total Validator" />
+  <link rel="stylesheet" href="../common.css" />
+  <link rel="stylesheet" href="../website.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script type="text/javascript" src="../images/menu.js"></script>
+</head>
+<body>
+<div class="main" id="top">
+<header><div id="skip"><a href="#content">Skip navigation</a></div>
+
+<div class="pagehead">
+<h1><a href="../ReadMe.html"><img src="../images/tvheader.svg" alt="Read Me Page"/></a>
+</h1>
+</div>
+
+<div class="topnavbar">
+<nav id='navbar' aria-label='Main navigation'><h2 class='hidden'>Main site navigation</h2><ul><li class='navitem'><a href='help.html'><span class='navlink'>Documentation</span></a></li><li class='navitem'><a href='reference/index.html'><span class='navlink'>Reference</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/index.html'><span class='navlink'>Website</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/validator/ContactForm'><span class='navlink'>Contact Form</span></a></li></ul></nav>
+</div>
+
+</header>
+<main class="nomenus">
+<!-- <nav aria-label="Documentation navigation"><p class="helpnav"><a class="dropdown" href="forms.html" title="Forms Options">&lt;</a><a class="dropdown" href="help.html" title="Documentation Contents">Contents</a><a class="dropdown" href="loginforms.html" title="Login Forms Topic">&gt;</a></p></nav> -->
+
+<h2 id="content"><a id="intro"></a><a href="help.html" title="Documentation Contents">Documentation</a> &gt; Results options</h2>
+<p>These options specify where the results will be saved (first group), and how they will be displayed (second group)</p>
+<p class="centered"><img alt="Results Options" class="noborder" src="../images/pro_results.png" /></p>
+
+<h2>Saving results</h2>
+<h3 id="sresults">Save to</h3>
+<p>
+Normally results are saved to your <a href="results.html">documents folder</a>. This can sometimes
+cause issues, or may be inconvenient.</p>
+<p>
+Use this option to select an alternative folder to save to.
+Enter the new path directly, or use the <code class="tv">Folder</code> button to select a different folder.
+Note that if the folder doesn't already exist it will be ignored.</p>
+<p>
+If you enter a new folder but later wish to go back to saving to the default
+location, leave this field blank.</p>
+<p>
+The <code class="tv">Open</code> button will open the currently selected folder, so you can quickly get to
+the results.</p>
+
+<h3 id="unique">Unique report</h3>
+<p>
+Results are normally in a sub-folder named
+<code class="os">Results</code>, with the first page named <code class="os">TotalValidator.html</code>, 
+and each time you run a test the old results are replaced.</p>
+<p>
+Select the <code class="tv">Unique report</code> option to prevent previous results being overwritten.
+The results will then be stored in a sub-folder named <code class="os">TV<var>timestamp</var></code>, 
+where <var>timestamp</var> is in the format <code class="ot">YYYYMMDDHHMMSS</code>, so that 
+each set of results is stored separately.</p>
+<p>
+Because results for the same web page are stored with the same name, you can compare the 
+results with previous tests of the same website.</p>
+<p>
+This option is often used with the <code class="tv">Save to</code> option to keep results safe for later inspection and comparison.</p>
+
+<h3 id="oldrep">Old report format</h3>
+<p>
+Choose this option to generate the results in the <a href="oldresults.html">old (pre 17.0) format</a>.</p>
+
+<h2>Displaying results</h2>
+<h3 id="browser">Browser</h3>
+<p>
+Total Validator displays the results in your default browser at the end of a test run.
+It also launches your default browser when starting a <a href="main.html#dom">DOM Validation</a>.</p>
+<p>
+On Windows and Linux systems, if you wish to use a specific browser, enter the path to the
+executable, or use the <code class="tv">File</code> button to select it. On macOS just enter the name of the
+browser, for example: <kbd class="ot">Safari</kbd>, <kbd class="ot">Firefox</kbd>, <kbd class="ot">Google Chrome</kbd>.</p>
+<p>
+  If you leave this field blank, or the browser you specify cannot be found,
+the results will be displayed using your default browser</p>
+
+<h3 id="hresults">None</h3>
+<p>If you do not wish your browser to display the results at the end of testing, select this option.
+To view the results, you may then use the <code class="tv">Last Results</code> option in the <code class="tv">File</code> menu, or manually open the results stored in the <code class="tv">Save to</code> folder.
+</p>
+
+<h3 id="details">Details</h3>
+<p>On the <a href="results.html#page">page reports</a> additional details are displayed
+when you hover over the text of an issue. Instead, you can choose to click to display these details, with an initial default of <code class="tv">Show all</code> or <code class="tv">Hide all</code>.
+</p>
+<p>You can set the default value of this option here if you have a specific preference you wish to use.</p>
+
+<h3 id="sortby">Sort by</h3>
+<p>On the <a href="results.html#summary">summary report</a> you can sort the results 
+in various ways using the <code class="tv">Sort by</code> option. You can set the default value of
+this option here if you have a specific preference you wish to use.</p>
+
+<h3 id="showsuccess">Show on success</h3>
+<p>Normally pages with no issues are not reported. Use
+this option to report these pages. This can be useful if you
+are unsure as to what pages have been tested.</p>
+
+<h3 id="apicompatible">API compatible</h3>
+<p>This option is for users of the CI version, when making calls to the Web API. It allows the results produced by the Pro version to match those from the CI version. See the <a href="api.html">Web API</a> documentation for further information.
+</p>
+
+<h3 id="short">Short report (old report format)</h3>
+<p>By default, the <a href="oldresults.html#results">page reports</a> display
+all the lines in a web page formatted
+so that you can quickly find where issues are and correct them.
+Use this option to display only the lines with issues on.
+</p>
+<p>Note that you can still use the <code class="tv">Short report</code> checkbox on each page report to
+view all of the lines again.</p>
+
+<h3 id="hidecontent">Hide content (old report format)</h3>
+<p>By default, <a href="oldresults.html#results">page reports</a> display the content as
+well as tags on the page. Use this option to 
+hide the content of each web page. This may make it
+easier to locate and resolve issues.
+</p>
+<p>Note that you can still use the <code class="tv">Hide content</code> checkbox on each page report to
+view all of the content again. Also note that any content with Spell Check issues
+will be always displayed.</p>
+
+<!-- <p class="helpnav"><a class="dropdown" href="forms.html" title="Forms Options">&lt;</a><a class="dropdown" href="help.html" title="Documentation Contents">Contents</a><a class="dropdown" href="loginforms.html" title="Login Forms Topic">&gt;</a></p> -->
+</main>
+
+<footer><div class="footer">
+<p class="footer">&copy; 2005-2023 Total Validator</p>
+</div></footer>
+
+</div>
+</body>
+</html>

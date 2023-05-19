@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="productApp">
+<head>
+    <title>Phone Product Showcasing App</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body data-ng-controller="productController">
+    
+    <div class="container">
+        
+        <!-- Website Heading -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Welcome to the Phone Showcasing Web Application Site!</h1>
+            </div>
+        </div>
+        
+        <!-- Displaying Phone Details with Element Directive -->
+        <div class="row">
+            <product model="model1"></product>
+            <product model="model2"></product>
+            <product model="model3"></product>
+            <product model="model4"></product>
+        </div>
+    </div>
+    
+    <script src="framework/js/jquery.min.js"></script>
+    <script src="framework/js/bootstrap.min.js"></script>
+    <script src="framework/js/angular.min.js"></script>
+    <script src="framework/js/angular-route.min.js"></script>
+    
+    <!-- The Controller File -->
+    <script src="appproduct.js"></script>
+</body>
+</html>

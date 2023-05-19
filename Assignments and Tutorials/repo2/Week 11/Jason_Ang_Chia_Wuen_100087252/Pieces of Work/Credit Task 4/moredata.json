@@ -1,0 +1,212 @@
+[
+	{
+		"code": "INF30003",
+		"desc": "Business Information Systems Analysis",
+		"cpoint": "12.5",
+		"type": "Systems Analysis"
+	},
+	{
+		"code": "INF30005",
+		"desc": "Business Process Management",
+		"cpoint": "12.5",
+		"type": "Systems Analysis"
+	},
+	{
+		"code": "COS10011",
+		"desc": "Creating Web Applications",
+		"cpoint": "12.5",
+		"type": "Core"
+	},
+	{
+		"code": "INF10002",
+		"desc": "Database Analysis and Design",
+		"cpoint": "12.5",
+		"type": "Core"
+	},
+	{
+		"code": "SWE20001",
+		"desc": "Development Project 1 - Tools and Practices",
+		"cpoint": "12.5",
+		"type": "Software Development"
+	},
+	{
+		"code": "MDA20009",
+		"desc": "Digital Communities",
+		"cpoint": "12.5",
+		"type": "Elective"
+	},
+	{
+		"code": "INF20012",
+		"desc": "Enterprise Systems",
+		"cpoint": "12.5",
+		"type": "Systems Analysis"
+	},
+	{
+		"code": "ACC10007",
+		"desc": "Financial Information for Decision Making",
+		"cpoint": "12.5",
+		"type": "Systems Analysis"
+	},
+	{
+		"code": "INF30020",
+		"desc": "Information Systems Risk and Security",
+		"cpoint": "12.5",
+		"type": "Systems Analysis"
+	},
+	{
+		"code": "ICT30001",
+		"desc": "Information Technology Project",
+		"cpoint": "12.5",
+		"type": "Core"
+	},
+	{
+		"code": "INF30029",
+		"desc": "Information Technology Project Management",
+		"cpoint": "12.5",
+		"type": "Core"
+	},
+	{
+		"code": "MDA10006",
+		"desc": "Innovation Cultures",
+		"cpoint": "12.5",
+		"type": "Elective"
+	},
+	{
+		"code": "COS30043",
+		"desc": "Interface Design and Development",
+		"cpoint": "12.5",
+		"type": "Software Development"
+	},
+	{
+		"code": "INF10003",
+		"desc": "Introduction to Business Information Systems",
+		"cpoint": "12.5",
+		"type": "Core"
+	},
+	{
+		"code": "COS10009",
+		"desc": "Introduction to Programming",
+		"cpoint": "12.5",
+		"type": "Core"
+	},
+	{
+		"code": "COS30015",
+		"desc": "IT Security",
+		"cpoint": "12.5",
+		"type": "Software Development"
+	},
+	{
+		"code": "ACC20014",
+		"desc": "Management Decision Making",
+		"cpoint": "12.5",
+		"type": "Systems Analysis"
+	},
+	{
+		"code": "TNE10005",
+		"desc": "Network Administration",
+		"cpoint": "12.5",
+		"type": "Software Development"
+	},
+	{
+		"code": "MDA20003",
+		"desc": "Networked Selves",
+		"cpoint": "12.5",
+		"type": "Elective"
+	},
+	{
+		"code": "MDA30014",
+		"desc": "New Media & Everyday Life",
+		"cpoint": "12.5",
+		"type": "Elective"
+	},
+	{
+		"code": "COS20007",
+		"desc": "Object Oriented Programming",
+		"cpoint": "12.5",
+		"type": "Software Development"
+	},
+	{
+		"code": "COS20016",
+		"desc": "Operating System Configuration",
+		"cpoint": "12.5",
+		"type": "Software Development"
+	},
+	{
+		"code": "ICT10001",
+		"desc": "Problem Solving with ICT",
+		"cpoint": "12.5",
+		"type": "Core"
+	},
+	{
+		"code": "COM10007",
+		"desc": "Professional Communication Practice",
+		"cpoint": "12.5",
+		"type": "Elective"
+	},
+	{
+		"code": "ICT30005",
+		"desc": "Professional Issues in Information Technology",
+		"cpoint": "12.5",
+		"type": "Core"
+	},
+	{
+		"code": "INF20003",
+		"desc": "Requirements Analysis and Modelling",
+		"cpoint": "12.5",
+		"type": "Systems Analysis"
+	},
+	{
+		"code": "COS30017",
+		"desc": "Software Development for Mobile Devices",
+		"cpoint": "12.5",
+		"type": "Software Development"
+	},
+	{
+		"code": "MDA20011",
+		"desc": "Sports /Advertising / Media",
+		"cpoint": "12.5",
+		"type": "Elective"
+	},
+	{
+		"code": "INF30001",
+		"desc": "Systems Acquisition & Implementation Management",
+		"cpoint": "12.5",
+		"type": "Systems Analysis"
+	},
+	{
+		"code": "COS20001",
+		"desc": "User-Centred Design",
+		"cpoint": "12.5",
+		"type": "Software Development"
+	},
+	{
+		"code": "COS10005",
+		"desc": "Web Development",
+		"cpoint": "12.5",
+		"type": "Core"
+	},
+	{
+		"code": "TNE10006 ",
+		"desc": "Networks and Switching",
+		"cpoint": "12.5",
+		"type": "Network"
+	},
+	{
+		"code": "TNE20002 ",
+		"desc": "Network Routing Principles",
+		"cpoint": "12.5",
+		"type": "Network"
+	},
+	{
+		"code": "TNE30018",
+		"desc": "Enterprise Network Server Administration",
+		"cpoint": "12.5",
+		"type": "Network"
+	},
+	{
+		"code": "COS30020",
+		"desc": "Web Application Development",
+		"cpoint": "12.5",
+		"type": "Network"
+	}
+]

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Web API | Documentation | Total Validator</title>
+  <meta name="author" content="Total Validator" />
+  <link rel="stylesheet" href="../common.css" />
+  <link rel="stylesheet" href="../website.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script type="text/javascript" src="../images/menu.js"></script>
+</head>
+<body>
+<div class="main" id="top">
+<header><div id="skip"><a href="#content">Skip navigation</a></div>
+
+<div class="pagehead">
+<h1><a href="../ReadMe.html"><img src="../images/tvheader.svg" alt="Read Me Page"/></a>
+</h1>
+</div>
+
+<div class="topnavbar">
+<nav id='navbar' aria-label='Main navigation'><h2 class='hidden'>Main site navigation</h2><ul><li class='navitem'><a href='help.html'><span class='navlink'>Documentation</span></a></li><li class='navitem'><a href='reference/index.html'><span class='navlink'>Reference</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/index.html'><span class='navlink'>Website</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/validator/ContactForm'><span class='navlink'>Contact Form</span></a></li></ul></nav>
+</div>
+
+</header>
+<main class="nomenus">
+<h2 id="content"><a id="intro"></a>Web API</h2>
+<p>This document explains how to use the API with Total Validator CI so that you can run the full range of Total Validator tests (accessibility, HTML, spelling, etc.) on your web pages as part of your normal testing.
+</p>
+<h3 id="overview">Overview</h3>
+<p>Start by running Total Validator CI using the batch/script files provided together with the option <code class="tv">-startlistener</code>, so that it runs in the background waiting for API requests to test something.
+</p>
+<p>Configure your application to send a HTTP request with the necessary information to perform the test. The CI application will then run the test and return to your application the same status code as the <a href="ci.html#extendedstatus"><code class="tv">-extendedstatus</code></a> option (you don't need to specify this option).
+</p>
+<p><strong>Note:</strong> Total Validator CI only responds to requests from the same computer, so your application must run on the same system as Total Validator CI.</p>
+
+<h2 id="runningci">Running Total Validator CI</h2>
+<p>Please see the <a href="ci.html">CI documentation</a> for how to configure and run the CI version. As a minimum you need to use the <code class="tv">-startlistener</code> and <code class="tv">-id</code> options. Typically you will want to configure other options (such as <code class="tv">-accessibility</code> and <code class="tv">-suppressresults</code>) which are common to all the pages you wish to test. If there are a lot of options you should consider putting them into a <a href="ci.html#properties">CI properties file</a> for convenience.
+</p>
+<p>You can either run the CI batch/script file from the command line (or PowerShell for Windows), or even start it directly from your application. But please note that you <em>must</em> run the batch/script file from the folder where it resides. so that Total Validator can find all the resources needed.
+</p>
+<p>If you are running the CI batch/script file from the command line, then when you've finished testing, you will have to type <kbd class="os">Ctrl+C</kbd> or <kbd class="os">Command+C</kbd> to stop it, or just close the window it is running in. Alternatively, you can call the API to tell it to stop (see below).
+</p>
+
+<h2 id="get">Calling the API using HTTP/1 GET</h2>
+<p>The simplest way to call the API is to make a <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP/1 GET</a> request to the CI application passing the URL of the page you wish to validate. In simple terms you could type this into your browser:</p>
+<pre><kbd class="uri">http://localhost:9889/api/v1/?-url=https://www.mysite.com
+</kbd></pre>
+<p>Of course, in practice you wouldn't use your browser to send the request to the API, but instead code this request in your application.
+</p>
+<p>Only requests to the local computer will work (<kbd class="uri">localhost</kbd> or <kbd class="uri">127.0.0.1</kbd>) and <kbd class="ot">9889</kbd> specifies the port the CI application is listening on. You can use the <code class="tv">-listenport</code> option when starting the CI application to change the default from <kbd class="ot">9889</kbd>. The path <kbd class="ot">/api/v1/</kbd> tells the CI application it is an API request, and you <em>must</em> add the <code class="tv">-url</code> or <code class="tv">-file</code> command line option as a query parameter, so that it has something to test.
+</p>
+<p>When the test is complete the CI application will return a <code class="uri">HTTP 200</code> status code together with the <a href="ci.html#extendedstatus"><code class="tv">-extendedstatus</code></a> value. (If you've specified the <a href="ci.html#showresultspath"><code class="tv">-showresultspath</code></a> option the output for this will be returned in the <code class="ht">X-Results-Path</code> header).
+</p>
+<p>When you've finished all of your testing, you can stop the CI application by calling the API with this URL: <kbd class="uri">http://localhost:9889/api/v1/stop/</kbd>
+</p>
+
+<h3 id="getoptions">Specifying options</h3>
+<p>Testing will be performed using whatever options you specified when starting the CI application. But you can add other command line options to the request to supplement or to override those used when starting the CI application. For example:</p>
+<pre><kbd class="uri">http://localhost:9889/api/v1/?-url=https%3A%2F%2Fwww.mysite.com&amp;-suppressresults=&amp;-dtd=Auto-detect
+</kbd></pre>
+<p>Note that you should always <a href="https://en.wikipedia.org/wiki/Percent-encoding">encode</a> all values (hence the use of <kbd class="uri">https%3A%2F%2Fwww.mysite.com</kbd>). Also note the use of <kbd class="tv">-suppressresults=</kbd> as an example of a parameter that doesn't take a value. You can also use the <code class="tv">-properties</code> option to reference an entire file of options to use (this file must be available to the CI application to read).
+</p>
+<p>Duplicate options are dealt with in a similar way <a href="ci.html#multiprops">as with the command line</a>. Options are processed in the order they appear in the <code class="ot">GET</code> request, and override any supplied when starting the CI application. You can also make use of the <code class="tv">:remove</code> suffix to ignore boolean options.</p>
+<p>For reference the priority is as follows: Options in query parameters override any option used to start the CI application. In any group, options in a <code class="tv">-properties</code> referenced file are treated as the lowest priority.
+</p>
+
+<h3>Java example</h3>
+<p>Here is a simple example using core Java, although using third part libraries (or the new HttpClient in Java 11+) is recommended.</p>
+<pre><code class="ot">// The url to send the request to
+String requestUrl = "http://localhost:9889/api/v1/";
+
+// Add the mandatory -url (or -file) option and always encode values
+requestUrl += "?-url=" + URLEncoder.encode("https://www.mysite.com", StandardCharsets.UTF_8);
+requestUrl += "&amp;-suppressresults=";  // Leave boolean values blank
+
+// Send the request
+URL url = new URL(requestUrl);
+HttpURLConnection httpConnection = (HttpURLConnection)url.openConnection();
+httpConnection.connect();
+
+// Deal with the response
+if (httpConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+  // Read the response (The "-extendedstatus" value)
+  InputStream is = httpConnection.getInputStream();
+  . . .
+}
+</code></pre>
+
+<h3>Javascript example</h3>
+<p>Here is a simple example using Javascript. Note that we use a synchronous request in the example for brevity, but this is not recommended.</p>
+<pre><code class="ot">// The url to send the request to
+var requestUrl = "http://localhost:9889/api/v1/";
+
+// Add the mandatory -url (or -file) option and always encode values
+requestUrl += "?-url=" + encodeURIComponent("https://www.mysite.com");
+requestUrl += "&amp;-suppressresults=";  // Leave boolean values blank
+  
+// Send the request (synchronously for brevity)
+var request = new XMLHttpRequest();
+request.open("GET", requestUrl, false);
+request.send(null);
+
+// Deal with the response
+if (request.status === 200) {
+  console.log(request.responseText); // The "-extendedstatus" value
+}
+</code></pre>
+
+<h2 id="post">Calling the API using HTTP/1 POST</h2>
+<p>Using a <code class="ot">GET</code> request you can only test pages using the <code class="tv">-url</code> or <code class="tv">-file</code> options. However, a common requirement is to send the source of the page to be tested directly to the API. Sending the source is also the easiest way of using the API to test pages that require authentication to access, and is the most convenient solution when calling the API during a Selenium test. However, you can only test one page at a time this way.
+</p>
+<p>For this you must use a <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP/1 POST</a> request with the data encoded as <code class="ht">multipart/form-data</code>.
+Requests should be sent to <kbd class="uri">http://localhost:9889/api/v1/</kbd>. Note that only requests to the local computer will work (<kbd class="uri">localhost</kbd> or <kbd class="uri">127.0.0.1</kbd>) and <kbd class="ot">9889</kbd> specifies the port the CI application is listening on. You can use the <code class="tv">-listenport</code> option when starting the CI application to change the default from <kbd class="ot">9889</kbd>. Finally, the path <kbd class="ot">/api/v1/</kbd> tells the CI application it is an API request.
+</p> 
+<p>The page source must be attached using the name <code class="ot">source</code> and be of the correct content type (typically <code class="ht">text/html</code> or <code class="ht">text/css</code>). See the example code below, showing how to do this for Java and Javascript. It also must use the UTF-8 character set, or be a subset of this (for example ASCII or ISO-8859-1).
+</p>
+<p>When the test is complete the CI application will return a <code class="uri">HTTP 200</code> status code together with the <a href="ci.html#extendedstatus"><code class="tv">-extendedstatus</code></a> value. (If you've specified the <a href="ci.html#showresultspath"><code class="tv">-showresultspath</code></a> option the output for this will be returned in the <code class="ht">X-Results-Path</code> header).
+</p>
+<p>When you've finished all of your testing, you can stop the CI application by calling the API with this URL: <kbd class="uri">http://localhost:9889/api/v1/stop/</kbd>
+</p>
+
+<h3 id="postoptions">Specifying options</h3>
+<p>Testing will be performed using whatever options you specified when starting the CI application. But you can add other command line options to the request to supplement or to override those used when starting the CI application. These may be added as query parameters to the request URL as shown with <code class="ot">HTTP/1 GET</code> requests, but more typically you would add them as extra form data.
+</p>
+<p>One of these options could be <code class="tv">-properties</code> to reference an entire file of options to use (this file must be available to the CI application to read). Alternatively (or in addition), you can also attach a <a href="ci.html#properties">CI properties file</a> to the request, just like with the page source (see examples below). This must be sent using the name <code class="ot">properties</code>, be of the content type <code class="ht">text/plain</code> and be in ASCII or UTF-8 format.
+</p>
+<p>As only one page can be tested, any <code class="tv">-pages</code> value (and other <a href="ci.html#include">Include options</a>) will be ignored. However, <code class="tv">-brokenlinks</code> (and other <a href="ci.html#links">Link options</a>) may be used to check for broken links. In this case you should supply a <code class="tv">-url</code> or <code class="tv">-file</code> value to use for testing any relative links, otherwise you may see lots of broken link errors in the results.
+</p>
+<p>Duplicate options are dealt with in a similar way <a href="ci.html#multiprops">as with the command line</a>. Options are processed in the order they appear in the <code class="ot">POST</code> request, and override any supplied when starting the CI application. You can also make use of the <code class="tv">:remove</code> suffix to ignore boolean options.
+</p>
+<p>For reference the priority is as follows: Options in query parameters override any options in form data. These in turn override any <a href="ci.html#properties">CI properties file</a> that is sent. These in turn override any option used to start the CI application. In any group, options in a <code class="tv">-properties</code> referenced file are treated as the lowest priority.
+</p>
+
+<h3 id="postget">Using POST for everything</h3>
+<p>Instead of using different application code for <code class="ot">GET</code> and <code class="ot">POST</code> requests, you can use <code class="ot">POST</code> for all API requests, to simplify your code. For the equivalent of <code class="ot">GET</code> requests, just don't send the <code class="ot">source</code> of a page, but you <em>must</em> send the <code class="tv">-url</code> or <code class="tv">-file</code> option to reference the start page to test.
+</p>
+
+<h3>Java example using Apache HttpClient</h3>
+<p>As native support for sending <code class="ht">multipart/form-data</code> in Java is poor, below is an example using the popular <a href="https://hc.apache.org/">Apache HttpClient</a> library.
+</p>
+<p>Here we obtain the page source from the Selenium WebDriver using <code class="ot">getPageSource()</code>, but this could be populated in other ways. As the <code class="ot">getPageSource()</code> call doesn't include the <code class="ht">&lt;!DOCTYPE&gt;</code>, we've added this to the source. We also send the contents of a <a href="ci.html#properties">CI properties file</a> containing additional options, although this is optional.
+</p>
+<pre><code class="ot">// Get the page source and contents of a properties file
+String source = "&lt;!DOCTYPE html&gt;" + webDriver.getPageSource();
+String properties = Files.readString(Paths.get("properties.txt"));
+
+// Send the request and deal with the response
+try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
+  HttpPost httpPost = new HttpPost("http://localhost:9889/api/v1");
+
+  // Note the names "source" and "properties" must be used for these parts
+  HttpEntity reqEntity = MultipartEntityBuilder.create()
+      .addTextBody("-dtd", "Auto-detect")  // Add whatever options you want
+      .addTextBody("-suppressresults", "") // For 'boolean' options send an empty string
+  // Because ContentType.TEXT_HTML uses ISO-8859-1, we create our own without a charset
+      .addTextBody("source", source, ContentType.create("text/html"))  // Use "text/css" for CSS
+      .addTextBody("properties", properties, ContentType.TEXT_PLAIN)
+      .build();
+  httpPost.setEntity(reqEntity);
+
+  try (CloseableHttpResponse response = httpclient.execute(httpPost)) {
+    int status = response.getCode();
+    if (status == HttpURLConnection.HTTP_OK) {
+      HttpEntity resEntity = response.getEntity();
+      // The "-extendedstatus" value
+      System.out.println("Response: " + EntityUtils.toString(resEntity));
+    }
+  }
+}
+</code></pre>
+<p><strong>Note: </strong>Apache HttpClient adds the ISO-8859-1 character set to all <code class="ht">Content-Type</code> headers. This could cause Total Validator CI to read the source using the wrong character set, and raise test errors that don't appear when using the Pro version. So we use <code class="ot">ContentType.create("text/html")</code> to avoid this.</p>
+
+<h3>Javascript example</h3>
+<p>When sending the source of a page to the API using Javascript, use <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects">FormData Objects</a> so that <code class="ht">multipart/form-data</code> encoding is automatically used. Note that we use a synchronous request in the example for brevity, but this is not recommended.
+</p>
+<pre><code class="ot">// Create the FormData object
+var formData = new FormData();
+formData.append("-dtd", "Auto-detect")   // Add whatever options you want
+formData.append("-suppressresults", ""); // For 'boolean' options send an empty string
+
+// Attach the current page source
+var page = document.documentElement.innerHTML;
+var sourceBlob = new Blob([page], { type: "text/html"});  // Use "text/css" for CSS Pages
+formData.append("source", sourceBlob);   // You must name this "source"
+
+// Optionally, you can send the contents of a "properties" file with additional options
+var props = '-dtd=Auto-detect\n-css=3';  // Contents of a "properties" file
+formData.append("properties", props);    // You must name this "properties"
+
+// Send the request (synchronously for brevity)
+var request = new XMLHttpRequest();
+request.open("POST", "http://localhost:9889/api/v1", false);
+request.send(formData);
+
+// Deal with the response
+if (request.status === 200) {
+  console.log(request.responseText); // The "-extendedstatus" value
+}
+</code></pre>
+
+<h2 id="compatibility">Comparing results with the Pro and CI versions</h2>
+<p>Normally the results produced when using the API will be the same as those produced using the Pro version, or when using CI version directly from the command line. But if the DOM of a page is sent to the API, there may be differences compared to validating the DOM of a page from the <a href="https://www.totalvalidator.com/help/main.html#dom">application</a> or <a href="https://www.totalvalidator.com/help/extensions.html#use">the browser</a>.
+</p>
+<p>This is because <a href="https://www.totalvalidator.com/help/extensions.html#gensource">browser extension</a> performs additional accessibility testing, potentially increasing the number of issues in the results, as well as some optimisations which may reduce the number of issues.
+</p>
+
+<p>So to help ensure the results will match, you can tell the Pro version to ignore the any additional testing and optimisations done by the extension using the <a href="https://www.totalvalidator.com/help/resultstab.html#apicompatible">API compatible</a> option, or the CI command line option: <code class="tv">-apicompatible</code>.
+</p>
+</main>
+
+<footer><div class="footer">
+<p class="footer">&copy; 2005-2023 Total Validator</p>
+</div></footer>
+
+</div>
+</body>
+</html>

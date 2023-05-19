@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="romanApp">
+<head>
+    <title>Roman Numbering App</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body data-ng-controller="romanCTRL">
+    
+    <div class="container">
+        <!-- Web Page Heading -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Web Applications to Convert Numbers to Roman Numerals</h1>
+            </div>
+        </div>
+        
+        <!-- Number Input Section -->
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label for="romanInput">Enter number from 1 to 99:</label>
+                <input type="number" id="romanInput" class="form-control" data-ng-model="normalNumber" min="1" max="99" />
+            </div>
+        </div>
+        
+        <!-- Roman Numerals Section -->
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center text-info">{{ normalNumber | romanFilter }}</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="framework/js/jquery.min.js"></script>
+    <script src="framework/js/bootstrap.min.js"></script>
+    <script src="framework/js/angular.min.js"></script>
+    <script src="framework/js/angular-route.min.js"></script>
+    
+    <!-- The Controller File -->
+    <script src="appromannumber.js"></script>
+</body>
+</html>

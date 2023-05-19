@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Main Options | Documentation | Total Validator</title>
+  <meta name="author" content="Total Validator" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../common.css" />
+  <link rel="stylesheet" href="../website.css" />
+  <link rel="stylesheet" href="../images/slideshow.css" />
+  <script type="text/javascript" src="../images/menu.js"></script>
+</head>
+<body>
+<div class="main" id="top">
+<header><div id="skip"><a href="#content">Skip navigation</a></div>
+
+<div class="pagehead">
+<h1><a href="../ReadMe.html"><img src="../images/tvheader.svg" alt="Read Me Page"/></a>
+</h1>
+</div>
+
+<div class="topnavbar">
+<nav id='navbar' aria-label='Main navigation'><h2 class='hidden'>Main site navigation</h2><ul><li class='navitem'><a href='help.html'><span class='navlink'>Documentation</span></a></li><li class='navitem'><a href='reference/index.html'><span class='navlink'>Reference</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/index.html'><span class='navlink'>Website</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/validator/ContactForm'><span class='navlink'>Contact Form</span></a></li></ul></nav>
+</div>
+
+</header>
+<main class="nomenus">
+<!-- <nav aria-label="Documentation navigation"><p class="helpnav"><a class="dropdown" href="menu.html" title="Menus">&lt;</a><a class="dropdown" href="help.html" title="Documentation Contents">Contents</a><a class="dropdown" href="include.html" title="Include Options">&gt;</a></p></nav> -->
+
+<h2 id="content"><a id="intro"></a><a href="help.html" title="Documentation Contents">Documentation</a> &gt; Main options</h2>
+<p>The main options may be selected here.</p>
+<div class="slideshow-container centered pro">
+  <div class="mySlides fade"><p class="text">Pro version</p><img src="../images/pro_main.png" alt="Pro version"/></div>
+  <div class="mySlides fade"><p class="text">Basic version</p><img src="../images/basic.png" alt="Basic version"/></div>
+  <div class="mySlides fade"><p class="text">Test version</p><img src="../images/test.png" alt="Test version"/></div>
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<div class="centered">
+  <span class="dot" onclick="currentSlide(1)" onkeypress="currentKeySlide(event,1)" tabindex="0"></span> 
+  <span class="dot" onclick="currentSlide(2)" onkeypress="currentKeySlide(event,2)" tabindex="0"></span> 
+  <span class="dot" onclick="currentSlide(3)" onkeypress="currentKeySlide(event,3)" tabindex="0"></span> 
+</div>
+<script type="text/javascript" src="../images/slideshow.js"></script>
+
+<h2 id="url">Start page</h2>
+<p>This is the page Total Validator will try to test.
+It can either be a URL or a reference to a local file (or folder with the Pro version)
+</p>
+<p>You can enter a full URL such as <kbd class="uri">https://totalvalidator.com</kbd>.
+But if you enter just <kbd class="ot">totalvalidator</kbd> it will try to complete the URL by adding <kbd class="uri">https://</kbd> to the start and <kbd class="uri">.com</kbd> to the end.
+</p>
+<p>
+If you are testing a local web page then you can either type in (or cut and paste)
+the path to the page, or use the File button to select the page you want to test.
+</p>
+<p>
+With the Pro version Total Validator will start at this page and then follow every link on the same website/filesystem, testing each page it finds.</p>
+<p>
+You can also select a local folder and, in addition to links to local pages, Total Validator will test every page
+(files ending with: <code class="os">.htm</code>, <code class="os">.html</code>, <code class="os">.xhtml</code>, <code class="os">.xht</code>, and <code class="os">.css</code> only) within this and all sub-folders.
+As it may follow links to other parts of the filesystem, you may wish to use the <a href="include.html#followbelow">Only follow below</a> option to restrict this.</p>
+<p>Use the Reset List menu option on the <a href="menu.html#file">File menu</a> to clear the
+drop-down list of recent entries.</p>
+
+<h2 id="wai">Accessibility validation</h2>
+<p>Select this option if you wish to test each page against the <a
+ href="https://www.w3.org/WAI/">W3C Web Accessibility Guidelines</a> or <a href="https://www.section508.gov/">US Section 508</a>.
+</p>
+<p>For the WCAG guidelines, there are three levels to choose from : <code class="tv">A</code>, <code class="tv">AA</code> and <code class="tv">AAA</code>. Selecting <code class="tv">AA</code>
+will also perform all of the <code class="tv">A</code> tests, and selecting <code class="tv">AAA</code> will perform all the <code class="tv">AA</code> and <code class="tv">A</code> tests.
+You can also choose between <code class="tv">US Section 508</code>
+(which is the same as selecting <code class="tv">WCAG 2.1 AA</code>), or <code class="tv">US Section 508 (2001)</code> to run the pre-2017 tests.</p>
+<p>For your convenience, selecting <code class="tv">WCAG 2.2</code>, <code class="tv">WCAG 2.1</code>, <code class="tv">WCAG 2.0</code> or <code class="tv">Section 508</code> will automatically perform ARIA and CSS accessibility tests, 
+even if you have not selected a HTML validation (where ARIA is normally tested) or a CSS validation. With the Pro version this
+also means testing CSS pages, but you can opt out of this using the <a href="#csspages">CSS Pages</a> option.
+</p>
+<p>You may also wish to read our <a href="faq.html#wai">Accessibility FAQ</a>, where we advise using the HTML,
+CSS, Spell check and Validate DOM options for a comprehensive accessibility test.</p>
+
+<h3 id="csspages">CSS Pages <em>(Pro only)</em></h3>
+<p>If you select <code class="tv">WCAG 2.2</code>, <code class="tv">WCAG 2.1</code>, <code class="tv">WCAG 2.0</code> or <code class="tv">Section 508</code>, then CSS pages will be accessibility tested, even if you have not selected
+a <a href="#css">CSS validation</a>. If you wish to ignore CSS pages altogether, then uncheck this option.
+</p>
+<p>Note that <code class="ht">&lt;style&gt;</code> elements and <code class="ht">style</code> attributes on HTML pages will still be tested for accessibility issues.
+</p>
+
+<h3 id="do411">Do 4.1.1 <em>(Pro only)</em></h3>
+<p>If you select <code class="tv">WCAG 2.2</code>, by default no <a href="https://www.w3.org/WAI/WCAG22/Understanding/parsing">SC 4.1.1</a> tests will be performed as these were deprecated in WCAG 2.2. However, if you still need to test for 4.1.1 issues then select this checkbox.
+</p>
+<p>Note that you should always select a HTML validation to ensure that the page does not have any issues which may prevent accessibility aids from operating correctly.
+</p>
+
+<h2 id="dtd">HTML validation</h2>
+<p>Select the specification you wish to test against from the drop down.
+Select the blank option if you do not wish to perform a HTML test.</p>
+<p>
+The <code class="tv">Auto-detect</code> option is normally the best option to select as this uses the <code class="ht">&lt;!DOCTYPE&gt;</code>
+declaration on each page to determine what specification to check against. If the <code class="ht">&lt;!DOCTYPE&gt;</code> is missing
+or unrecognised a best-fit algorithm will calculate the option that produces the fewest
+errors and will test against that instead.</p>
+<p>
+The Best-fit option ignores any existing <code class="ht">&lt;!DOCTYPE&gt;</code> and uses
+the DTD that produces the fewest errors. This is a useful way of determining the
+best <code class="ht">&lt;!DOCTYPE&gt;</code> to use on any page.</p>
+<p>
+As HTML5 is continuously being improved, selecting HTML5 or XHTML5 will use the latest <a href="https://html.spec.whatwg.org/multipage/">WHATWG HTML Standard</a> at the time Total Validator is built.</p>
+
+<h2 id="css">CSS validation <em>(Pro only)</em></h2>
+<p>
+Select the CSS Level you wish to test against from the drop down, or select the blank option
+if you do not wish to test any CSS.</p>
+<p>
+This option allows you to test the contents of <code class="ht">&lt;style&gt;</code> tags,
+<code class="ht">style</code> attributes and style sheets against the selected W3C standard.</p>
+<p>If you do not select this option then the contents of <code class="ht">&lt;style&gt;</code> tags will
+not appear on the page reports, external style sheets will not be read,
+and any embedded links within <code class="ht">&lt;style&gt;</code> tags, <code class="ht">style</code> attributes and style sheets
+will not be tested, or followed. Several accessibility tests will also not run.</p>
+
+<h3 id="vendor">Ignore vendor <em>(Pro only)</em></h3>
+<p>
+Normally CSS vendor extensions such as <code class="ht">-moz-box-shadow</code>
+will raise a warning, but will still be tested against the chosen CSS level.
+But some vendor extensions do not conform to the latest specifications and may
+also report an error.</p>
+<p>With the <code class="tv">ignore vendor</code> option any vendor extension will be ignored completely
+so that no warnings or errors are reported.</p>
+
+<h2 id="checklinks">Broken link check</h2>
+<p>If you choose this option (selected by default) Total Validator will
+test each link to ensure that it isn't broken. But note that we ignore any links in JavaScript.</p>
+<p>
+Links to all resources such as CSS files, images, and scripts are tested
+as well as links to other web pages. Note that testing links can often be
+a time consuming process, especially
+if there are broken links on the pages, and especially if you are testing more than one page,
+so please be patient. However, use of the <a href="links.html#timeout">timeout
+</a> and <a href="links.html#concurrency">concurrency</a> options may help speed things up.</p>
+<p>
+Links within <code class="ht">&lt;style&gt;</code> tags, <code class="ht">style</code> attributes and style sheets are only
+tested if you select a CSS validation.</p>
+<p>
+If you are testing a local file then you may find many broken links
+on the page reports. This is because relative links will be followed as if
+they are local files on your computer, so if you don't have the file
+the link will appear broken. Similarly, absolute URLs will be tested, and
+these may appear broken if you
+are working off-line or the URLs are inaccessible for any reason.</p>
+
+<h2 id="spellcheck">Spell check</h2>
+<p>Select this option if you wish to test the content of a page for
+spelling mistakes. It will use the language codes on web pages to detect the languages used and
+can check against an English dictionary of over 150,000 words, French of over 130,000 words, Spanish
+of over 85,000 words, German of over 160,000 words, and Italian of over 60,000 words.</p>
+<p>You can also include additional words that are not found in the supplied dictionaries, or use
+your own alternative dictionary for these or other languages using the
+<a href="spellcheck.html">Spell Check</a> options. See the dedicated <a href="spellchecking.html">Spell checking</a>
+page for details on how best to use this option.</p>
+<p>
+Note that when you use the Spell check option it may take substantially longer to test each
+web page.</p>
+
+<h2 id="dom">Validate DOM</h2>
+<p>Normally Total Validator tests the web page before
+any JavaScript has been run. If your page uses JavaScript to modify the page,
+then use this option to test the page after any initial JavaScript has run.
+</p>
+<p>It also allows us to perform additional accessibility tests such as contrast testing, and so should be used when a more comprehensive accessibility test is required.
+</p>
+<p>This option works in combination with <a href="https://www.totalvalidator.com/products/extension.html">our browser extensions</a>, 
+so you must have one installed in your default or <a href="resultstab.html#browser">selected</a> browser
+for this option to work.
+</p>
+<p>When you start a test run, it begins by opening the <a href="#url">Start page</a> in your browser, waits for the JavaScript to run, then sends the
+browser DOM back to the application <a href="menu.html#listen">on the listen port</a> to test. 
+The results will then be displayed in the same browser tab.
+</p>
+<p>During the process Total Validator will automatically minimise or <a href="menu.html#tray">shrink to the System Tray</a> to keep it out of the way.
+</p>
+<p>With Total Validator Pro and CI you can test multiple pages, or an entire site this way. 
+In this case your browser will automatically move between each page on the site, before finally displaying the results.
+</p>
+<p>When testing DOM-generated source, you may need to slow the process down so that any initial JavaScript has fully run before
+the page is sent to the application. For this, use the <a href="network.html#pause">Page pause</a> option which will add a delay
+<em>after</em> loading each page, before sending the DOM to the application.
+</p>
+<p>Because what is being tested is not a 'real' web page, but is generated from your browser's DOM, you may see some issues
+that do not exist in the original web page, and line numbers will often differ. Also note that broken links
+can only be tested if you have the Pro or CI version.
+</p>
+<p>Note that you cannot test local pages using this option, due to browser security restrictions.
+So the <a href="#url">Start page</a> must begin with <code class="uri">http://</code> or <code class="uri">https://</code>.
+As an alternative, you can manually load the local page into your browser, and then start the test from the <a href="extensions.html">browser extension</a>.
+</p>
+
+<h2 id="level">Reporting <em>(Basic only)</em></h2>
+<p>
+There are four types of issue which may be reported:</p>
+<ul>
+  <li><strong>Errors:</strong> These are core violations of one of the tests you have selected.</li>
+  <li><strong>Probable Errors:</strong> These are issues which should only be ignored if a solution has been explicitly provided.</li>
+  <li><strong>Warnings:</strong> These are either potential errors, or issues worth addressing to improve pages.</li>
+  <li><strong>Extra Info:</strong> This is additional guidance, often where a manual check is recommended.</li>
+</ul>
+<p>
+For further information and alternative ways of ignoring issues, see the <a href="ignore.html">Ignoring issues</a> topic</p>
+
+<h2 id="validate">Validate button</h2>
+<p>This will start the testing process. At the end of the process your default browser
+should be launched displaying the results.</p>
+<p>
+During the testing process you can use the <kbd class="tv">Cancel</kbd> button to stop the
+process. Note that this may take a while to respond when testing broken
+links.</p>
+
+<!-- <p class="helpnav"><a class="dropdown" href="menu.html" title="Menus">&lt;</a><a class="dropdown" href="help.html" title="Documentation Contents">Contents</a><a class="dropdown" href="include.html" title="Include Options">&gt;</a></p> -->
+</main>
+
+<footer><div class="footer">
+<p class="footer">&copy; 2005-2023 Total Validator</p>
+</div></footer>
+
+</div>
+</body>
+</html>

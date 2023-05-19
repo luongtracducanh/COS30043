@@ -1,0 +1,117 @@
+<!DOCTYPE>
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Highcharts Test</title>
+		
+
+</head>
+
+<body >		
+		
+
+<!-- Import HighChart JS library -->
+
+
+ 
+<!-- placeholder for your chart -->
+	<div>
+		<div class="container">
+        <div id="myfirstchart"></div>
+    </div>
+<script src="highchart/code/highcharts.js"></script>
+<script src="highchart/code/modules/exporting.js"></script>
+<script src="highchart/code/modules/export-data.js"></script>
+<script src="highchart/code/modules/accessibility.js"></script>
+<style>
+
+</style>
+<script>
+		Highcharts.chart('myfirstchart', {
+				chart: {
+						type: "line",
+					},
+				title: {
+						text: 'The Lecture Slide Sample'
+					},
+				subtitle: {
+						text: 'Source - zekkoukyo'
+					},
+			xAxis: {
+				categories: [2010, 2011,2017]
+			},
+			yAxis: {
+				title: {
+					text: 'Number of Employees'
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'right',
+				verticalAlign: 'middle'
+			},
+			series: [
+				{
+					name: 'Installation',
+					data: [43934,154175]
+				}, 
+				{
+					name: 'Other',
+					data: [12908, 18111]
+				}
+			]
+		});
+
+
+</script>
+<p> Test </p>
+
+
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        This chart shows the use of a logarithmic y-axis. Logarithmic axes can
+        be useful when dealing with data with spikes or large value gaps,
+        as they allow variance in the smaller values to remain visible.
+    </p>
+</figure>
+<script>
+Highcharts.chart('container', {
+
+    title: {
+        text: 'Logarithmic axis demo'
+    },
+
+    xAxis: {
+        tickInterval: 1,
+        type: 'logarithmic',
+        accessibility: {
+            rangeDescription: 'Range: 1 to 10'
+        }
+    },
+
+    yAxis: {
+        type: 'logarithmic',
+        minorTickInterval: 0.1,
+        accessibility: {
+            rangeDescription: 'Range: 0.1 to 1000'
+        }
+    },
+
+    tooltip: {
+        headerFormat: '<b>{series.name}</b><br />',
+        pointFormat: 'x = {point.x}, y = {point.y}'
+    },
+
+    series: [{
+        data: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512],
+        pointStart: 1
+    }]
+});
+</script>
+
+</body>
+
+</html>

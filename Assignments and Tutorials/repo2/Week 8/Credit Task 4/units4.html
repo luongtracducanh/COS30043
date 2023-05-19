@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="unitsApp">
+<head>
+    <title>Template that uses Bootstrap</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Highchart plugin -->
+    <script src="framework/highchart/highcharts.js"></script>
+    <noscript></noscript>
+    
+    <!-- Unit Object Array Initialisation -->
+    <div class="container" ng-controller="unitsCTRL">
+    
+    <div class="row">
+        <div class="col-md-12">
+            <h1>BICT Unit Search Filter</h1>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-12">
+                <label for="code">Code: </label><input id="code" class="form-control" type="text" ng-model="filterCode"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <label for="desc">Description: </label><input id="desc" class="form-control" type="text" ng-model="filterDesc"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Unit Type:</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- 'radio-inline' makes the element to be an inline element and gives special modifications to the radio button element -->
+                <label class="radio-inline"><input type="radio" ng-model="filterType" value="Core"/> Core</label>
+                <label class="radio-inline"><input type="radio" ng-model="filterType" value="Software Development"/> Software Development</label>
+                <label class="radio-inline"><input type="radio" ng-model="filterType" value="Systems Analysis"/> Systems Analysis</label>
+                <label class="radio-inline"><input type="radio" ng-model="filterType" value="Elective"/> Elective</label>
+                <label class="radio-inline"><input type="radio" ng-model="filterType" value="Network"/> Network</label>
+                <label class="radio-inline"><input type="radio" ng-model="filterType" value=""/> All</label>
+            </div>
+        </div>
+    </div>
+        
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Placeholder for column chart -->
+            <div id="theChart"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12  table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <!-- Centers the table caption text -->
+                <caption class="text-center">Table of Units Offered by Swinburne</caption>
+                <thead>
+                    <tr>
+                        <th id="unit_code">Code</th>
+                        <th id="unit_description">Description</th>
+                        <th id="unit_credits">Credit Points</th>
+                        <th id="unit_type">Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Outputs All Elements -->
+                    <tr ng-repeat="obj in objArray | filter: {code : filterCode, desc : filterDesc, type : filterType}">
+                        <td headers="unit_code">{{ obj.code }}</td>
+                        <td headers="unit_description">{{ obj.desc }}</td>
+                        <td headers="unit_credits">{{ obj.cpoint | number:2 }}</td>
+                        <td headers="unit_type">{{ obj.type }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    
+    <script src="framework/js/jquery.min.js"></script>
+    <noscript></noscript>
+    <script src="framework/js/bootstrap.min.js"></script>
+    <noscript></noscript>
+    <script src="framework/js/angular.min.js"></script>
+    <noscript></noscript>
+    
+    <!-- Controller JS file -->
+    <script src="appunits4.js"></script>
+    <noscript></noscript>
+</body>
+
+</html>

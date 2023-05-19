@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Template that uses Bootstrap</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <div class="container" ng-app="">
+        <div class="row">
+            <div class="col-md-12"><h1>Name Tester App</h1></div>
+        </div>
+        <div class="row">
+            <!-- 'form-group' and 'form-control' are used for form type elements -->
+            <div class="col-md-12 form-group">
+                <label for="name">Please enter your name:</label>
+                <input id="name" class="form-control" type="text" ng-model="strName"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Enusures that both lowercase and uppercase first letter names are accepted -->
+                <!-- 'text-success' gives a green color to the text -->
+                <p class="text-success" ng-show="(strName | lowercase) == 'jason'">Awesome Name!</p>
+                <!-- 'text-danger' gives a red color to the text -->
+                <p class="text-danger" ng-hide="(strName | lowercase) == 'jason'">{{ strName }} is not my name.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="framework/js/jquery.min.js"></script>
+    <script src="framework/js/bootstrap.min.js"></script>
+    <script src="framework/js/angular.min.js"></script>
+</body>
+
+</html>

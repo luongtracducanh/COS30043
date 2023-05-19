@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>WAI Form Task</title>
+	<meta charset="utf-8" />
+	<meta name="language" content="english" />
+	<meta name="keywords" content="Accessibility,Lab,Tasks" />
+	<meta name="description" content="WAI Form Task" />
+</head>
+<body>
+	<h1>WAI Form Example</h1>
+	<form method="post" action="formtest.php">
+        <fieldset>
+            <legend>Contact Information</legend>
+            <p><label for="cname"> Name:</label>
+			<input type="text" name="name" id="cname" /></p>
+            
+		  <p><label for="cemail"> E-mail Address:</label>
+			<input type="text" name="email" id="cemail" /></p>
+            
+		<p> <label for="caddr">Mailing Address:</label><br />
+			<textarea name="address" id="caddr" rows="4" cols="40"></textarea></p>
+        </fieldset>
+		
+        <fieldset>
+            <legend>Credit Card Information</legend>
+            <p>
+			<label for="cvisa"><input type="radio" name="card" id="cvisa" value="visa" /> Visa</label> 
+			<label for="cmc"><input type="radio" name="card" id="cmc" value="mc" /> MasterCard</label><br />
+
+			<label for="cnumber">Number: <input type="text" name="number" id="cnumber"/></label><br />
+			<label for="cexpiry">Expiry: <input type="text" name="expiry" id="cexpiry"/></label>
+		</p>
+		<p>
+			<input type="submit" value="Submit order" /> 
+            <input type="reset" title="Clear order" value="Clear order"/>
+		</p>
+        </fieldset>
+	</form> 
+</body>
+</html>

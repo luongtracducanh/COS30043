@@ -1,0 +1,137 @@
+.table-header:hover > span {
+    filter: opacity(100%);
+}
+
+.caret-full:hover   {
+    filter: opacity(100%);
+}
+
+.caret-up:hover   {
+    filter: opacity(100%);
+}
+
+.caret-down:hover   {
+    filter: opacity(100%);
+}
+
+.caret-full {
+    background-image: url(../images/caret_full.png);
+    background-size: 12px 12px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 2px;
+    filter: opacity(25%);
+}
+
+.caret-up {
+    background-image: url(../images/caret_up.png);
+    background-size: 12px 12px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 2px;
+    filter: opacity(25%);
+}
+
+.caret-down {
+    background-image: url(../images/caret_down.png);
+    background-size: 12px 12px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 2px;
+    filter: opacity(25%);
+}
+
+.nowrap {
+    white-space:nowrap;
+}
+
+.no-padding-right   {
+    padding-right: 0;
+}
+
+.actionCol {
+    width: 100px;
+}
+
+#insertBtn  {
+    float: right;
+}
+
+#pagBtn {
+    float: left;
+    padding-left: 55px;
+}
+
+.no-margin  {
+    margin: 0;
+}
+
+.align-middle   {
+    vertical-align: middle;
+}
+
+.padding-bottom    {
+    padding-bottom: 15px;
+}
+
+.spinner {
+    border: 12px solid #f3f3f3; /* Light grey */
+    border-top: 12px solid #fd2121; /* Blue */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* For desktop view */
+@media (max-width: 1200px) {
+    #pagBtn {
+        padding-left: 25px;
+    }
+}
+
+/* For tablet view */
+@media (max-width: 992px) {
+    #insertBtn  {
+        float: none;
+        display: flex;
+        justify-content: center;
+    }
+    #pagBtn {
+        float: none;
+        display: flex;
+        justify-content: center;
+        padding-left: 0;
+    }
+}
+
+/* For mobile view */
+@media (max-width: 768px) {
+    #insertBtn  { 
+        float: none;
+        display: flex;
+        justify-content: center;
+    } 
+    #pagBtn {
+        float: none;
+        display: flex;
+        justify-content: center;
+    }
+    .xs-center  {
+        float: none;
+        display: flex;
+        justify-content: center;
+    }
+    .xs-margin-bottom   {
+        margin-bottom: 15px;
+    }
+}

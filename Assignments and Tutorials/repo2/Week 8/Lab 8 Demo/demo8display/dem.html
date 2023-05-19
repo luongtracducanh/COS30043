@@ -1,0 +1,44 @@
+<!DOCTYPE>
+<html lang="en" data-ng-app="myApp">
+    <head>
+        <title>AngularJS with JSON Demo</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Bootstrap -->
+        <link href="frameworks/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5
+        elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the
+        page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+	
+<body>
+
+		<div data-ng-controller="getCtrl">
+		   <ul 
+			  data-ng-repeat="post in posts">
+			 <li>Name: {{post.name}}
+				Age: {{post.age}} </li>
+		   </ul>
+		 </div>
+
+
+
+
+
+
+		<!-- jQuery – required for Bootstrap's JavaScript plugins) -->
+        <script src="frameworks/js/jquery.min.js"></script><noscript></noscript>
+        <!-- All Bootstrap plug-ins file -->
+        <script src="frameworks/js/bootstrap.min.js"></script><noscript></noscript>
+        <!-- Basic AngularJS -->
+        <script src="frameworks/js/angular.min.js"></script><noscript></noscript>
+		<!-- Your Controller -->
+        <script src="frameworks/js/appjs.js"></script><noscript></noscript>
+</body>
+
+</html> 

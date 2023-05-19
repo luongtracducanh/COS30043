@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" >
+	<meta name="description" content="... ...">
+	<meta name="keywords" content="... ...">
+	<meta name="author" content="... ...">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+	<title>6.1CreditTask</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app" class="container">
+  <v-app>
+  <v-main>
+    <div class="row"><h1>Registration Form</h1></div><br />
+   
+    <v-form ref="myForm" method="post" v-model="valid" lazy-validation action="http://mercury.swin.edu.au/it000000/formtest.php">
+	<div class="row">
+        <div class="col-md-6">
+            <v-text-field 
+                name="firstName" 
+                v-model="firstName"   
+                :rules="nameRules" 
+                label="First Name"  
+                required 
+            ></v-text-field>
+        </div>
+        <div class="col-md-6">
+            <v-text-field 
+                name="lastName" 
+                v-model="lastName"   
+                :rules="nameRules" 
+                label="Last Name"  
+                required 
+            ></v-text-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <v-text-field 
+                name="userName"
+                v-model="userName"   
+                :rules="usrnameRules" 
+                label="User Name"  
+                required 
+            ></v-text-field>
+        </div>
+        <div class="col-md-4">
+            <v-text-field 
+                name="password" 
+                v-model="password"   
+                :rules="passwordRules" 
+                label="Password"  
+                required 
+                :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                :type="show1 ? 'text' : 'password'"
+                @click:append="show1 = !show1"
+            ></v-text-field>
+        </div>
+        <div class="col-md-4">
+            <v-text-field 
+                name="confirmpassword" 
+                v-model="confirmpassword"   
+                :rules="[(password === confirmpassword) || 'Password must match']"
+                label="Confirm Password"  
+                required
+                :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+                :type="show2 ? 'text' : 'password'"
+                @click:append="show2 = !show2" 
+            ></v-text-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <v-text-field 
+                name="email" 
+                v-model="email" 
+                type="email" 
+                :rules="emailRules" 
+                label="Email" 
+                required 
+                ></v-text-field>
+        </div>
+        <div class="col-md-6">
+            <v-text-field
+                name="phonenum" 
+                v-model="phonenum" 
+                :rules="phoneRules" 
+                label="Mobile number" 
+                required 
+            ></v-text-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <v-text-field 
+                name="streetaddr" 
+                v-model="streetaddr" 
+                label="Street address (optional)"
+                maxlength ="40"
+                required  
+            ></v-text-field>
+        </div>
+        <div class="col-md-4">
+            <v-text-field 
+                name="suburb" 
+                v-model="suburb"  
+                label="Suburb (optional)" 
+                maxlength = "20"
+                required 
+            ></v-text-field>
+        </div>
+        <div class="col-md-4">
+            <v-text-field 
+                name="postcode" 
+                v-model="postcode" 
+                :rules="postcodeRules" 
+                label="Postcode" 
+                required 
+            ></v-text-field>
+        </div>
+    </div>
+    <div class="row">
+        <v-btn color="primary" @click="toggle">Show Terms And Conditions</v-btn>
+    </div><br/><br/>
+    <div class="row">
+        <p v-if="showValues">This is a brief text on Terms and Conditions
+        </p>
+    </div>
+    <div class ="row">
+        <v-btn :disabled="!valid" type="submit" color="success"  @click="validate">Submit</v-btn>
+    </div> 
+  </v-form>
+
+  </v-main>
+  </v-app>
+  </div>
+
+
+  <script src="js/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="js/appregistration2.js"></script> 
+</body> 
+</html>

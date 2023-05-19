@@ -1,0 +1,108 @@
+<!DOCTYPE html> 
+<html data-ng-app = 'MyApp'> 
+    <head> 
+        <title>Lecture 7 - Form Validation Demo</title> 
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+        <!-- Bootstrap --> 
+        <link href="css/bootstrap.min.css" rel="stylesheet" />  
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+        elements and media queries --> 
+        <!-- WARNING: Respond.js doesn't work if you view the 
+        page via file:// --> 
+        <!--[if lt IE 9]> 
+            <script src="js/html5shiv.js"></script> 
+            <script src="js/respond.min.js"></script> 
+        <![endif]--> 
+        <link type="text/css" href="Lec7-style.css" rel="stylesheet"/>
+        <style>
+		input.ng-invalid{
+		background-color: rgba(255, 0, 0, 0.3); 
+		<!-- Opacity of 0.3 -->
+		}
+		input.ng-valid{
+		background-color:rgba(0,255,0,0.2);
+		}
+        </style>
+    </head> 
+    <body> 
+
+<div class="container" data-ng-controller="myFormCtrl">     
+ <form data-ng-submit="submit()" novalidate="novalidate" name="myForm" >
+    <label for="fn" >First name</label>
+    <input type="text" id="fn" name = "firstname" data-ng-model="user.firstname" required my-directive/>
+     </br>
+    <label for="ln">Last name</label>
+	<!-- Update on blur example -->
+    <input type="text" id="ln" name = "lastname" data-ng-model="user.lastname"  data-ng-model-options="{ updateOn: 'blur' }" required/>
+     </br>
+    <label for="age">Age</label>
+    <input type="number" id="age" name = "age" data-ng-model="user.age""/>
+    <span data-ng-show="myForm.age.$error.number">Must be a number</span> 
+	</br>
+     <!-- Disable button if invalid -->
+    <button type="submit" data-ng-disabled="myForm.$invalid">Submit</button>
+     {{wasSubmitted}}
+ </form>
+    
+    <p>
+	
+      First name input valid status: 	{{myForm.firstname.$valid}} 
+      <br />
+      First name validation error: 	{{myForm.firstname.$error}} 
+      <br />
+      Form valid status: {{myForm.$valid}} 
+      <br />
+      Form validation error: {{myForm.$error}} 
+    </p>
+    <p>True if not an number: {{myForm.age.$error}}</p>
+	
+
+</div>
+
+
+
+       
+
+        <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
+        <script src="js/jquery.min.js"></script> 
+        <!-- All Bootstrap  plug-ins  file --> 
+        <script src="js/bootstrap.min.js"></script> 
+        <!-- Basic AngularJS --> 
+        <script src="js/angular.min.js"></script> 
+        <!-- AngularJS - Routing --> 
+        <script src="js/angular-route.min.js"></script>
+        
+        
+        <script>
+            var app = angular.module("MyApp", []);  
+            app.controller("myFormCtrl", function($scope) {
+               $scope.user = {};
+               $scope.wasSubmitted = false;
+
+               $scope.submit = function() {     	
+                   $scope.wasSubmitted = true;   
+               };
+            }); 
+            
+            app.directive('myDirective', function(){
+              return {
+                require: 'ngModel',
+                link: function(scope, element, attr, mCtrl) {
+                  function myValidation(value) {
+                    if (value.indexOf(",") < 0) {
+                      mCtrl.$setValidity('noComma', false);
+                    } else {
+                      mCtrl.$setValidity('noComma', true);
+                    }
+                    return value;
+                  }
+                  mCtrl.$parsers.push(myValidation);
+                }
+              };
+            });
+
+        </script>
+		
+    </body> 
+</html>

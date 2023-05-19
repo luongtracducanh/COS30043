@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Template that uses Bootstrap</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Unit Object Array Initialisation -->
+    <div class="container" ng-app="" ng-init="objArray = [{code:'ICT10001',desc:'Problem Solving with ICT',type:'Core'},
+    {code:'COS10005',desc:'Web Development',type:'Core'},
+    {code:'INF10003',desc:'Introduction to Business Information Systems',type:'Core'},
+    {code:'INF10002',desc:'Database Analysis and Design',type:'Core'},
+    {code:'COS10009',desc:'Introduction to Programming',type:'Core'},
+    {code:'INF30029',desc:'Information Technology Project Management',type:'Core'},
+    {code:'ICT30005',desc:'Professional Issues in Information Technology',type:'Core'},
+    {code:'ICT30001',desc:'Information Technoogy Project',type:'Core'},
+    {code:'COS20001',desc:'User-Centred Design',type:'Software Development'},
+    {code:'TNE10005',desc:'Network Administration',type:'Software Development'},
+    {code:'COS20016',desc:'Operating System Configuration',type:'Software Development'},
+    {code:'SWE20001',desc:'Development Project 1 - Tools and Practices',type:'Software Development'},
+    {code:'COS20007',desc:'Object Oriented Programming',type:'Software Development'},
+    {code:'COS30015',desc:'IT Security',type:'Software Development'},
+    {code:'COS30043',desc:'Interface Design and Development',type:'Software Development'},
+    {code:'COS30017',desc:'Software Development for Mobile Devices',type:'Software Development'},
+    {code:'INF20012',desc:'Enterprise Systems',type:'Systems Analysis'},
+    {code:'ACC10007',desc:'Financial Information for Decision Making',type:'Systems Analysis'},
+    {code:'INF20003',desc:'Requirement Analysis and Modelling',type:'Systems Analysis'},
+    {code:'ACC20014',desc:'Management Decision Making',type:'Systems Analysis'},
+    {code:'INF30005',desc:'Business Process Management',type:'Systems Analysis'},
+    {code:'INF30003',desc:'Business Information Systems Analysis',type:'Systems Analysis'},
+    {code:'INF30020',desc:'Information Systems Risk and Security',type:'Systems Analysis'},
+    {code:'INF30001',desc:'Systems Acquisition & Implementation Management',type:'Systems Analysis'}]">
+    
+    <div class="row">
+        <div class="col-md-12">
+            <h1>BICT Unit Search Filter</h1>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-12">
+                <label for="code">Code: </label><input id="code" class="form-control" type="text" ng-model="filterCode"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <label for="desc">Description: </label><input id="desc" class="form-control" type="text" ng-model="filterDesc"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Unit Type:</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- 'radio-inline' makes the element to be an inline element and gives special modifications to the radio button element -->
+                <label class="radio-inline"><input type="radio" ng-model="filterType" value="Core"/> Core</label>
+                <label class="radio-inline"><input type="radio" ng-model="filterType" value="Software Development"/> Software Development</label>
+                <label class="radio-inline"><input type="radio" ng-model="filterType" value="Systems Analysis"/> Systems Analysis</label>
+                <label class="radio-inline"><input type="radio" ng-model="filterType" value=""/> All</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12  table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <!-- Centers the table caption text -->
+                <caption class="text-center">Table of Units Offered by Swinburne</caption>
+                <thead>
+                    <tr>
+                        <th id="unit_code">Code</th>
+                        <th id="unit_description">Description</th>
+                        <th id="unit_credits">Credit Points</th>
+                        <th id="unit_type">Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Outputs All Elements -->
+                    <tr ng-repeat="obj in objArray | filter: {code : filterCode, desc : filterDesc, type : filterType}">
+                        <td headers="unit_code">{{ obj.code }}</td>
+                        <td headers="unit_description">{{ obj.desc }}</td>
+                        <td headers="unit_credits">{{ 12.50 | number:2 }}</td>
+                        <td headers="unit_type">{{ obj.type }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    
+    <script src="framework/js/jquery.min.js"></script>
+    <noscript></noscript>
+    <script src="framework/js/bootstrap.min.js"></script>
+    <noscript></noscript>
+    <script src="framework/js/angular.min.js"></script>
+    <noscript></noscript>
+</body>
+
+</html>

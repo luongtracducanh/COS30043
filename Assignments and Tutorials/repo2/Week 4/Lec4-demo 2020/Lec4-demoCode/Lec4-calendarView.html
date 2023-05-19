@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<html data-ng-app> 
+    <head> 
+        <title>Lec 4 Demo - Calendar View</title> 
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+        <!-- Bootstrap --> 
+        <link href="css/bootstrap.min.css" rel="stylesheet" />  
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+        elements and media queries --> 
+        <!-- WARNING: Respond.js doesn't work if you view the 
+        page via file:// --> 
+        <!--[if lt IE 9]> 
+            <script src="js/html5shiv.js"></script> 
+            <script src="js/respond.min.js"></script> 
+        <![endif]--> 
+    </head> 
+    <body> 
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <h1 data-ng-init="chrDisp = 'Weekly'">My Calendar</h1>
+                    
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" data-ng-click = "chrDisp = 'Weekly'">Weekly</button>
+                        <button type="button" class="btn btn-default" data-ng-click = "chrDisp = 'Monthly'">Monthly</button>
+						<button type="button" class="btn btn-default" data-ng-click ="chrDisp= 'xd'">Eksdee</button>
+                    </div>
+                    
+                    <div data-ng-if="chrDisp == 'Monthly'">
+                        <h2>{{chrDisp}} View</h2>
+                        <p>
+                           Not implemented yet. Would you like to take a try to implement something?
+                        </p>
+                    </div>
+                    
+                    <div data-ng-if="chrDisp == 'Weekly'" data-ng-init="day = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']">
+                        <h2>{{chrDisp}} View</h2>
+                        <table class="table table-stripe small">
+                            <tr>
+                                <th>Day</th>
+                                <th>Desc</th>
+                                <th>Day</th>
+                                <th>Desc</th>
+                            </tr>
+                            <tr data-ng-repeat="d in day">
+                                <td>{{d}}</td>
+                                <td></td>
+                                <td>{{d}}</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        
+                    
+                    </div>
+					
+					<div data-ng-if ="chrDisp=='xd'">
+						<h1> XD XD XD XD </h1>
+						<h2> XXXXXXXXXXXXXXXXDDDDDDDDDDDDDD </h2>
+						<p> lmao exsdeeeeee </p>
+					</div>
+					
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
+        <script src="js/jquery.min.js"></script> 
+        <!-- All Bootstrap  plug-ins  file --> 
+        <script src="js/bootstrap.min.js"></script> 
+        <!-- Basic AngularJS --> 
+        <script src="js/angular.min.js"></script> 
+    </body> 
+</html>

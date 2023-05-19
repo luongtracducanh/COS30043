@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Old Reports | Documentation | Total Validator</title>
+  <meta name="author" content="Total Validator" />
+  <link rel="stylesheet" href="../common.css" />
+  <link rel="stylesheet" href="../website.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script type="text/javascript" src="../images/menu.js"></script>
+</head>
+<body>
+<div class="main" id="top">
+<header><div id="skip"><a href="#content">Skip navigation</a></div>
+
+<div class="pagehead">
+<h1><a href="../ReadMe.html"><img src="../images/tvheader.svg" alt="Read Me Page"/></a>
+</h1>
+</div>
+
+<div class="topnavbar">
+<nav id='navbar' aria-label='Main navigation'><h2 class='hidden'>Main site navigation</h2><ul><li class='navitem'><a href='help.html'><span class='navlink'>Documentation</span></a></li><li class='navitem'><a href='reference/index.html'><span class='navlink'>Reference</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/index.html'><span class='navlink'>Website</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/validator/ContactForm'><span class='navlink'>Contact Form</span></a></li></ul></nav>
+</div>
+
+</header>
+<main class="nomenus">
+<!-- <nav aria-label="Documentation navigation"><p class="helpnav"><a class="dropdown" href="quickstart.html" title="Quick Start">&lt;</a><a class="dropdown" href="help.html" title="Documentation Contents">Contents</a><a class="dropdown" href="menu.html" title="Menus">&gt;</a></p></nav> -->
+
+<h2 id="content"><a id="pages"></a><a href="help.html" title="Documentation Contents">Documentation</a> &gt; Old Reports</h2>
+<p class='strong'>This page describes the old (pre 17.0) reports and not the <a href="results.html">latest reports</a></p>
+<p>Total Validator reports are standard web pages that can be
+read by any web browser. Three types of page are used; a <a
+ href="#summary">Summary report</a>, an <a href="#issue">Issue report</a>
+and <a href="#results">Page reports</a> for each page validated. The Summary and Issue
+reports provide a summary of the tests performed, together with a list of
+links to the detailed Page reports for each page tested.</p>
+<p>
+All the reports are stored in a folder called <code class="os">Results</code>
+and are normally overwritten each time you run a test. The location of this folder 
+is displayed in the <code class="tv">Help &gt; About</code> menu and is normally within your <code class="os">Documents</code> folder.</p>
+<p>
+With the Pro version, you can change the name and location of these files using the <a href="resultstab.html#sresults">Save to</a> and 
+<a href="resultstab.html#unique">Unique report</a> options</p>
+
+<h2 id="summary">Summary report</h2>
+<p>At the top is a link to the <a href="#issue">Issue report</a>.
+Then a summary of the test including the options selected, and number of issues found:</p>
+<p class="centered">
+<img alt="top of the page report" src="../images/mainpage.png" />
+</p>
+<p>Use the <code class="tv">+</code> and <code class="tv">-</code> buttons to expand or close each section. For example, you can
+display more information about the errors found, with links to the reference
+documentation:</p>
+<p class="centered">
+<img alt="Total errors expanded" src="../images/mainerrors.png" />
+</p>
+<p id="overallissues">Below this are the results themselves. If there are any issues that apply across all the pages tested, these will appear first, followed by a list of all the pages tested with a summary of the issues for each:
+</p>
+<p class="centered">
+<img alt="bottom of the page report" src="../images/mainpage2.png" />
+</p>
+<p>The <code class="tv">Display issue details</code> options are described later. 
+You can sort the list of page reports by <code class="tv">Links</code> (the order
+in which the pages were tested), by <code class="tv">Path</code>
+(alphabetic order), or by <code class="tv">Most</code> or <code class="tv">Least</code> number of issues.
+Each page URL displayed is a link to a <a href="#results">Page report</a> containing the detailed results for that page.
+</p>
+
+<h2 id="issue">Issue report</h2>
+<p>This starts with a link to the <a href="#summary">Summary report</a>, followed by a
+summary section as before. Below this is a list of all the issues found broken
+down into Errors and Warnings, the different issue types, issue numbers and finally
+links to the <a href="#results">Page reports</a>:
+</p>
+<p class="centered">
+<img alt="bottom of the issue report" src="../images/issuereport.png" />
+</p>
+
+<h2 id="results">Page report</h2>
+<p>Links back to the <a
+ href="#summary">Summary report</a> and <a href="#issue">Issue report</a> are followed by a
+summary and then a representation of the page tested:</p>
+<p class="centered">
+<img alt="top of a typical page report" src="../images/subpage.png" /></p>
+<p>Usually the representation of the page shows each of the tags on a separate line,
+with indentation showing how the tags are nested
+within each other. This should make it easy to read the results even
+with the most poorly formatted source web page or where the layout
+style varies across the site. It is particularly useful when the pages
+are generated by a computer program, as these tend to generate the most
+irregular pages.
+</p>
+<p>Similarly, CSS style sheets and statements within <code class="ht">&lt;style&gt;</code> tags are reformatted
+and reorganised to allow errors to be easily reported on.
+</p>
+<p>To make it easier to read the report, the <code class="tv">Hide content</code> checkbox toggles the display of text content and the <code class="tv">Short report</code> checkbox hides everything except those lines with issues. You can set these in advance using the <a href="resultstab.html#hidecontent">Hide content</a> and <a href="resultstab.html#short">Short report</a> options.
+</p>
+<p>The line numbers refer to lines in the original source so you can quickly get to and amend the issue in the original source.
+Line numbers marked as <code class="ot">0</code> refer to tags added by Total Validator. These may be optional tags that are implicit in the standards, or virtual tags used to display issues affecting the whole page.
+</p>
+<h3>Issue display</h3>
+<p>
+The image below shows an example of how an error is displayed. These
+are highlighted and begin with an <code class="tv">E</code>
+followed by a unique number for the error, then some explanatory text.
+Probable errors begin with a <code class="tv">P</code> and warnings begin with a <code class="tv">W</code>.
+There are also arrows next to the issue to allow you to quickly
+navigate to other issues on the page.</p>
+<p class="centered">
+<img alt="how errors are displayed" src="../images/errors.png" /></p>
+<p>
+If there is more than one error associated with a line then these are listed
+on separate lines before the tag itself:</p>
+<p class="centered">
+<img alt="multiple errors" src="../images/multierrors.png" /></p>
+<p>By default, when you hover over an issue further information about it will appear:</p>
+<p class="centered">
+<img alt="more information" src="../images/popup.png" /></p>
+<p>
+Instead of hovering to display this information, you can always display these details
+or always hide them using the <code class="tv">Display issue details</code> option at the top:</p>
+<p class="centered">
+<img alt="display options" src="../images/displayissues.png" /></p>
+<p>
+You can then click the issue text instead of hovering over it
+to toggle the details.</p>
+<p>The same options also appear on the Summary report, where they apply
+to all the Page reports. With the Pro version you can set the <a href="resultstab.html#details">
+default value</a>for this in advance.</p>
+
+<h2 id="spelling">Spelling mistakes</h2>
+<p>Potential spelling mistakes are dealt with as shown in the image below.
+The word that is not recognised is highlighted and
+followed by a list of suggested replacements:</p>
+<p class="centered">
+<img alt="example spelling mistake" src="../images/spelling.gif" /></p>
+<p>
+Note that the line number refers to the first line of the content
+containing the spelling mistake. If the content spans multiple lines
+it may not match the line with the mistake on.
+</p>
+<p>
+When the Pro version is running, you can click on words it to add them to your own <a href="spellcheck.html#personal">
+personal dictionary</a> so they don't appear in future. For convenience, doing this will also remove the highlighting of the word
+from all the current page reports, and the link disabled.
+</p>
+<p>
+Note that ad-blocking extensions and firewalls can prevent spell check corrections
+from being sent to the Pro application, so you may need to disable these on report pages.
+</p>
+
+<!-- <p class="helpnav"><a class="dropdown" href="quickstart.html" title="Quick Start">&lt;</a><a class="dropdown" href="help.html" title="Documentation Contents">Contents</a><a class="dropdown" href="menu.html" title="Menus">&gt;</a></p> -->
+</main>
+
+<footer><div class="footer">
+<p class="footer">&copy; 2005-2023 Total Validator</p>
+</div></footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="statusApp">
+<head>
+    <title>Status Post</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body data-ng-controller="statusCTRL">
+    
+    <div class="container">
+        
+        <!-- Heading -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Status Posting Application with Angular JS</h1>
+            </div>
+        </div>
+        
+        <!-- Status Input -->
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label for="statusInput">Status: </label>
+                <input type="text" id="statusInput" class="form-control" data-ng-model="statusInput" />
+            </div>
+        </div>
+        
+        <!-- Button -->
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-info btn-block" data-ng-click="postStatus(statusInput)">Post</button>
+            </div>
+        </div>
+        
+        <!-- Status List -->
+        <div ng-repeat="status in statusList">
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-info text-center">{{ status }}</p>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-danger btn-block" data-ng-click="deleteStatus($index)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="framework/js/jquery.min.js"></script>
+    <script src="framework/js/bootstrap.min.js"></script>
+    <script src="framework/js/angular.min.js"></script>
+    <script src="framework/js/angular-route.min.js"></script>
+    
+    <!-- The Controller File -->
+    <script src="appstatpost.js"></script>
+    
+</body>
+
+</html>

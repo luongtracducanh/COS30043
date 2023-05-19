@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <title>3.2PassTask</title> 
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+        <!-- Bootstrap --> 
+        <link href="css/bootstrap.min.css" rel="stylesheet" />  
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries WARNING: Respond.js doesn’t work if you view the page via file:// --> 
+        <!--[if lt IE 9]--> 
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha512-UDJtJXfzfsiPPgnI5S1000FPLBHMhvzAMX15I+qG2E2OAzC9P1JzUwJOfnypXiOH7MRPaqzhPbBGDNNj7zBfoA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha512-qWVvreMuH9i0DrugcOtifxdtZVBBL0X75r9YweXsdCHtXUidlctw7NXg5KVP3ITPtqZ2S575A0wFkvgS2anqSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!--[endif]--> 
+    </head> 
+
+    <body>
+        <div id="app" class="container">
+            <div class="row">
+                <h2>Lookup App: Unit Search Filter</h2>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <p><label for="code">Code:</label><br />
+                        <input type="text" id="code" v-model="obj.code" />
+                    </p>
+                </div>
+                <div class="col-sm-3">
+                    <p><label for="desc">Description:</label><br />
+                        <input type="text" id="desc" v-model="obj.desc" />
+                    </p>
+                </div>
+                <div class="col-sm-6">
+                    <label>Unit Type:</label><br />
+                    <input type="radio" id="core" v-model="obj.type" value="Core" />
+                    <label for="core">Core</label><br />
+                    <input type="radio" id="software development" v-model="obj.type" value="Software Development" />
+                    <label for="software development">Software Development</label><br />
+                    <input type="radio" id="systems analysis" v-model="obj.type" value="Systems Analysis" />
+                    <label for="systems analysis">Systems Analysis</label><br />
+                    <input type="radio" id="all" v-model="obj.type" value="" checked/>
+                    <label for="all">All</label><br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <tr>
+                            <th>Code</th>
+                            <th>Description</th>
+                            <th>Credit Points</th>
+                            <th>Type</th>
+                        </tr>
+                        <tr v-for="p in filterPoints">
+                            <td>{{p.code}}</td>
+                            <td>{{p.desc}}</td>
+                            <td>{{p.cp}}</td>
+                            <td>{{p.type}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+           
+        </div>
+        <!-- All Bootstrap  plug-ins  file --> 
+            <script src="js/bootstrap.bundle.min.js"></script> 
+        <!-- Basic VueJS --> 
+            <script src="js/vue.js"></script>
+            <script src="js/lookup1.js"></script>
+    </body> 
+</html>

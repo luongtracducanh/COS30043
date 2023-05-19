@@ -1,0 +1,16 @@
+body{
+    background-color: #D1B8FF;
+}
+
+.customBox{
+    background-color: #71FF9C;
+    margin: 5%;
+    padding: 5%;
+    border-radius: 3%;
+    transition: 0.3s;
+}
+
+.customBox:hover{
+    background-color: white;
+    border: 1px solid #71FF9C
+}

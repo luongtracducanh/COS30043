@@ -1,0 +1,69 @@
+<!DOCTYPE html> 
+<html data-ng-app = 'myApp'> 
+    <head> 
+        <title>Lecture 5 - Additional Route Demo</title> 
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+        <!-- Bootstrap --> 
+        <link href="css/bootstrap.min.css" rel="stylesheet" />  
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+        elements and media queries --> 
+        <!-- WARNING: Respond.js doesn't work if you view the 
+        page via file:// --> 
+        <!--[if lt IE 9]> 
+            <script src="js/html5shiv.js"></script> 
+            <script src="js/respond.min.js"></script> 
+        <![endif]--> 
+    </head> 
+    <body> 
+        <!-- Partial Code for Routing -->
+        <h1>Config - A More Complex Route Example</h1>
+        <div>
+            <ul>
+                <li><a href="#info/01">info #01</a></li>
+                <li><a href="#info/02">info #02</a></li>
+                <li><a href="#info/03">info #03</a></li>
+            </ul>
+            <p>
+                <a href="#somethingelse">Default</a>
+            </p>
+        </div>
+        <div data-ng-view></div>
+        <!-- Partial Code for Routing -->
+
+        
+
+        <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
+        <script src="js/jquery.min.js"></script> 
+        <!-- All Bootstrap  plug-ins  file --> 
+        <script src="js/bootstrap.min.js"></script> 
+        <!-- Basic AngularJS --> 
+        <script src="js/angular.min.js"></script> 
+        <!-- AngularJS - Routing --> 
+        <script src="js/angular-route.min.js"></script>
+        <!-- All Javascript shall be written in an external js file and link it back to this html -->
+        <script>
+            var app = angular.module("myApp",["ngRoute"]);
+            
+            app.config(["$routeProvider", function ($routeProvider) {
+                $routeProvider
+                    .when("/info/:infoID", {
+                        templateUrl: "lec5-templates/info.html",
+                        controller: "infoController"
+                    }).when("/somethingelse/", {
+                        templateUrl: "lec5-templates/info.html",
+                        controller: "someController"
+                    });
+            }]);
+
+            app.controller("infoController", function ($scope, $routeParams) {
+                $scope.viewInfoID = $routeParams.infoID;
+            });
+
+            app.controller("someController", function ($scope) {
+                $scope.viewInfoID = "ID does not exist";
+            });
+            
+        </script>
+    </body> 
+</html>

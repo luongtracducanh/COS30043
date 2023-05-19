@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="weatherApp">
+<head>
+    <title>Weather Forecasting App</title>
+    <meta chartset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS File -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Highchart plugin -->
+    <script src="framework/highchart/highcharts.js"></script>
+    <noscript></noscript>
+    
+    <div class="container" ng-controller="weatherCTRL">
+        <!-- Application Title -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">The Kool Kidz Weather App</h1>
+            </div>
+        </div>
+        
+        <div id="currentWeather" class="row customBox">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <h2 class="text-center">Current Weather Conditions in Kuching</h2>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-xs-6">
+                        <p class="text-center">Date: {{ currentDate }}</p>
+                        <p class="text-center">Current Weather: {{ currentWeather }}</p>
+                        <p class="text-center">Current Temperature: {{ currentTemp }} &#8451</p>
+                    </div>
+                    <div class="col-md-6 col-xs-6">
+                        <p class="text-center">Time: {{ currentTime }}</p>
+                        <p class="text-center">Current Pressure: {{ currentPressure }} mb</p>
+                        <p class="text-center">Current Wind Speed: {{ currentWindSpeed }} km/h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row customBox">
+            <div class="col-md-12 col-xs-12">
+                <!-- Placeholder for 12 Hours of Hourly Forecasts Chart -->
+                <p class="bg-danger text-center">{{ requestText2 }}</p>
+                <div id="chart1"></div>
+            </div>
+        </div>
+        
+        <div class="row customBox">
+            <div class="col-md-12 col-xs-12">
+                <!-- Placeholder for 5 Day Forecast Chart -->
+                <p class="bg-danger text-center">{{ requestText3 }}</p>
+                <div id="chart2"></div>
+            </div>
+        </div>
+        
+        <div class="row customBox">
+            <div class="col-md-12 col-xs-12">
+                <!-- Placeholder for 24 Hour Historical Current Conditions Chart -->
+                <p class="bg-danger text-center">{{ requestText4 }}</p>
+                <div id="chart3"></div>
+            </div>
+        </div>
+        
+        <div class="row customBox">
+            <div class="col-md-12 col-xs-12">
+                <!-- Placeholder for Top 5 Cities Temperatures Chart -->
+                <p class="bg-danger text-center">{{ requestText5 }}</p>
+                <div id="chart4"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="framework/js/jquery.min.js"></script>
+    <noscript></noscript>
+    <script src="framework/js/bootstrap.min.js"></script>
+    <noscript></noscript>
+    <script src="framework/js/angular.min.js"></script>
+    <noscript></noscript>
+    
+    <!-- Controller JS file -->
+    <script src="app.js"></script>
+    <noscript></noscript>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html lang="en" data-ng-app="myApp"> 
+    <head> 
+    <title>Lec 4 Demo - Controller</title> 
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+        <!-- Bootstrap --> 
+        <link href="css/bootstrap.min.css" rel="stylesheet" />  
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --> 
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// --> 
+        <!--[if lt IE 9]> 
+            <script src="js/html5shiv.js"></script> 
+            <script src="js/respond.min.js"></script> 
+        <![endif]--> 
+    </head> 
+    <body data-ng-controller="myCtrl"> 
+	
+	<!-- STRVAR IS THIS ONE. -->
+        <div class="container">
+            <div class="row">
+                <h1>Lec 4 Demo - Controller</h1>
+                <div class="col-md-6">
+                    <h2>String Var</h2>
+                    <p><b>StrVar: </b>{{strVar}}</p>
+                    <p><b>Key Press Count: </b>{{anotherVar}}</p>
+                    <p><input type="text" data-ng-model="strVar" /></p>
+                </div>
+
+		<!-- NUMVAR IS THIS ONE  -->
+                <div class="col-md-6">
+                    <h2>Num Var</h2>
+                    <p><b>NumVar value: </b>{{numVar}}</p>
+                    <p><b>NumVar is Even: </b>{{isNumEven()}}</p>
+                    <p>
+                        <input type="number" data-ng-model="someNum"/>
+                        <input type="button" data-ng-click="addValue(someNum)" value="Add"/>
+                    </p>
+                    <p><input type="button" data-ng-click="incNum()" value="Increase by 1"/></p>
+                </div>
+            </div>
+        </div>
+                
+            
+        <!-- !!! ############################################################################## !!! -->  
+        <!-- !!! REMEMBER TO INCLUDE THE CORRECT PATH FOR THESE LIBRARIES & BOOTSTRAP CSS ABOVE !!! --> 
+        <!-- !!! ############################################################################## !!! --> 
+        
+            <!-- jQuery – required for Bootstrap plugins) --> 
+            <script src="js/jquery.min.js"></script> 
+            <!-- All Bootstrap  plug-ins  file --> 
+            <script src="js/bootstrap.min.js"></script> 
+            <!-- Basic AngularJS --> 
+            <script src="js/angular.min.js"></script> 
+            <!-- Your Controller --> 
+            <script src="Lec4-app.js"></script>
+        
+        <!-- !!! ############################################################################## !!! --> 
+    </body> 
+</html>

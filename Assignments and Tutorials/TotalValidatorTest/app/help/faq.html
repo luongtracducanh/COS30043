@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>FAQ | Documentation | Total Validator</title>
+  <meta name="description" content="Answers to the most frequently asked support questions when using Total Validator." />
+  <meta name="author" content="Total Validator" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../common.css" />
+  <link rel="stylesheet" href="../website.css" />
+  <script type="text/javascript" src="../images/menu.js"></script>
+</head>
+<body>
+<div class="main" id="top">
+<header><div id="skip"><a href="#content">Skip navigation</a></div>
+
+<div class="pagehead">
+<h1><a href="../ReadMe.html"><img src="../images/tvheader.svg" alt="Read Me Page"/></a>
+</h1>
+</div>
+
+<div class="topnavbar">
+<nav id='navbar' aria-label='Main navigation'><h2 class='hidden'>Main site navigation</h2><ul><li class='navitem'><a href='help.html'><span class='navlink'>Documentation</span></a></li><li class='navitem'><a href='reference/index.html'><span class='navlink'>Reference</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/index.html'><span class='navlink'>Website</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/validator/ContactForm'><span class='navlink'>Contact Form</span></a></li></ul></nav>
+</div>
+
+</header>
+<main class="nomenus">
+<h2 id="content"><a id="general"></a><a href="help.html" title="Documentation Contents">Documentation</a> &gt; FAQ</h2>
+<p>Common issues encountered while using Total Validator are described below. For licensing issues, please see the <a href="https://www.totalvalidator.com/purchases/licencefaq.html">Licence FAQ</a></p>
+
+<h2 id="wai">Accessibility testing</h2>
+<p>Accessibility standards are typically guidelines and not rules. They are designed to guide you into making good decisions, rather than providing prescriptive rules.
+Some human judgement may also be called for, making it impossible to check everything with automated tools:
+For example, checking that a text description of an image (in any language) describes that image.
+</p>
+<p>However, tools like Total Validator can help you quickly identify potential issues, and can be used
+during all parts of the initial development process, and afterwards when updating a website. They can provide automated checks
+for anything you may have missed, across large numbers of pages, where manual checks would be too impractical and costly.
+</p>
+<p>Conforming to accessibility standards also means strictly validated HTML and CSS, so that accessibility aids will operate correctly.
+It also means spell checking, to ensure users can understand the content. That's why with Total Validator you can test
+Accessibility, HTML, CSS, and spelling in one go, saving time and effort, whilst ensuring your site is truly accessible.
+</p>
+<p>For the most comprehensive accessibility testing we recommend using the <a href="main.html#dom">Validate DOM</a> option. This allows us check any changes made when running javascript and applying CSS to the page. It also allows us to perform contrast testing.
+</p>
+
+<h2 id="aids">Using Total Validator with accessibility aids</h2>
+<p>We regularly test that Total Validator can be used entirely by keyboard, and that the web page results we generate are accessible.</p>
+<p>To support screen readers, we make use of the Java Access Bridge for Windows, which is supported by many accessibility aids. After installing Total Validator for the first time, you may have to restart your screen reader for this to work. If restarting doesn't work then try manually switching on the Java Access Bridge as follows:</p>
+<ul>
+  <li>Open the folder where Total Validator was installed. For example: <code class="os">C:\Program Files\TotalValidator</code></li>
+  <li>Press the key combination: <kbd class="os">Shift+F10</kbd></li>
+  <li>Select the option <kbd class="os">Open command window here</kbd> or <kbd class="os">Open PowerShell window here</kbd></li>
+  <li>Type the following into the command window: <kbd class="ot">runtime\bin\jabswitch -enable</kbd></li>
+  <li>Download the <a href="https://www.totalvalidator.com/downloads/windowsaccessbridge-64.dll">64-bit Access Bridge for Windows</a> into the <code class="os">C:\Windows\System32 folder</code></li>
+  <li>Download the <a href="https://www.totalvalidator.com/downloads/windowsaccessbridge-32.dll">32-bit Access Bridge for Windows</a> into the <code class="os">C:\Windows\SysWOW64 folder</code></li>
+</ul>
+<p>Restart both your screen reader and Total Validator, and try again.</p>
+
+<h2 id="install">Problems when trying to upgrade using the Install option</h2>
+<p>There is a known issue with some older versions when you try to use the <kbd class="tv">Install</kbd> button to upgrade the Windows (.msi) version (Basic and Pro). After downloading the new version the installer fails to run, and a Windows Installer message is displayed instead.
+</p>
+<p>Close this window, restart the TV application, and use the <kbd class="tv">Download</kbd> button instead. Then close the TV application and manually run the <code class="os">.msi</code> file you downloaded to upgrade.
+</p>
+
+<h2 id="tool">Total Validator doesn't start or displays an error message</h2>
+<p>Please ensure that you have the <a href="https://www.totalvalidator.com/downloads/index.html">latest version</a> of Total Validator
+installed.
+</p>
+<p>Any error messages that are displayed are normally self-explanatory and should help you to correct the problem yourself. But if there is a message doesn't make sense, complete our <a href="https://www.totalvalidator.com/validator/ContactForm">Contact Form</a> to report the problem.
+</p>
+<p>If no error messages appear on screen, and Total Validator does not appear, or fails to start up fully, then please check any anti-virus program you have as this is the most common reason for Total Validator failing to start. Otherwise, complete our <a href="https://www.totalvalidator.com/validator/ContactForm">Contact Form</a> to report the problem.
+</p>
+
+<h2 id="osx">macOS security warnings</h2>
+<p>When you run Total Validator for the first time, a message may appear saying that it has been downloaded from the Internet. This is perfectly normal, just click the <kbd class="os">Open</kbd> button to continue.
+</p>
+<p>If you have configured macOS to only run apps downloaded from the App Store, you will have to temporarily allow apps downloaded from elsewhere:</p>
+<ol>
+<li>In <kbd class="os">System Preferences</kbd>: Select <kbd class="os">Security &amp; Privacy</kbd></li>
+<li>If required, click the lock icon that reads <kbd class="os">Click the lock to make changes</kbd></li>
+<li>On the <kbd class="os">General</kbd> tab, change <kbd class="os">Allow apps downloaded from:</kbd> to <kbd class="os">App Store and identified developers&apos;</kbd></li>
+<li>Start Total Validator, ignoring any Internet warning as described above</li>
+<li>You may then reset your security settings back to <kbd class="os">App Store</kbd></li>
+</ol>
+<p>Total Validator stores its results in your <code class="os">Documents</code> folder. When running for the first time a message may appear asking for permission to write there. If you do not allow this the tests will stop and an error may appear. With the Pro version, if you wish to, you can specify <a href="resultstab.html#sresults">a different folder</a> for the results.
+</p>
+
+<h2 id="smartscreen">Windows security warnings</h2>
+<p>When you try to install Total Validator you may see an 'unrecognised app' message from Microsoft's SmartScreen together with a <kbd class="os">Don't run</kbd> button. If you have downloaded Total Validator from our website this is most likely a false positive. If you click the <kbd class="os">More info</kbd> link a <kbd class="os">Run anyway</kbd> button will appear, which will allow you to install Total Validator.
+</p>
+<p>If you used Microsoft Edge to download Total Validator, you may see additional SmartScreen messages before the above, requiring you to <kbd class="os">Keep</kbd> and/or <kbd class="os">Keep Anyway</kbd> to continue.
+</p>
+<p>With the <code class="os">.exe</code> installer, you may also see an 'Unknown publisher' message from <code class="os">User Account Control</code>. This is because we currently do not sign our Windows installer. One of the main reasons for signing, is to verify the original program is unaltered. Instead, you can achieve the same thing by verifying the checksum of the download ...
+</p>
+<p>If you are at all unsure, then please <a href="https://www.totalvalidator.com/downloads/checksums.html">verify the checksum</a> of the download against the appropriate one on our download pages. If the checksums match, you can be sure you have the original, complete, and unmodified program provided by us.
+</p>
+
+<h2 id="symantec">Total Validator is quarantined by Symantec/Norton</h2>
+<p>When certain Symantec/Norton products detect a program they have never seen, this is automatically marked as <code class="ot">WS.Reputation.1</code> and placed into quarantine, even though no virus has been detected. The first thing to note is you already have a copy of Total Validator, and you do not need to download it again. Please consult your Symantec/Norton documentation to restore this file from quarantine and exclude it from further scans.
+</p>
+<p>We believe that each time a user takes the program out of quarantine and excludes it from further scans, the reputation of the program increases until <code class="ot">WS.Reputation.1</code> is finally removed. However, Symantec's system resets with each new version of Total Validator, and so you may continue to see this message with each update you download.
+</p>
+<p>If you are at all unsure, then please <a href="https://www.totalvalidator.com/downloads/checksums.html">verify the checksum</a> of the download against the appropriate one on our download pages. If the checksums match, you can be sure you have the original, complete, and unmodified program provided by us.
+</p>
+<p><strong>Note:</strong> If you obtained Total Validator from anywhere other than our website, or your program highlights a different issue other than <code class="ot">WS.Reputation.1</code> or <code class="ot">Reputation</code>, please let us know before using it.
+</p>
+
+<h2 id="results">Browser doesn't display the results</h2>
+<p>When the test is finished, your browser should display the results. There can be a number of reasons why this doesn't happen:
+</p>
+<p>First try using the <kbd class="tv">Last Results</kbd> File menu option. If the message <samp>Could not locate results</samp> appears then the results are not being displayed because they have not been saved: With the Pro version check that the <a href="resultstab.html#sresults">Results</a> folder exists and is writable. Some anti-virus programs may also block access to this location, so check any anti-virus settings as well. With the Pro version try entering a different <a href="resultstab.html#sresults">Results</a> folder, one which Total Validator does have permission to write to, and is on your local computer and not on a remote network drive.
+</p>
+<p>Normally, Total Validator tries to display the results using your default browser. With Windows in particular, this can often become unset, so please follow your browser's help to set it as the default again.
+</p>
+<p>With the Pro version check that <a href="resultstab.html#hresults">Browser: None</a> has not been selected accidentally. Otherwise, check the <a href="resultstab.html#browser">browser selected</a>. A blank entry implies using your default browser. If you have entered anything here, then try blanking this out, otherwise try entering the path/name (as appropriate to your O/S) of a browser to see if that resolves the issue.
+</p>
+<p>It could also be that the results are stored somewhere your browser cannot access. Some organisations mount the Windows Documents folder (the default place for the results) on a network drive, which can cause problems with browsers.
+With the Pro version you can enter a different <a href="resultstab.html#sresults">Results</a> folder, one which is on your local computer.</p>
+<p>If all else fails you may have to open the <a href="results.html">folder where the results are stored</a>
+and double-click the <code class="os">TotalValidator.html</code> file to view the results.
+</p>
+
+<h2 id="safari">Safari doesn't display the results properly</h2>
+<p>By default, when displaying web pages from your computer, Safari blocks css, images and javascript files. So the Total Validator results may be difficult to read.
+</p>
+<p>You could use another browser to display the results, or you can configure Safari to allow it to display local resources:
+</p>
+<ul>
+  <li>Open Safari's Preferences and in the <kbd class="os">Advanced</kbd> section select <kbd class="os">Show Develop menu ...</kbd></li>
+  <li>In the main menu, click <kbd class="os">Develop</kbd></li>
+  <li>Select <kbd class="os">Disable Local File Restrictions</kbd></li>
+  <li>Restart Safari</li>
+</ul>
+<p>The Total Validator results pages should now display correctly.
+</p>
+
+<h2 id="proxy">A 'Could not connect ...' message appears</h2>
+<p>This message appears when Total Validator cannot make a network connection to the start web page.
+Try using the same URL in your browser to check there is no underlying network issue.
+</p>
+<p>If you can see the page with your browser, it may be that there are one or more proxy
+servers between you and the page, or the page requires authentication to view it. Unfortunately,
+if you are using the Basic version there are no options available to allow
+you to authenticate yourself or to specify a proxy server, but you can still use one of our
+<a href="https://www.totalvalidator.com/products/extension.html" title="browser extension">browser
+extensions</a> to test the source code of the page. Total Validator Pro users should look to the
+<a href="proxy.html">Proxy Server</a> and <a href="network.html">Network</a> options for further information.
+Test users can specify proxy settings using the <a href="menu.html#editproxy">Options</a> menu.
+</p>
+<p>
+If you are using the Test or Pro versions and you still can't get through
+a proxy server, then complete our <a href="https://www.totalvalidator.com/validator/ContactForm">
+Contact Form</a> to report your issue.
+</p>
+
+<h2 id="html">The results are wrong</h2>
+<p>
+Please note that we originally developed Total Validator because of mistakes and limitations with other tools.
+So if you have used another tool that reports different results, it could be a problem with that tool.
+</p>
+<p>
+Many other validators and help sites do not use the official standards but are interpretations
+of them. As a result they tend to be rife with popular assumptions which are actually mistakes. Free tools and sites
+in particular tend not to be regularly updated, and so often fall behind constantly evolving standards.
+</p>
+<p>
+However, if you do think you've found a genuine error, then please report it using our <a href="https://www.totalvalidator.com/validator/ContactForm">
+Contact Form</a>. We are always happy to investigate, and if necessary, fix any issues with our products, to provide the best user experience.
+</p>
+
+<h2 id="onepage">Fewer pages than expected are being tested <em>(Pro version only)</em></h2>
+<p>First try testing a different site, such as <code class="uri">totalvalidator.com</code> or <code class="uri">google.com</code>. If it works, then there must be something about the site you are trying to test which is causing the number of pages to be restricted.
+</p>
+<p>By default, Total Validator respects any <a href="include.html#robots">robots.txt file</a> on the site and so may be ignoring many pages. So uncheck this option and try again.
+</p>
+<p>Total Validator will only follow links on the same website as the start page, so if you start from <code class="uri">www.mysite.com</code>, then pages on <code class="uri">mysite.com</code> will not be tested, because technically speaking <code class="uri">mysite.com</code> and <code class="uri">www.mysite.com</code> could host completely different websites.
+</p>
+<p>Any links embedded within JavaScript will be ignored, which may reduce the number of pages that will be tested. Note that using links within JavaScript is an <a href="https://www.w3.org/WAI/WCAG21/Techniques/failures/F42.html">accessibility failure</a> and will also exclude those people who choose to disable JavaScript for security reasons.
+</p>
+<p>If your website uses a JavaScript framework or libraries to draw most of the web page, then Total Validator may not see links to many other pages. Please see the <em>My web pages are written using JavaScript</em> topic below for more information.
+</p>
+<p>Many <a href="include.html">Include</a> options can be used to restrict which pages are tested, so if you've set any of those ensure you've understood how they work.
+</p>
+<p>If some pages require authentication to view them, then see the <a href="loginforms.html">Login forms</a> topic. The next
+section may also be of use.
+</p>
+
+<h2 id="multiple">How do I test multiple sites or areas <em>(Pro version only)</em>?</h2>
+<p>Because Total Validator follows links, different parts of the same website that are unconnected will not be tested. Also by default only pages on the same website as the start page will be tested.
+</p>
+<p>To avoid these restrictions, create a simple web page consisting of absolute links to the various parts of the site, or to other websites. This page may be saved to the local file system, so there's no need to deploy it to a website. Then use this page as the start page together with the <a href="include.html#remote">Follow remote links</a> option.
+</p>
+<p>The <a href="include.html#remote">Follow remote links</a> option tells Total Validator to follow all links <em>on the start page only</em>
+even those on different websites. Total Validator will then treat each link (on this first page only) as if was the start page and report on all the results together.
+</p>
+<p>For finer control you can also use the <a href="include.html#followbelow">Only follow below</a>, <a href="include.html#excludepaths">Exclude</a>, <a href="include.html#includepaths">Include</a> and <a href="include.html#depth">Depth</a> options as well.
+</p>
+
+<h2 id="angularjs">When I use AngularJS there are lots of errors</h2>
+<p>When AngularJS was first created it used attributes starting with <code class="ht">ng-</code>. This was a problem because this is not valid HTML and so can cause errors. But this was fixed by the AngularJS team a long time ago and developers should now use attributes starting with <code class="ht">data-ng-</code> instead.</p>
+<p>As the <a href="https://en.wikipedia.org/wiki/AngularJS">Wikipedia for AngularJS entry</a> explains: 'Since <code class="ht">ng-*</code> attributes are not valid in HTML specifications, <code class="ht">data-ng-*</code> can also be used as a prefix. For example, both <code class="ht">ng-app</code> and <code class="ht">data-ng-app</code> are valid in AngularJS.'</p>
+<p>If you are using AngularJS, you may wish to consider using our <a href="main.html#dom">Validate DOM</a> option so that pages will only be tested after all the initial JavaScript has run.</p>
+
+<h2 id="javascript">My web pages are written using JavaScript</h2>
+<p>Many modern websites are now written using a simple HTML web page and a JavaScript framework or libraries to draw most of the web page. But Total Validator will normally just test the simple HTML web page sent by the web server, because it does not execute any JavaScript.
+</p>
+<p>The solution is to use our <a href="https://www.totalvalidator.com/products/extension.html" title="browser extension">browser extensions</a>. These can send the DOM (the web page after the initial JavaScript has run) from the browser to the Total Validator application to be tested. In this way you can test web pages that users actually see.</p>
+<p>You can start a DOM test from the <a href="main.html#dom">application</a> or <a href="extensions.html#use">the browser</a>, whichever you prefer. With the Pro and CI versions you can test an entire website this way with just one click.
+</p>
+
+<h2 id="speed">Can I make it run faster?</h2>
+<p>There could be several reasons why Total Validator may appear to operate slowly when testing each page.
+It could be that your system has reached the limit of its own performance in terms of
+CPU power and/or the amount of available memory. However, there are several things you can try
+to improve matters as listed below:
+</p>
+<ul>
+<li>The broken links option waits for a response from the web server. If you do have any broken links
+then this will naturally slow down testing. With the Pro version you can reduce the timeout from the
+default of 20 seconds and raise the <code class="tv">concurrency</code> (or set it to 0 or leave it blank for unlimited).
+Alternatively turn off the broken link check altogether.</li>
+<li>The spell check has a double impact on performance. Loading the dictionaries uses a lot of memory,
+and it can take time to spell check each word. Try turning this option off to see if this helps.</li>
+<li>Try limiting the number of other applications that are running concurrently</li>
+<li>When testing remote pages close any other applications that may be using the network</li>
+</ul>
+</main>
+
+<footer><div class="footer">
+<p class="footer">&copy; 2005-2023 Total Validator</p>
+</div></footer>
+
+</div>
+</body>
+</html>

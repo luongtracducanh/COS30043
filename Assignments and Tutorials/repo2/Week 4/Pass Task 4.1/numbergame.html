@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="zeApp">
+<head>
+    <title>Number Guessing Game</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body data-ng-controller="zeController">
+    
+    <div class="container">
+        <!-- Greetings & Number Input -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Welcome to the Number Guessing Game Site!</h1>
+                <div class="form-group">
+                    <label for="numberInput">Enter a number (between 0 to 100) as a guess:</label>
+                    <input id="numberInput" class="form-control" type="number" data-ng-model="inputNumber" min="0" max="100"/>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Buttons -->
+        <div class="row">
+            <div class="col-md-4">
+                <button type="button" class="btn btn-info btn-block" data-ng-click="checkNumber(inputNumber)">Check Guess</button>
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-danger btn-block" data-ng-click="showRandomNumber()">Give Up</button>
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-success btn-block" data-ng-click="restartGame()">Start New Game</button>
+            </div>
+        </div>
+    
+        <!-- Messages/Feedbacks -->
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-info text-center">{{ feedback }}</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-danger text-center">{{ randomDisplay }}</p>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="framework/js/jquery.min.js"></script>
+    <script src="framework/js/bootstrap.min.js"></script>
+    <script src="framework/js/angular.min.js"></script>
+    <script src="framework/js/angular-route.min.js"></script>
+     <!-- The Controller File -->
+    <script src="app.js"></script>
+    
+    
+</body>
+
+</html>

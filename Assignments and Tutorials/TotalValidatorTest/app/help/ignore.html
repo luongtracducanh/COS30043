@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ignoring issues | Documentation | Total Validator</title>
+  <meta name="author" content="Total Validator" />
+  <link rel="stylesheet" href="../common.css" />
+  <link rel="stylesheet" href="../website.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script type="text/javascript" src="../images/menu.js"></script>
+</head>
+<body>
+<div class="main" id="top">
+<header><div id="skip"><a href="#content">Skip navigation</a></div>
+
+<div class="pagehead">
+<h1><a href="../ReadMe.html"><img src="../images/tvheader.svg" alt="Read Me Page"/></a>
+</h1>
+</div>
+
+<div class="topnavbar">
+<nav id='navbar' aria-label='Main navigation'><h2 class='hidden'>Main site navigation</h2><ul><li class='navitem'><a href='help.html'><span class='navlink'>Documentation</span></a></li><li class='navitem'><a href='reference/index.html'><span class='navlink'>Reference</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/index.html'><span class='navlink'>Website</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/validator/ContactForm'><span class='navlink'>Contact Form</span></a></li></ul></nav>
+</div>
+
+</header>
+<main class="nomenus">
+<h2 id="content"><a id="intro"></a><a href="help.html" title="Documentation Contents">Documentation</a> &gt; Ignoring issues</h2>
+<h3 id="parsing">Parsing issues</h3>
+<p>There are certain types of issue that you will not be able to ignore using any mechanism we provide. These are a subset of the <a href="https://www.totalvalidator.com/support/reference/parsing.html">Parsing issues</a>, and may include certain <a href="https://www.totalvalidator.com/support/reference/css.html">CSS parsing issues</a> as well.
+</p>
+<p>Although we try to keep the number of such issues to a minimum, many are impossible
+to ignore because, by definition, a parsing issue means that Total Validator cannot properly understand the HTML/CSS
+that is being used and so cannot deal with it properly. But this also applies to any browser,
+and so it is essential that you correct such parsing issues before publishing your pages, including those parsing issues which can be ignored using Total Validator.
+</p>
+<h3>Precedence</h3>
+<p>There are many ways of preventing issues from being reported using the <a href="issues.html">Issues options</a>.
+These range from the broad <a href="issues.html#ignoreby">Ignore types</a> options, to the more specific <a href="issues.html#ignoreby">Ignore by</a> and <a href="issues.html#ignorecssby">Ignore CSS by</a> options.
+</p>
+<p>These options are applied in order of precedence starting from the top to the bottom. So the <a href="issues.html#ignoreby">Ignore types</a> options are applied first, excluding the <a href="issues.html#except">Except these issues</a>. If an issue passes this test, then the <a href="issues.html#ignore">Ignore these</a> list is checked, and if required the <a href="issues.html#ignoreby">Ignore by</a> and <a href="issues.html#ignorecssby">Ignore CSS by</a> options are used. Only if an issue passes all of these it is reported on.
+</p>
+<p>However, if you can modify the pages, then even finer control is provided by adding special markup instructions to your pages. These allow you to ignore specific issues, or even entire types of test on specific pages, or specific parts of those pages, as described below.
+</p>
+
+<h2 id="xhtml">HTML markup</h2>
+<h3>Ignoring specific issues</h3>
+<p>If you wish to ignore specific issues from being reported on specific parts of a web page you can add a <code class="ht">class</code>
+attribute to an existing tag as follows:
+</p>
+<kbd class="ot">&lt;img <mark>class=&quot;-tv-ignore:E860,E800&quot;</mark> src=&quot;img.gif&quot; /&gt;</kbd>
+<p>The class attribute's value must consist of the key word <code class="tv">-tv-ignore:</code> followed by a comma-separated list of
+the issues to ignore. The listed issues will not be reported on this element and any descendant elements.
+Note that depending on the HTML standard you are testing against, there may be restrictions on which elements
+you can use the <code class="ht">class</code> attribute with.
+</p>
+<p>If you are already using a class attribute then simply add the <code class="tv">-tv-ignore:</code> class to the existing one:
+</p>
+<kbd class="ot">&lt;img class=&quot;myClass <mark>-tv-ignore:E860&quot;</mark> src=&quot;img.gif&quot; /&gt;</kbd>
+<p>Alternatively, you could wrap the existing mark-up with a <code class="ht">&lt;div&gt;</code> or
+<code class="ht">&lt;span&gt;</code> instead:
+</p>
+<kbd class="ot">&lt;div <mark>class=&quot;-tv-ignore:E860&quot;</mark>&gt;
+  &lt;img class=&quot;myClass&quot; src=&quot;img.gif&quot; /&gt;
+&lt;/div&gt;</kbd>
+<p>You can also nest the issues to ignore. In the following example issue, <code class="tv">E860</code> will not be reported for any of the
+mark-up between (and including) the <code class="ht">&lt;div&gt;</code> tags, <code class="tv">E800</code> will not be reported for the first set of <code class="ht">&lt;p&gt;</code> and <code class="ht">&lt;img&gt;</code> tags,
+but could be reported for the second set.
+</p>
+<pre>
+<kbd class="ot">&lt;div <mark>class=&quot;-tv-ignore:E860&quot;</mark>&gt;
+  &lt;p <mark>class=&quot;-tv-ignore:E800&quot;</mark>&gt;
+    &lt;img src=&quot;img.gif&quot; /&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;img src=&quot;img.gif&quot; /&gt;
+  &lt;/p&gt;
+&lt;/div&gt;</kbd></pre>
+<p>You can use this system to ignore whole sections of a page, or the whole page, (with HTML5 you can add a <code class="ht">class</code>
+attribute to the <code class="ht">&lt;html&gt;</code> tag). Or you could prevent single words or phrases from being spell checked as follows:</p>
+<pre><kbd class="ot">&lt;p&gt;Mary had a <mark>&lt;span class="-tv-ignore:E31"&gt;</mark>lickle<mark>&lt;/span&gt;</mark> lamb, its fleece
+was <mark>&lt;span class="-tv-ignore:E31"&gt;</mark>wite<mark>&lt;/span&gt;</mark> as snow.&lt;p&gt;</kbd></pre>
+<p>If the issue you specify does not apply to your mark-up, there is no harm, it will simply be ignored.
+In the examples above you may have noticed that <code class="tv">E860</code> and <code class="tv">E800</code> are mutually exclusive as they apply to WCAG 1 and WCAG 2 respectively.
+</p>
+<p>Note that when you specify an issue to ignore, the test is still performed, the issue is just not reported.
+This also occurs when using the <a href="issues.html#ignore">Ignore these</a> option. So, if you wished to ignore
+a <code class="tv">E404</code> error on a broken link, an attempt would still be made to test the link first, slowing down the testing:
+</p>
+<kbd class="ot">&lt;a <mark>class="-tv-ignore:E404"</mark> href="a_bad_page.html"&gt;</kbd>
+<p>It would be better not to test the link at all, and you can do this as described in the next section.
+</p>
+
+<h3 id="allissues">Ignoring all issues for a specific type of test</h3>
+<p>Depending on your requirements, it may be more efficient to prevent an entire type of testing being carried out on a section of mark-up.
+For this purpose, there are five special <code class="ht">class</code> attribute values you can use:
+</p>
+<pre>
+<code class="tv">-tv-ignore-html</code>
+<code class="tv">-tv-ignore-access</code>
+<code class="tv">-tv-ignore-links</code>
+<code class="tv">-tv-ignore-spellcheck</code>
+<code class="tv">-tv-ignore-css</code>
+</pre>
+<p>For example, the following prevents accessibility testing on the enclosed mark-up (including the <code class="ht">&lt;div&gt;</code> tags):
+</p>
+<pre><kbd class="ot">&lt;div <mark>class=&quot;-tv-ignore-access&quot;</mark>&gt;
+  &lt;p&gt;
+    &lt;img src=&quot;img.gif&quot; /&gt;
+  &lt;/p&gt;
+&lt;/div&gt;</kbd></pre>
+<p>Because the <code class="ht">class</code> attribute is a list of class names, you can specify more than one of these special values at a time and mix them with issue specific values:
+</p>
+<pre><kbd class="ot">&lt;div <mark>class=&quot;myClass -tv-ignore-links -tv-ignore:E860,E800 -tv-ignore-access&quot;</mark>&gt;
+  &lt;img src=&quot;img.gif&quot; /&gt;
+  &lt;a href="a_bad_page.html"&gt;
+&lt;/div&gt;</kbd></pre>
+<p>Note that the special values such as <code class="tv">-tv-ignore-access</code>, take precedence over any individual issue exclusions like <code class="tv">E860</code>.
+</p>
+<p>As mentioned in the previous section, using <code class="tv">-tv-ignore-links</code> will prevent any of the enclosed links from being tested. Also, if a link appears in more than one place, you must put the ignore request at the first place Total Validator will find the link, or on all instances of the link, otherwise Total Validator will test the first one it finds.
+</p>
+
+<h3>Ignoring the markup</h3>
+<p>With each new version of Total Validator tests are updated and bugs fixed, so the markup may become outdated. Also, it may not be clear whether the markup is really working or not. So there are occasions where you may wish to ignore the <code class="tv">-tv-</code> markup you've added to pages. For this you can use the <a href="issues.html#ignoretvmarkup">Ignore -tv- markup</a> option to ignore all the markup on the page, including any CSS markup described in the next section.
+</p>
+
+<h2 id="css">CSS</h2>
+<p>As described above you can use the <code class="ht">class</code> attribute to ignore CSS issues with any CSS used in <code class="ht">style</code> attributes
+or <code class="ht">&lt;style&gt;</code> tags. Alternatively, there is a system specifically for use with CSS in style sheets, which can also be used within <code class="ht">&lt;style&gt;</code> tags, as described below:
+</p>
+<h3>Using at-rules to ignore issues in CSS</h3>
+<p>If you wish to ignore specific issues from being reported on a specific part of your style sheet you can add special at-rules as follows:
+</p>
+<pre><kbd class="ot"><mark>@-tv-ignore start E777,W776;</mark>
+
+h1 { -moz-color: firefox; }
+h2 { -moz-color: thunderbird; }
+
+<mark>@-tv-ignore end E777,W776;</mark></kbd></pre>
+<p>In this case the issues <code class="tv">E777</code> and <code class="tv">W776</code> will not be reported for any of the statements that are enclosed by the <code class="tv">start</code> and <code class="tv">end</code> rules. As with HTML you can also ignore all CSS or Links issues, as well as specific ones. The general form of the at-rule is as follows:
+</p>
+<code class="tv">@-tv-ignore [ start | end ] [[ all-css | all-links ] || [ Exxx [,Exxx]* ]];</code>
+<p>This is completely safe to add to your style sheet because all user agents, such as browsers, will completely ignore any rules they do not recognise.
+</p>
+<p>You can use these rules as many times as you wish, you can nest them, and start/end the exclusion of individual issues:
+</p>
+<pre><kbd class="ot"><mark>@-tv-ignore start all-css W776;</mark>
+
+h1 { -moz-color: firefox; }
+
+<mark>@-tv-ignore end all-css;</mark>
+
+h2 { -moz-color: firefox; }
+
+<mark>@-tv-ignore end W776;</mark></kbd></pre>
+<p>In the example above, the h1 declaration will not report any issues because <code class="tv">start all-css</code> prevents any CSS testing. The <code class="tv">end all-css</code> at-rule allows CSS testing again, but the <code class="tv">W776</code> restriction is still in force, and so the <code class="ht">h2</code> declaration does not reports a <code class="tv">W776</code> issue.
+</p>
+<p>The <code class="tv">start</code> at-rules apply until there is a corresponding <code class="tv">end</code> rule, so if you forget to specify the <code class="tv">end</code> rule then the rule will apply to the end of the style sheet. If you use them within style elements, they will also apply across different style elements. But the rules are never inherited by any imported style sheets, and if you try to end something you have not started, it will be silently ignored.
+</p>
+
+<h3>Using a property to ignore issues in CSS</h3>
+<p>In addition to using an at-rule to ignore issues as described above, there is a corresponding property that you can use:
+</p>
+<pre><kbd class="ot">h1 {
+  color: red;
+  <mark>-tv-ignore: start E777,W776;</mark>
+  -moz-color: firefox;
+  <mark>-tv-ignore: end W776;</mark>
+  -moz-color: firefox;
+  <mark>-tv-ignore: end E777;</mark>
+}
+h2 { -moz-color: firefox; }</kbd></pre>
+<p>Just as with the at-rule exclusions defined using this property apply from the <code class="tv">start</code> to the <code class="tv">end</code>. They are not restricted to the block in which they are defined, but apply to all statements between the <code class="tv">start</code> and <code class="tv">end</code>.
+</p>
+<p>The general form of this property is almost identical to the at-rule and operates in the same way:
+</p>
+<code class="tv">-tv-ignore [ start | end ] [[ all-css | all-links ] || [ Exxx [,Exxx]* ]];</code>
+<p>You can mix the property with the at-rule if you wish. Here is a complex example of this:
+</p>
+<pre><kbd class="ot">1  <mark>@-tv-ignore start E777,W776;</mark>
+2  h1 {
+3    -moz-color: firefox;
+4    <mark>-tv-ignore: end E777;</mark>
+5    -moz-color: firefox;
+6    <mark>-tv-ignore: end W776;</mark>
+7    <mark>-tv-ignore: start E725;</mark>
+8  }
+9  @import "test.css";
+10 h2 { -moz-color:fred; }</kbd></pre>
+<p>No issues are reported for the <code class="ht">-moz-color</code> property on line 3, due to the at-rule on line 1. Only <code class="tv">W776</code> is reported for the <code class="ht">-moz-color</code> on line 5 because of the <code class="tv">end</code> property on line 4. The <code class="tv">end</code> properties on lines 4 and 6, mean that both <code class="tv">E777</code> and <code class="tv">W776</code> are reported on line 10. Finally, the property on line 7 prevents <code class="tv">E725</code> on line 9.
+</p>
+</main>
+
+<footer><div class="footer">
+<p class="footer">&copy; 2005-2023 Total Validator</p>
+</div></footer>
+
+</div>
+</body>
+</html>

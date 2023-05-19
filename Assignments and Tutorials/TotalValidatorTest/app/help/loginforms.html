@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login Forms | Documentation | Total Validator</title>
+  <meta name="author" content="Total Validator" />
+  <link rel="stylesheet" href="../common.css" />
+  <link rel="stylesheet" href="../website.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script type="text/javascript" src="../images/menu.js"></script>
+</head>
+<body>
+<div class="main" id="top">
+<header><div id="skip"><a href="#content">Skip navigation</a></div>
+
+<div class="pagehead">
+<h1><a href="../ReadMe.html"><img src="../images/tvheader.svg" alt="Read Me Page"/></a>
+</h1>
+</div>
+
+<div class="topnavbar">
+<nav id='navbar' aria-label='Main navigation'><h2 class='hidden'>Main site navigation</h2><ul><li class='navitem'><a href='help.html'><span class='navlink'>Documentation</span></a></li><li class='navitem'><a href='reference/index.html'><span class='navlink'>Reference</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/index.html'><span class='navlink'>Website</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/validator/ContactForm'><span class='navlink'>Contact Form</span></a></li></ul></nav>
+</div>
+
+</header>
+<main class="nomenus">
+<!-- <nav aria-label="Documentation navigation"><p class="helpnav"><a class="dropdown" href="resultstab.html" title="Results Options">&lt;</a><a class="dropdown" href="help.html" title="Documentation Contents">Contents</a><a class="dropdown" href="saml.html" title="SAML Topic">&gt;</a></p></nav> -->
+
+<h2 id="content"><a id="intro"></a><a href="help.html" title="Documentation Contents">Documentation</a> &gt; Login forms</h2>
+<p>Many websites restrict parts of their site, and Total Validator
+needs to be authenticated to test these pages. The original way
+of doing this is was to use HTTP Authentication, and the
+<a href="network.html">Network</a> options are available to facilitate this.
+</p>
+<p>A more modern approach is to use a 'login form', where the user enters an id and password
+or other identifying information into the form, and the server sets a session cookie to 
+say that user has been authenticated, and can then visit the restricted pages.
+</p>
+<p>Total Validator supports two ways of authenticating using login forms. The easiest is to login
+through your browser and use one of our <a href="https://www.totalvalidator.com/products/extension.html" aria-label="Details of Browser extensions">
+browser extensions</a> to start testing.
+Alternatively, you can enter the login details directly into the <a href="#pro">Pro</a> version.
+In both cases you must skip any <a href="#logoff">log off and delete links</a> and set any
+<a href="#options">other form related options</a>.
+</p>
+
+<h2 id="extensions">Using a browser extension</h2>
+<p>This is by far the easiest way to work with login forms, and should work with almost every type there is.
+</p>
+<p>In your browser, log into the site. Your browser should now hold a session
+cookie allowing access to the restricted pages. 
+Then use one of our <a href="https://www.totalvalidator.com/products/extension.html" aria-label="Details of Browser extensions">
+browser extensions</a> to start testing.
+</p>
+<p>The browser extension will pass the session cookie to
+Total Validator so that it can test the restricted pages of the website. But you still need ensure that you
+configure it to skip any <a href="#logoff">log off and delete links</a>, and set any
+<a href="#options">other form related options</a>.
+</p>
+
+<h2 id="pro">Using just the Pro version</h2>
+<p>If you are using Total Validator Pro without a browser extension then the <a href="forms.html">Forms</a> options can be used
+to log into the website. When a form is found that matches
+the <a href="forms.html#action">Action URL</a>, Total Validator will effectively click the
+appropriate <a href="forms.html#submit">Submit button</a> sending any hidden or default
+form parameters together with any <a href="forms.html#parameters">parameters</a> that you've
+explicitly specified (typically your id and password).
+</p>
+<p>If successful, the web server will normally return the first secure page and set a session
+cookie in Total Validator. It can then follow all the links on this page, testing the
+restricted pages in the usual way.
+</p>
+<p>Note that you must skip any <a href="#logoff">log off and delete links</a> and set any
+<a href="#options">other form related options</a>.
+</p>
+
+<h2 id="logoff">Log off and delete links</h2>
+<p>It is very common to add a link to every restricted page, which logs you off
+when followed. Because Total Validator may test and follow these links,
+it will be logged off. Any restricted pages that are then tested will
+either show as failed links or just be the page containing the login form. The number of pages
+tested will then be very short and this problem easy to spot. Sometimes you will also
+see errors complaining about links that redirect to themselves.
+</p>
+<p>There may also be links on pages that delete or otherwise destroy resources.
+A common example is to display a list of documents in a table with a column of links to
+delete each document, or even a 'delete all' link. In this case Total Validator will
+faithfully follow each link deleting all the documents. Note that it is good programming
+practice to replace all such links with submit buttons instead, although this may not
+always be possible.
+</p>
+<p>You can solve these issues by telling Total Validator to skip these log off and delete links using the
+<a href="include.html#excludepaths">Exclude</a> option.</p>
+
+<h2 id="options">Related options</h2>
+<p>Most login forms use cookies to store details about the login session, so you must ensure that Total Validator is set to <a href="network.html#cookies">accept cookies</a> (the default setting <code class="tv">Server</code> will do this).
+</p>
+<p>With single sign-on systems such as SAML, you log in on one site and end up at another. Total Validator Pro has been tested with several SAML based systems including Shibboleth and Athens. But there are many caveats, so please see our dedicated <a href="saml.html">SAML topic</a> for more information on how to configure for SAML.
+</p>
+<p>Finally, remember that Total Validator does not execute any JavaScript, so the login form must not rely on javascript for activation.</p>
+
+<h2 id="example">Example forms</h2>
+<p>We have provided an <a href="https://www.totalvalidator.com/help/examples.html">example form</a> which illustrates how you would normally configure Total Validator to work with a login form. We advise anyone attempting to use login forms to first practice with this form to avoid many common problems.
+</p>
+
+<!-- <p class="helpnav"><a class="dropdown" href="resultstab.html" title="Results Options">&lt;</a><a class="dropdown" href="help.html" title="Documentation Contents">Contents</a><a class="dropdown" href="saml.html" title="SAML Topic">&gt;</a></p> -->
+</main>
+
+<footer><div class="footer">
+<p class="footer">&copy; 2005-2023 Total Validator</p>
+</div></footer>
+
+</div>
+</body>
+</html>

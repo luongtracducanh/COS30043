@@ -1,0 +1,118 @@
+<!DOCTYPE html> 
+<html data-ng-app = 'MyApp'> 
+    <head> 
+        <title>Lecture 7 - Form Control Demo</title> 
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+        <!-- Bootstrap --> 
+        <link href="css/bootstrap.min.css" rel="stylesheet" />  
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+        elements and media queries --> 
+        <!-- WARNING: Respond.js doesn't work if you view the 
+        page via file:// --> 
+        <!--[if lt IE 9]> 
+            <script src="js/html5shiv.js"></script> 
+            <script src="js/respond.min.js"></script> 
+        <![endif]--> 
+        <link type="text/css" href="Lec7-style.css" rel="stylesheet"/>
+        <style>
+
+        </style>
+    </head> 
+    <body ng-app=""> 
+
+		<form class="form-horizontal">
+		  <div class="form-group">
+		  <!-- Focused Form Look -->
+			<label class="col-sm-2 control-label">Focused</label>
+			<div class="col-sm-10">
+			  <input class="form-control" id="focusedInput" type="text" value="Click to focus">
+			</div>
+		  </div>
+		  <div class="form-group">
+		  <!-- Disabled form -->
+			<label for="disabledInput" class="col-sm-2 control-label">Disabled</label>
+			<div class="col-sm-10">
+			  <input class="form-control" id="disabledInput" type="text" disabled>
+			</div>
+		  </div>
+		  <fieldset disabled>
+			<div class="form-group">
+			<!-- Disabled fieldset -->
+			  <label for="disabledTextInput" class="col-sm-2 control-label">Fieldset disabled</label>
+			  <div class="col-sm-10">
+				<input type="text" id="disabledTextInput" class="form-control">
+			  </div>
+			</div>
+			<div class="form-group">
+			  <label for="disabledSelect" class="col-sm-2 control-label"></label>
+			  <div class="col-sm-10">
+			  <!-- Disabled Selection -->
+				<select id="disabledSelect" class="form-control">
+				  <option>Disabled select</option>
+				</select>
+			  </div>
+			</div>
+		  </fieldset>
+		  <!-- Validation look -->
+		  <div class="form-group has-success has-feedback">
+			<label class="col-sm-2 control-label" for="inputSuccess">
+			Input with success and icon</label>
+			<div class="col-sm-10">
+			  <input type="text" class="form-control" id="inputSuccess">
+			  <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+			</div>
+		  </div>
+		  <div class="form-group has-warning has-feedback">
+			<label class="col-sm-2 control-label" for="inputWarning">
+			Input with warning and icon</label>
+			<div class="col-sm-10">
+			  <input type="text" class="form-control" id="inputWarning">
+			  <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+			</div>
+		  </div>
+		  <div class="form-group has-error has-feedback">
+			<label class="col-sm-2 control-label" for="inputError">
+			Input with error and icon</label>
+			<div class="col-sm-10">
+			  <input type="text" class="form-control" id="inputError">
+			  <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+			</div>
+		  </div>
+		</form>
+        
+<!-- All these can be included inside the form by using different view depending on the user input. -->
+		<p>Try writing an E-mail address in the input field:</p>
+
+		<form name="myForm">
+		<div ng-init='myForm.myInput.$valid=false'>
+		<input type="email" name="myInput" ng-model='myInput'> 
+		
+		<div ng-if ="myForm.myInput.$valid==false">
+		<div class="form-group has-error has-feedback">
+		<label class="col-sm-2 control-label" for="inputError">
+			Input error!</label>
+		</div>
+
+		</div>
+		</form>
+		
+		<!-- Help text -->
+		<input class="form-control" type="text" 	placeholder="">
+	<span class="help-block">This is where help text is placed. It breaks onto a new line and may extend beyond one line.</span>
+
+		
+
+        <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
+        <script src="js/jquery.min.js"></script> 
+        <!-- All Bootstrap  plug-ins  file --> 
+        <script src="js/bootstrap.min.js"></script> 
+        <!-- Basic AngularJS --> 
+        <script src="js/angular.min.js"></script> 
+        <!-- AngularJS - Routing --> 
+        <script src="js/angular-route.min.js"></script>
+        
+        
+   
+    </body> 
+</html>

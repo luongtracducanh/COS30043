@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+<head>
+	 <title>Lecture 09 - Pagination Demo</title>
+	 <meta charset="utf-8" />
+	 <meta name="viewport" content="width=device-width,
+													 initial-scale=1.0" />
+	 <!-- Bootstrap -->
+	 <link href="css/bootstrap.min.css" rel="stylesheet" />
+	 <!-- HTML5 Shim and Respond.js IE8 support of HTML5
+													 elements and media queries -->
+	 <!-- WARNING: Respond.js doesn't work if you view the
+													 page via file:// -->
+	 <!--[if lt IE 9]>
+			<script src="js/html5shiv.js"></script>
+			<script src="js/respond.min.js"></script>
+	 <![endif]-->
+</head>
+<body>
+
+	<!-- 1 -->
+	<!-- Bootstrap pagination works by containers -->
+	<div class="container" data-ng-controller="paginationCtrl1">
+		<h1>Pagination with Client-Side Data</h1>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+			<!-- 2 -->
+				<tr data-ng-repeat="student in students 	
+								    | offset: currentPage*studentsPerPage
+								    | limitTo: studentsPerPage">
+					<!-- limitTo is AngularJS built in filter,  -->
+					<!-- in this case limit the ng-repeat number to scope students per page -->
+					<!-- When the data repeat limitto 5 student per page, bootstrap pagination in THIS  -->
+					<!-- container will print the rest of the data in the next page -->
+					<td>{{student.id}}</td>
+					<td>{{student.name}}</td>
+				</tr>
+			</tbody>
+			<tfoot>
+                <tr>
+				<td colspan="2">
+				<!-- using the bootstrap pagination to display the buttons -->
+					<ul class="pagination">
+						<li data-ng-class="prevPageDisabled()">
+							<a href="" data-ng-click="prevPage()">Prev</a>
+						</li>
+                        <!-- 3 -->
+						<!-- This display the numbering in the pagination button -->
+						<!-- This will keep print the "li" button until range 5  -->
+						<li data-ng-repeat="n in range()" 
+                            data-ng-class="{active: n == currentPage}"
+				            data-ng-click="setPage(n)">
+							     <a href="">{{n+1}}</a>
+						</li>
+                        
+						<li data-ng-class="nextPageDisabled()">
+							<a href = "" data-ng-click="nextPage()">Next</a>
+						</li>
+					</ul>
+				</td>
+                </tr>
+			</tfoot>
+		</table>
+	</div>
+	<!-- ================================================================================================= -->
+	<!-- another set of data for pagination, another container.  -->
+	<!-- different type of data, another controller -->
+	<div class="container" data-ng-controller="paginationCtrl2">
+		<h1>Pagination with Server-Side Data</h1>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="student in pagedStudents">
+					<td>{{student.id}}</td>
+					<td>{{student.name}}</td>
+				</tr>
+			</tbody>
+			<tfoot>
+                <tr>
+				<td colspan="2">
+					<ul class="pagination">
+						<li data-ng-class="prevPageDisabled()">
+							<a href="" data-ng-click="prevPage()">Prev</a>
+						</li>
+						<li data-ng-repeat="n in range()" 
+                            data-ng-class="{active: n == currentPage}"
+				            data-ng-click="setPage(n)">
+							     <a href="">{{n+1}}</a>
+						</li>
+						<li data-ng-class="nextPageDisabled()">
+							<a href="" data-ng-click="nextPage()">Next</a>
+						</li>
+					</ul>
+				</td>
+                </tr>
+			</tfoot>
+		</table>
+	</div>
+	<!-- ================================================================================================= -->
+	<!-- another set of data for pagination, another container.  -->
+	<!-- different type of data, another controller -->
+	<div class="container" data-ng-controller="paginationCtrl3">
+		<h1>Pagination with Server-Side Data using Load More</h1>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+			<!-- 4 -->
+				<tr data-ng-repeat="student in pagedStudents">
+					<td>{{student.id}}</td>
+					<td>{{student.name}}</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+				<!-- 5 -->
+					<td colspan="2">
+						<button class="btn" type="button"
+								data-ng-class="nextPageDisabledClass()"
+								data-ng-click="loadMore()">Load More</button>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	
+	<div class="container">
+		<h1>Editable Content</h1>
+		<div contenteditable="true" 
+             data-ng-model="text" 
+             data-ng-init="text='This text is editable, 
+                           even if it is not in an input element'">
+        </div>
+		<p>Value of the model: {{text}}</p>
+	</div>
+	
+	<div class="container">
+		<h1>Modal Demonstration</h1>
+		<div data-ng-controller="myModalCtrl">
+			<button class="btn" data-ng-click="open()">Open Modal Dialog Box</button>
+			<div data-modal="showModal" data-close="cancel()">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<!-- modal content here -->
+						<div class="modal-header">
+							<h1>Modal Dialog Box</h1>
+						</div>
+						<div class="modal-body">
+							<p>This is a sample paragraph inside the modal dialog box.</p>
+						</div>
+						<div class="modal-footer">
+							<button class="btn btn-success" data-ng-click="ok()">Okay</button>
+							<button class="btn btn-default" data-ng-click="cancel()">Cancel</button>
+						</div>
+						
+                        
+                        
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- jQuery – required for Bootstrap's JavaScript plugins) -->
+	<script src="js/jquery.min.js"></script>
+	<!-- All Bootstrap  plug-ins  file -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Basic AngularJS -->
+	<script src="js/angular.min.js"></script>
+	<!-- Third Party Bootstrap Modal -->
+	<script src="js/ui-bootstrap.modal.js"></script>
+	<!-- Custom App -->
+	<script src="js/paginationApp.js"></script>
+	
+	<script>
+	
+	</script>
+</body>
+</html>

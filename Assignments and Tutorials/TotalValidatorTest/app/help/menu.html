@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Menu Options | Documentation | Total Validator</title>
+  <meta name="author" content="Total Validator" />
+  <link rel="stylesheet" href="../common.css" />
+  <link rel="stylesheet" href="../website.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script type="text/javascript" src="../images/menu.js"></script>
+</head>
+<body>
+<div class="main" id="top">
+<header><div id="skip"><a href="#content">Skip navigation</a></div>
+
+<div class="pagehead">
+<h1><a href="../ReadMe.html"><img src="../images/tvheader.svg" alt="Read Me Page"/></a>
+</h1>
+</div>
+
+<div class="topnavbar">
+<nav id='navbar' aria-label='Main navigation'><h2 class='hidden'>Main site navigation</h2><ul><li class='navitem'><a href='help.html'><span class='navlink'>Documentation</span></a></li><li class='navitem'><a href='reference/index.html'><span class='navlink'>Reference</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/index.html'><span class='navlink'>Website</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/validator/ContactForm'><span class='navlink'>Contact Form</span></a></li></ul></nav>
+</div>
+
+</header>
+<main class="nomenus">
+<!-- <nav aria-label="Documentation navigation"><p class="helpnav"><a class="dropdown" href="results.html" title="Validation results">&lt;</a><a class="dropdown" href="help.html" title="Documentation Contents">Contents</a><a class="dropdown" href="main.html" title="Main Options">&gt;</a></p></nav> -->
+
+<h2 id="content"><a id="file"></a><a href="help.html" title="Documentation Contents">Documentation</a> &gt; File Menu</h2>
+<h3 id="workspaces">Workspaces</h3>
+<p>All of the options for Total Validator are saved together in a 'workspace'. When you first run Total Validator a workspace called <code class="ot">default</code> is created and used to store all the settings. With the Basic version this is the only workspace available, and the only File Menu option available is <code class="tv">Save</code>.
+</p>
+<p>With the Pro version you can create more than one workspace, to have different sets of options for testing different websites. To manage these, the File Menu has <code class="tv">New</code>, <code class="tv">Open</code>, <code class="tv">Save</code>, <code class="tv">Save As</code>, and <code class="tv">Delete</code> options. At the bottom there is also a list of the last 10 workspaces used.
+</p>
+
+<p>You can also create your own default settings that are used whenever you create a new workspace, or use the Reset Tab menu option. To do this, save your workspace with a name of <kbd class="ot">defaults</kbd> and any settings this contains will then become the system defaults.</p>
+
+<h3>Other options</h3>
+<p>The File menu also contains the following options:</p>
+  <ul>
+    <li><strong>Validate: </strong>Starts a test</li>
+    <li><strong>Last Results: </strong>Display the results from the last successful test run</li>
+    <li><strong>Reset Tab <em>(Pro only)</em>: </strong>Resets all the options on the current Tab to their defaults</li>
+    <li><strong>Reset List: </strong>Clears the <a href="main.html#url">Start page</a> drop-down</li>
+    <li><strong>Exit: </strong>Closes Total Validator</li>
+  </ul>
+
+<h2 id="options">Options Menu</h2>
+<h3 id="metanames">Edit Meta Names <em>(Pro only)</em></h3>
+<p>For HTML5 documents, the <code class="ht">name</code> attribute in the <code class="ht">&lt;meta&gt;</code> element is restricted to values documented in the HTML5 specification with extensions in the WHATWG Wiki. Each Total Validator release contains the latest set of valid values. Total Validator will not recognise any changes to the wiki after the Total Validator release date, and may mark some <code class="ht">name</code> values as incorrect.
+</p>
+<p>You could wait until the next release of Total Validator to automatically pick up any new names that you use, or you can use the <code class="tv">Edit meta names</code> option to add them yourself. But note that any changes you make will be automatically overwritten when you install a later release.
+</p>
+
+<h3 id="editproxy">Edit Proxy <em>(Test only)</em></h3>
+<p>Please see the <a href="proxy.html">Pro version</a> documentation for an explanation of these settings.
+</p>
+
+<h3 id="listen">Change Port</h3>
+<p>
+The application listens for requests from the browser extension, and for spell check
+corrections (Pro version) from page reports.</p>
+<p>
+It listens on a specific <a href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers">TCP port</a>, and you can enter the port number to listen on in this field.
+It is set to 9889 by default, but can be any number in the range 1-65535.
+You must choose a number that does not conflict <a href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers">with
+any other service</a> you use, and for extension requests it must match what is <a href="extensions.html#option">set in the browser extension</a>.</p>
+<p>
+The current value of <code class="tv">port</code> is also embedded in the page reports for spell check corrections, 
+so if you change its value here you must regenerate your results, otherwise you will not be able to add words to your personal dictionaries.</p>
+
+<h3 id="proxy">Use System Proxy</h3>
+<p>By default, the application will attempt to use any operating
+system proxy server settings.
+</p>
+<p>Auto-proxy configuration scripts are ignored, but with the
+Pro version you can supply the proxy server details in the
+<a href="proxy.html">Proxy Server</a> options.
+</p>
+
+<h3 id="themes">Themes</h3>
+<p>You can change how the application looks by selecting from lists of in-built themes and colour schemes. 
+The lists of <code class="tv">Light</code> and <code class="tv">Dark</code> themes are variations of the default <code class="tv">Flat</code> theme provided by <a href="https://www.formdev.com/flatlaf/">FormDev Software GmbH</a>. These scale well on HiDPI displays, respond to <code class="os">Text Size</code> changes in the Operating System, and so are good for accessibility.</p>
+<p>Checkboxes at the bottom allow for finer control of the <code class="tv">Light</code> and <code class="tv">Dark</code> themes:</p>
+  <ul>
+    <li><strong>Show 'clear' button: </strong>An <kbd class="ui">x</kbd> button that allows you to quickly clear the contents of text fields</li>
+    <li><strong>Show 'eye' button: </strong>An <kbd class="ui">eye</kbd> button that allows you to view passwords masked with <kbd class="ui">*</kbd></li>
+    <li><strong>Integrated menu: </strong>Merges the menu into the title bar in the style of Windows 10/11</li>
+    <li><strong>Show mnemonics: </strong>Permanently displays keyboard shortcut indicators</li>
+    <li><strong>Rounded components: </strong>Uses rounded text fields and buttons</li>
+  </ul>
+<p>In the <code class="tv">Heritage</code> column there are some old classic themes that look significantly different. These do not scale on HiDPI displays, and do not respond to <code class="os">Text Size</code> changes in the Operating System.
+</p>
+<p>For all themes, just click on the name, and Total Validator will change to that theme.</p>
+
+<h3 id="tray"><a id="updates"></a>Other options</h3>
+<p>The Options Menu also contains the following options:</p>
+  <ul>
+    <li><strong>Check for Updates: </strong>Checks if a more recent version has been released</li>
+    <li><strong>Auto-Update Check: </strong>Select to automatically check at startup</li>
+    <li><strong>Splashscreen: </strong>Whether or not a splashscreen is displayed at startup</li>
+    <li><strong>Start Minimised: </strong>Starts the application minimised. This is useful when starting Total Validator when your computer starts up, so it is ready to be contacted by the browser extension</li>
+    <li><strong>Minimise to Tray <em>(except macOS)</em>: </strong>When minimising the application, shrink it to the System Tray</li>
+  </ul>
+
+<h2 id="help">Help Menu</h2>
+<p>The Help Menu contains the following options:</p>
+  <ul>
+    <li><strong>Help: </strong>Displays this documentation</li>
+    <li><strong>Contact Form: </strong>Opens a link to our Contact Form</li>
+    <li><strong>Updates <em>(Pro only)</em>: </strong>Displays information about updates and subscriptions</li>
+    <li><strong>Upgrade/Buy: </strong>Opens a link to our purchasing pages</li>
+    <li><strong>What's new: </strong>Opens a link to the change log</li>
+    <li><strong>Licence: </strong>Displays the licence</li>
+    <li><strong>About: </strong>Displays the version and build details of Total Validator and various paths used</li>
+  </ul>
+
+<!-- <p class="helpnav"><a class="dropdown" href="results.html" title="Validation results">&lt;</a><a class="dropdown" href="help.html" title="Documentation Contents">Contents</a><a class="dropdown" href="main.html" title="Main Options">&gt;</a></p> -->
+</main>
+
+<footer><div class="footer">
+<p class="footer">&copy; 2005-2023 Total Validator</p>
+</div></footer>
+
+</div>
+</body>
+</html>

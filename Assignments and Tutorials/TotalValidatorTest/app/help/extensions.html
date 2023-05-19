@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Browser Extensions | Documentation | Total Validator</title>
+  <meta name="author" content="Total Validator" />
+  <link rel="stylesheet" href="../common.css" />
+  <link rel="stylesheet" href="../website.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script type="text/javascript" src="../images/menu.js"></script>
+</head>
+<body>
+<div class="main" id="top">
+<header><div id="skip"><a href="#content">Skip navigation</a></div>
+
+<div class="pagehead">
+<h1><a href="../ReadMe.html"><img src="../images/tvheader.svg" alt="Read Me Page"/></a>
+</h1>
+</div>
+
+<div class="topnavbar">
+<nav id='navbar' aria-label='Main navigation'><h2 class='hidden'>Main site navigation</h2><ul><li class='navitem'><a href='help.html'><span class='navlink'>Documentation</span></a></li><li class='navitem'><a href='reference/index.html'><span class='navlink'>Reference</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/index.html'><span class='navlink'>Website</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/validator/ContactForm'><span class='navlink'>Contact Form</span></a></li></ul></nav>
+</div>
+
+</header>
+<main class="nomenus">
+<!-- <nav aria-label="Documentation navigation"><p class="helpnav"><a class="dropdown" href="ignore.html" title="Ignoring Issues Topic">&lt;</a><a class="dropdown" href="help.html" title="Documentation Contents">Contents</a><span class="endnav">&gt;</span></p></nav> -->
+
+<h2 id="content"><a id="use"></a><a href="help.html" title="Documentation Contents">Documentation</a> &gt; Browser extensions</h2>
+<p>Start the Total Validator application and set the required options in the usual way (ignoring the <a href="main.html#url">Start page</a>).
+Browse to the page you wish to test and click the Total Validator icon on your browser toolbar, or use a keyboard shortcut, to start testing the current page.
+</p>
+<p class="centered">
+<img class="noborder" alt="picture of the chrome toolbar" src="../images/chrome_toolbar.png" />
+</p>
+<p>Alternatively select the appropriate option from the context menu (right click the page):
+</p>
+<p class="centered">
+<img class="noborder" alt="picture of the chrome context menu" src="../images/chrome_context.png" />
+</p>
+<p>Depending on which option you've chosen the extension will either send the URL of the current page, the DOM, or the source of the page
+to the Total Validator application to test it. With the Pro and CI versions you can test a whole website this way with just one click.
+</p>
+<p>During operation the application will automatically minimise or <a href="menu.html#tray">shrink to the System Tray</a>.
+</p>
+<p class="centered">
+<img alt="picture of Total Validator in the system tray" src="../images/tooltray.png" /></p>
+<p>If you wish to start Total Validator already minimised, such as when starting your computer, then use
+the <a href="menu.html#tray">Start Minimised</a> menu option.</p>
+
+<h2 id="option">Extension options</h2>
+<p>To access and set the extension options use the context menu, or right mouse click the toolbar icon and choose <kbd class="os">Options</kbd>.
+</p>
+
+<h3>Toolbar action</h3>
+<p>What to send to the application when you click the toolbar icon
+</p>
+<p id="normal"><strong>Send URL: </strong>This sends the url of the current page
+to the application for testing. This is equivalent to entering the url in the <a href="main.html#url">Start page</a> in the application.
+</p>
+<p id="gensource"><strong>Send DOM: </strong>Normally Total Validator tests the web page before
+any JavaScript has been run. If you use JavaScript to modify the page, then select this to send the page after
+any initial JavaScript has run. Selecting this option also allows additional accessibility testing to be performed. 
+The source in this case is not the original web page
+but is generated from your browser's DOM, so you may see some issues
+that do not exist in the original web page, and line numbers will often differ.
+<strong>Note:</strong> With this option
+broken links can only be tested for if you have the Pro or CI versions.
+</p>
+<p id="sendsource"><strong>Send source: </strong>If <code class="tv">Send URL</code> does not work for you
+(for example, some unsupported authentication system is protecting pages), then use this option to send the
+source of the current web page for testing instead. <strong>Note:</strong> With this option
+broken links can only be tested for if you have the Pro or CI versions.
+</p>
+
+<h3>Advanced</h3>
+<p id="port"><strong>Listen port: </strong>This is set to 9889 by default. This is the <a href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers">TCP port</a> that the Total Validator application listens
+to for requests from the browser extension to test pages. Whatever you enter here <em>must</em>
+match the value you've <a href="menu.html#listen">entered in the application</a>. Any number in the range 1-65535 is valid, but you must
+choose one that does not conflict <a href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers">with
+any other service</a> you having running.
+</p>
+<p id="skipurl"><strong>Skip URL check: </strong>Normally this is not selected.
+It should only be used when there are <a href="#cancelled">cancellation</a> issues.
+</p>
+<p id="keepalive"><strong>Keep Alive: </strong>This should be 2 seconds.
+This should not be changed unless advised by the Total Validator Support Team.
+</p>
+<p id="compatible"><strong>Compatible: </strong>Normally this is not selected.
+It may be used with v5.7 of the extension, to allow it to work with v16.3.0-v17.0.1 of the Pro or CI application.
+</p>
+<p id="debug"><strong>Debug<!-- (Firefox only)-->: </strong>This should not be selected unless advised by the Total Validator Support Team
+because it will slow everything down.
+</p>
+<!--
+<h3>Change only when advised (Chrome/Edge only)</h3>
+<p>Do not make any changes to these settings unless TV Support advises, as they are likely to compromise your testing.</p>
+<ul>
+  <li id="system"><strong>System: </strong>This should be set to "Default"</li>
+  <li id="keepalive"><strong>Keep Alive: </strong>This should be 2 seconds</li>
+  <li id="switch"><strong>Switch time: </strong>This should be 4.5 mins</li>
+  <li id="pause"><strong>Page Pause: </strong>This should be selected</li>
+  <li id="newdebug"><strong>Debug: </strong>This should not be selected</li>
+</ul>
+-->
+
+<h2 id="multipage">Testing multiple source pages with Total Validator Pro or CI</h2>
+<p>With the Pro and CI versions, <code class="tv">Send DOM</code> and <code class="tv">Send source</code> will automatically step through the website just like <code class="tv">Send URL</code>, and test as many pages as you wish.
+</p>
+<p>You will see each page being displayed in your browser in turn and on completion the original page will be displayed, and a new tab opened with the results.
+</p>
+<!-- <p>With the Chrome and Edge browsers you must ensure that the <a href="../help/resultstab.html#browser">Browser set in the Results options</a> is the same as the one used to start the test. Otherwise it may switch to the other browser mid-way through your test and stop. Use the <kbd class="tv">Cancel</kbd> button on the application's progress window to cancel the test and change the browser used.
+</p>-->
+<p>During testing, you should try to avoid using your browser and never attempt to start a new test while a current one is still executing.
+Always use the <kbd class="tv">Cancel</kbd> button on the application's progress window to cancel first, otherwise you may get unexpected and confusing results.
+</p>
+<p>When testing DOM-generated source, you may need to slow the process down so that any initial JavaScript has fully run before the page is sent to the application. For this, use the <a href="network.html#pause">Page pause</a> option which will add a delay between loading each page and sending the DOM to the application.
+</p>
+
+<h2 id="shortcuts">Keyboard shortcuts</h2>
+<p>By default the keyboard shortcut equivalent to clicking the toolbar icon is <kbd class="os">Ctrl+Shift+V</kbd> (<kbd class="os">Command+Shift+V</kbd> for macOS). You can use a different keyboard shortcut, remove it altogether, and also define shortcuts for the context menu options as follows:
+</p>
+<p><strong>Firefox: </strong>Go to <kbd class="uri">about:addons</kbd>, click on the cog icon and select <kbd class="os">Manage Extension Shortcuts</kbd>, and edit or remove the shortcuts displayed for Total Validator.</p>
+<p><strong>Chrome: </strong>Go to <kbd class="uri">chrome://extensions/shortcuts</kbd>, and edit or remove the shortcuts displayed.</p>
+<p><strong>Edge: </strong>Go to <kbd class="uri">edge://extensions/shortcuts</kbd>, and edit or remove the shortcuts displayed.</p>
+
+<h2 id="issues">Issues</h2>
+<p>
+If you have a problem that isn't covered below then complete the
+<a href="https://www.totalvalidator.com/validator/ContactForm">
+Contact Form</a> to report it. Don't forget to leave a
+valid email address where you can be contacted.</p>
+
+<h3 id="mismatch">Incompatible extension and application versions</h3>
+<p>If you see this message then the browser extension and Total Validator application are running incompatible versions. To resolve this you will need to upgrade the application to the latest version, or (if possible) downgrade your browser extension to a previous version. The <a href="https://www.totalvalidator.com/downloads/tool_changes.html">Application</a> and <a href="https://www.totalvalidator.com/downloads/extension_changes.html">Extension</a> change logs may have more information about this issue.
+</p>
+
+<h3 id="contact">Could not contact the Total Validator application</h3>
+<p>If this appears you may have simply forgotten to start the Total Validator application. This must be running when using an extension.</p>
+<p>Alternatively, the firewall on your computer may have been configured to block Total Validator from accepting connections from extensions: When starting Total Validator, you may have seen a message about allowing incoming connections to either Total Validator or Java and decided to <strong>deny</strong> these. In this case you will have to amend your firewall to <a>allow</a> them again.</p>
+<p>Total Validator only listens for local connections from your browser, and only on a specific <a href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers">TCP port</a>. This <code class="tv">Listen port</code> may already be being used by another service preventing the application from listening. Usually you will see a message when starting the application if this is the case. If necessary, you can change the <code class="tv">Listen port</code> in the <a href="menu.html#listen">Application Options</a> and update the options page in the extension to match, as described above.
+</p>
+<h3>Extension not installed or not configured correctly</h3>
+<p>To use this feature, you must have a <a href="https://www.totalvalidator.com/downloads/extension.html">Total Validator extension</a> installed and enabled in your browser, and the correct options configured:</p>
+
+<p><strong>Firefox: </strong>Go to <kbd class="uri">about:addons</kbd>, find the Total Validator extension and check that it is enabled.
+</p>
+<p><strong>Chrome: </strong>Go to <kbd class="uri">chrome://extensions</kbd>, find the Total Validator extension and check that it is enabled. Click <kbd class="os">Details</kbd> and under <kbd class="os">Site access</kbd> ensure that <kbd class="os">On all sites</kbd> is selected. Also check that the <kbd class="os">Allow access to file URLs</kbd> option is enabled as this may also be required.
+</p>
+<p><strong>Edge: </strong>Go to <kbd class="uri">edge://extensions</kbd>, find the Total Validator extension and check that it is enabled. Click <kbd class="os">Details</kbd> and under <kbd class="os">Site access</kbd> ensure that <kbd class="os">On all sites</kbd> is selected. Also check that the <kbd class="os">Allow access to file URLs</kbd> option is enabled as this may also be required.
+</p>
+<h3>Browser needs to be manually started</h3>
+<p>When starting a DOM validation from the Total Validator application, we have found that on some systems and with some browsers, the browser must already be running first. So please try again with the browser already open.</p>
+<h3 id="failed">Validation failed</h3>
+<p>If this message appears then there may be a conflict between Total Validator and some other service. You can change the <code class="tv">Listen port</code> in the <a href="menu.html#listen">Application Options</a> and update the options page in the extension to match, as described above.
+</p>
+<h3 id="nosource">Could not retrieve source of page</h3>
+<p>If this appears then the page you are trying to test has unexpectedly disappeared from the web server, or is no longer visible due to authentication issues. Try reloading the page and repeating the test.
+</p>
+<h3 id="local">Could not contact the content script</h3>
+<p>If this appears after you have just installed or enabled the extension, you may need to reload pages in your browser before you can test them.</p>
+<p>You should also check the extension is enabled and configured correctly (see above), and restart your browser to ensure all settings have been applied.</p>
+<h3 id="nothing">Nothing happens</h3>
+<p><strong>Firefox: </strong>Open the browser console (<kbd class="os">Ctrl+Shift+J</kbd>) and look for any of the messages above, or other messages mentioning Total Validator which may explain the issue.
+</p>
+<p><strong>Chrome: </strong>Go to <kbd class="uri">chrome://extensions</kbd>, check the <kbd class="os">Developer Mode</kbd> checkbox, find the Total Validator extension and click the <kbd class="os">Inspect views: background page</kbd> link, then look at the <kbd class="os">Console</kbd> tab for any error messages.</p>
+<p><strong>Edge: </strong>Go to <kbd class="uri">edge://extensions</kbd>, check the <kbd class="os">Developer Mode</kbd> checkbox, find the Total Validator extension and click the <kbd class="os">Inspect views: background page</kbd> link, then look at the <kbd class="os">Console</kbd> tab for any error messages.</p>
+<!-- <p><strong>Chrome: </strong>Go to <kbd class="uri">chrome://extensions</kbd>, check the <kbd class="os">Developer Mode</kbd> checkbox, find the Total Validator extension and click the <kbd class="os">Inspect views: service worker</kbd> link, then look at the <kbd class="os">Console</kbd> tab for any error messages.</p>
+<p><strong>Edge: </strong>Go to <kbd class="uri">edge://extensions</kbd>, check the <kbd class="os">Developer Mode</kbd> checkbox, find the Total Validator extension and click the <kbd class="os">Inspect views: service worker</kbd> link, then look at the <kbd class="os">Console</kbd> tab for any error messages.</p> -->
+<h3 id="cancelled">Multi-page testing cancels before finishing</h3>
+<p>When testing multiple pages of source or DOM-generated source, it may self-cancel before completing. This can be due to security restrictions of the website. The last page attempted should still be displayed in your browser: Press <kbd class="os">F12</kbd> and look at the <kbd class="os">Console</kbd> tab for any error messages which may explain why it failed. If there is nothing suspicious then you could try the <code class="tv">Skip URL check</code> option.
+</p>
+<!-- <h3 id="browserswitch">Multi-page testing switches to another browser and stops</h3>
+<p>With the Chrome and Edge browsers you must ensure that the <a href="../help/resultstab.html#browser">Browser set in the Results options</a> is the same as the one used to start the test. Otherwise it may switch to the other browser mid-way through your test and stop. Use the <kbd class="tv">Cancel</kbd> button on the application's progress window to cancel the test and change the browser used.
+</p>-->
+<h3 id="runaway">Browser continues multi-page testing after cancelling it, or after an error</h3>
+<p>Following a cancellation or an error the browser may keep on testing, possibly opening multiple tabs. Immediately close your browser and/or Total Validator to stop this.
+</p>
+<h3 id="shortcut">The keyboard shortcut doesn't work</h3>
+<p>If the keyboard shortcut doesn't work, then it may clash with another extension, or a shortcut defined by the browser itself. In this case try defining a different key combination as described above. </p>
+
+<!-- <p class="helpnav"><a class="dropdown" href="ignore.html" title="Ignoring Issues Topic">&lt;</a><a class="dropdown" href="help.html" title="Documentation Contents">Contents</a><span class="endnav">&gt;</span></p> -->
+</main>
+
+<footer><div class="footer">
+<p class="footer">&copy; 2005-2023 Total Validator</p>
+</div></footer>
+
+</div>
+</body>
+</html>

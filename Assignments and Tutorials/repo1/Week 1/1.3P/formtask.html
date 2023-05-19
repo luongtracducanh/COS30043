@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<title>WAI Form Task</title>
+		<meta charset="utf-8" />
+		<meta name="keywords" content="Accessibility,Lab,Tasks" />
+		<meta name="description" content="WAI Form Task" />
+</head>
+<body>
+		<h1>WAI Form Example</h1>
+		<form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+			<fieldset>
+				<legend>Contact Information</legend>
+			<p><label for = "cname">  Name:</label>
+						<input type="text" name="cname" id="cname" /></p>
+			<p><label for = "cemail"> E-mail Address:</label>
+						<input type="text" name="cemail" id="cemail" /></p>
+			<p><label for ="caddr"> Mailing Address:</label><br />
+				<textarea name="caddr" id="caddr" rows="4" cols="40"></textarea></p>
+
+				<p>Credit Card Information</p>
+				<p>
+						<input type="radio" name="card" id="cvisa" value="visa" />
+				<label for ="cvisa">Visa</label><br/>
+						<input type="radio" name="card" id="cmc" value="mc" />
+				<label for ="cmc">MasterCard</label><br/>
+
+						<label>Number: <input type="text" name="number" id="cnumber"/></label><br><br>
+						<label>Expiry: <input type="text" name="expiry" id="cexpiry"/></label>
+				</p>
+				<p>
+						<input type="submit" value="Submit order" /> <input type="reset" value="Clear order" />
+				</p>
+				</fieldset>
+		</form>
+</body>
+</html>

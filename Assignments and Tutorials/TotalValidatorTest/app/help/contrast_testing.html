@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contrast Testing | Documentation | Total Validator</title>
+  <meta name="author" content="Total Validator" />
+  <link rel="stylesheet" href="../common.css" />
+  <link rel="stylesheet" href="../website.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script type="text/javascript" src="../images/menu.js"></script>
+</head>
+<body>
+<div class="main" id="top">
+<header><div id="skip"><a href="#content">Skip navigation</a></div>
+
+<div class="pagehead">
+<h1><a href="../ReadMe.html"><img src="../images/tvheader.svg" alt="Read Me Page"/></a>
+</h1>
+</div>
+
+<div class="topnavbar">
+<nav id='navbar' aria-label='Main navigation'><h2 class='hidden'>Main site navigation</h2><ul><li class='navitem'><a href='help.html'><span class='navlink'>Documentation</span></a></li><li class='navitem'><a href='reference/index.html'><span class='navlink'>Reference</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/index.html'><span class='navlink'>Website</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/validator/ContactForm'><span class='navlink'>Contact Form</span></a></li></ul></nav>
+</div>
+
+</header>
+<main class="nomenus">
+<!-- <nav aria-label="Documentation navigation"><p class="helpnav"><a class="dropdown" href="spellchecking.html" title="Spell Checking Topic">&lt;</a><a class="dropdown" href="help.html" title="Documentation Contents">Contents</a><a class="dropdown" href="ignore.html" title="Ignoring Issues Topic">&gt;</a></p></nav> -->
+
+<h2 id="content"><a id="intro"></a><a href="help.html" title="Documentation Contents">Documentation</a> &gt; Contrast testing</h2>
+<p>The WCAG v1 and WCAG v2 accessibility standards both specify guidelines for
+testing the contrast between the foreground and background colours of text.
+Total Validator can carry out the appropriate contrast testing, but only when
+configured correctly, and with the limitations shared by all automated testing tools.
+</p>
+<p>
+Due to our advanced HTML testing we can test the contrast of text in more
+scenarios than other accessibility validators, such as with the <code class="ht">&lt;input&gt;</code> element's
+latest type values in HTML5. But, because we use the formulas given in the official guidelines, we can only test displayable text and
+not text within images. The formulas also do not account for text with background images, gradients,
+decorations, or shadows. So, if your pages have any of these you may have to carry out some
+manual testing.</p>
+
+<h2 id="testing">Running tests</h2>
+<p>
+To perform contrast testing you must validate the DOM of the page, so that any colours set by CSS or Javascript have been applied,
+and the page appears as it does to users. This means that you must install one of <a href="https://www.totalvalidator.com/products/extension.html">
+our browser extensions</a> first, from <a href="https://www.totalvalidator.com/downloads/extension.html">this page</a>.</p>
+<p>
+To run a test which performs contrast testing, you can then use the <a href="main.html#dom">Validate DOM</a> option in the TV application, or manually select the <a href="extensions.html#gensource">Send DOM</a> option in the browser extension.</p>
+<p>
+When a contrast issue is found it will be marked on the page report in the usual way. To prevent unnecessary duplication, and to simplify fixing,
+issues are only raised against the element that changes the colour, rather than for each block of text that fails.</p>
+<p>
+Testing can also be performed with the <a href="https://www.totalvalidator.com/products/ci.html">CI version</a> (because a desktop browser is required this cannot be used on a headless system). Once you have installed <a href="https://www.totalvalidator.com/downloads/extension.html">our browser extension</a>, run the CI version with the <code class="tv"><a href="ci.html#dom">-dom</a></code> option to perform your test. This simulates the <a href="main.html#dom">Validate DOM</a> option, loading the <code class="tv">-url</code> start page in the default browser, then testing the DOM (use the <code class="tv">-displaybrowser</code> option to select a different browser).</p>
+
+<!-- <p class="helpnav"><a class="dropdown" href="spellchecking.html" title="Spell Checking Topic">&lt;</a><a class="dropdown" href="help.html" title="Documentation Contents">Contents</a><a class="dropdown" href="ignore.html" title="Ignoring Issues Topic">&gt;</a></p> -->
+</main>
+
+<footer><div class="footer">
+<p class="footer">&copy; 2005-2023 Total Validator</p>
+</div></footer>
+
+</div>
+</body>
+</html>

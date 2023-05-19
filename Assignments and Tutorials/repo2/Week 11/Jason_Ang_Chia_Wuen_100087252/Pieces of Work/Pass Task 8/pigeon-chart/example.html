@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="pigeon-chart" data-ng-cloak>
+<head>
+    <title>Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>  
+<body>
+    
+    <div>
+		<!--View data in chart form-->
+        <pigeon-chart query="SELECT tdate, open, high, low, close FROM quotes WHERE stock = 'DiGi Bhd' LIMIT 20" title="Stock Quotes For DiGi" subtitle="Comparison between open, high, low and close price" type="line" axisy-title="Stock Quotes" axisx-title="Date" data-data-label="false">Placeholder for generic chart</pigeon-chart>
+	</div>		
+
+    <script src='pigeon-chart/js/angular.min.1.6.4.js'></script>
+	<script src='pigeon-chart/js/underscore-min.js'></script>
+	<script src='https://code.highcharts.com/highcharts.js'></script>
+	<script src='https://code.highcharts.com/modules/series-label.js'></script>
+	<script src='https://code.highcharts.com/modules/exporting.js'></script>
+	<script src='pigeon-chart/js/grouped-categories.js'></script>
+    <script src='pigeon-chart/js/pigeon-chart.js'></script>
+</body>
+</html>

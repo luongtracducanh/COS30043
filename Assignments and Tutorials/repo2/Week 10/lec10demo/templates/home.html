@@ -1,0 +1,20 @@
+<div data-ng-controller="homeCtrl">
+  <h2>Person List</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Actions</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="person in persons">
+        <td>{{person.name}}</td>
+        <td><a href="#!persons/{{person.id}}">Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+

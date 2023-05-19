@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Broken Link Issues | Reference | Total Validator</title>
+  <meta name="description" content="Broken link issues which may be reported and the detailed messages behind them." />
+  <meta name="author" content="Total Validator" />
+  <link rel="stylesheet" href="../../common.css" />
+  <link rel="stylesheet" href="../../website.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script type="text/javascript" src="../../images/menu.js"></script>
+</head>
+<body>
+<div class="main" id="top">
+<header><div id="skip"><a href="#content">Skip navigation</a></div>
+
+<div class="pagehead">
+<h1><a href="../../ReadMe.html"><img src="../../images/tvheader.svg" alt="Read Me Page"/></a>
+</h1>
+</div>
+
+<div class="topnavbar">
+<nav id='navbar' aria-label='Main navigation'><h2 class='hidden'>Main site navigation</h2><ul><li class='navitem'><a href='../help.html'><span class='navlink'>Documentation</span></a></li><li class='navitem'><a href='../reference/index.html'><span class='navlink'>Reference</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/index.html'><span class='navlink'>Website</span></a></li><li class='navitem'><a href='https://www.totalvalidator.com/validator/ContactForm'><span class='navlink'>Contact Form</span></a></li></ul></nav>
+</div>
+
+</header>
+<main class="nomenus">
+<!-- <nav aria-label="Reference navigation"><p class="helpnav"><a class="dropdown" href="spelling.html" title="Spell Check Issues">&lt;</a><a class="dropdown" href="index.html" title="Reference Contents">Contents</a><a class="dropdown" href="xhtml.html" title="HTML Issues">&gt;</a></p></nav> -->
+
+<h2 id="content"><a id="errors"></a><a href="index.html" title="Reference Contents">Reference</a> &gt; Broken Link errors</h2>
+<p>Errors due to link issues</p>
+<div class="dtable border" >
+<div class="dthead"><div class="dtr"><div class="dth">Code</div><div class="dth">Summary</div><div class="dth">Details</div></div></div><div class="dtbody">
+<div class="dtr" id="P40"><div class="dtd" id="P040">P40</div><div class="dtd">URL appears invalid</div><div class="dtd">The link being tested was not recognised as a valid URL. You should test this link manually.</div></div>
+<div class="dtr" id="P41"><div class="dtd" id="P041">P41</div><div class="dtd">Connection failure: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">The link could not be tested due to a connection failure. You should test this link manually.</div></div>
+<div class="dtr" id="E42"><div class="dtd" id="E042">E42</div><div class="dtd">Invalid URI found in link/attribute</div><div class="dtd">A URI was found in the link that is invalid according to <a href="https://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a>. A common mistake is to include spaces or other special characters. An invalid <code class="ht">&lt;base&gt;</code> tag, will also cause this error.</div></div>
+<div class="dtr" id="E43"><div class="dtd" id="E043">E43</div><div class="dtd">Invalid URI found in redirected link/attribute</div><div class="dtd">A URI was found in the redirect link that is invalid according to <a href="https://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a>. A common mistake is to include spaces or other special characters.</div></div>
+<div class="dtr" id="E44"><div class="dtd" id="E044">E44</div><div class="dtd">File not found</div><div class="dtd">The page links to a file that could not be found. Check that the page referred to exists and is in the correct folder, and it, and its parent folders, have sufficient permissions.</div></div>
+<div class="dtr" id="E45"><div class="dtd" id="E045">E45</div><div class="dtd">The file this links to could not be read</div><div class="dtd">The link refers to a file that was found, but there were insufficient permissions to allow this file to be read.</div></div>
+<div class="dtr" id="E46"><div class="dtd" id="E046">E46</div><div class="dtd">The file this links to does not appear to be a file</div><div class="dtd">This error is normally caused when a link refers to a folder and not to a file.</div></div>
+<div class="dtr" id="P47"><div class="dtd" id="P047">P47</div><div class="dtd">The link cannot be tested as it redirects more than 10 times</div><div class="dtd">This error is often caused by pages that redirect to each other in an infinite loop.</div></div>
+<div class="dtr" id="E49"><div class="dtd" id="E049">E49</div><div class="dtd">No matching fragment identifier found for this link</div><div class="dtd">A link was found to a fragment identifier in the same page, but that id could not be found. You need to either remove the link or add a matching fragment id.</div></div>
+<div class="dtr" id="E50"><div class="dtd" id="E050">E50</div><div class="dtd">No matching fragment identifier found for this link</div><div class="dtd">A link was found in a redirect that points to a fragment identifier in the same page, but that id could not be found. You need to amend the redirect or add a matching fragment id.</div></div>
+<div class="dtr" id="P51"><div class="dtd" id="P051">P51</div><div class="dtd">The link cannot be tested as it redirects to itself</div><div class="dtd">This error is caused when a page redirects to itself in an infinite loop.</div></div>
+<div class="dtr" id="E52"><div class="dtd" id="E052">E52</div><div class="dtd">The link is to mixed content from a secure page</div><div class="dtd">Browsers will block access to this resource and so it will not be loaded. Serve the resource using HTTPS.</div></div>
+<div class="dtr"><div class="dtd" id="E400">E400</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">Bad Request: The remote server reported a syntax error in the URL. You should check the link manually to determine the error.</div></div>
+<div class="dtr"><div class="dtd" id="E401">E401</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">Unauthorized: The remote server requires authorisation to access this document. You may be able to set the user/password for this link on the Advanced Form.</div></div>
+<div class="dtr"><div class="dtd" id="E403">E403</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">Forbidden: The remote server denied access to the document for an unknown reason.</div></div>
+<div class="dtr"><div class="dtd" id="E404">E404</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">Not Found: The remote server could not find a document at the URL provided. The link may refer to a document that no longer exists, or is pointing to the wrong place.</div></div>
+<div class="dtr"><div class="dtd" id="E410">E410</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">Gone: The document no longer exists and has been permanently removed from the remote server.</div></div>
+<div class="dtr"><div class="dtd" id="E4xx">E4xx</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">Check your web server logs to determine the cause.</div></div>
+<div class="dtr"><div class="dtd" id="E500">E500</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">Internal Server Error: This appears when a link to a document caused part of the remote server to fail (such as a CGI program) or encountered a configuration error.</div></div>
+<div class="dtr"><div class="dtd" id="E503">E503</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">Service Unavailable: The document referred to in the link is temporarily unavailable.</div></div>
+<div class="dtr"><div class="dtd" id="E5xx">E5xx</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">Check your web server logs to determine the cause.</div></div>
+</div>
+</div>
+
+<h2 id="warnings"><a href="index.html" title="Reference Contents">Reference</a> &gt; Broken Link warnings</h2>
+<p>Warnings due to link issues</p>
+<div class="dtable border" >
+<div class="dthead"><div class="dtr"><div class="dth">Code</div><div class="dth">Summary</div><div class="dth">Details</div></div></div><div class="dtbody">
+<div class="dtr" id="W48"><div class="dtd" id="W048">W48</div><div class="dtd">The link cannot be tested as it uses an unsupported protocol</div><div class="dtd">Total Validator only supports a subset of all Internet protocols and this link uses one of the unsupported ones and so cannot be tested. You should test this link manually.</div></div>
+<div class="dtr" id="W52"><div class="dtd" id="W052">W52</div><div class="dtd">The link is to mixed content from a secure page</div><div class="dtd">Browsers will warn about access to this resource. You should serve this resource using HTTPS.</div></div>
+<div class="dtr" id="W53"><div class="dtd" id="W053">W53</div><div class="dtd">The link is to an insecure page from a secure page</div><div class="dtd">A HTTP link to the same site as the HTTPS page it resides on could be a mistake. You may wish to change this to a HTTPS link.</div></div>
+<div class="dtr"><div class="dtd" id="W1xx">W1xx</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">Check your web server logs to determine the cause.</div></div>
+<div class="dtr"><div class="dtd" id="W2xx">W2xx</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">Check your web server logs to determine the cause.</div></div>
+<div class="dtr"><div class="dtd" id="W300">W300</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">Multiple choices: The server has responded that there is more than one item that matches the link. You should manually view this link and if necessary change it to point directly to the required item.</div></div>
+<div class="dtr"><div class="dtd" id="W301">W301</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">Item moved permanently: The item has been moved elsewhere, and you should change your link to point to the new location as your existing link may become invalid without your knowledge.</div></div>
+<div class="dtr"><div class="dtd" id="W302">W302</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">Item moved temporarily: The item has been moved elsewhere, but there should be no reason to change your link.</div></div>
+<div class="dtr"><div class="dtd" id="W303">W303</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">See other location: The item resides at a different location, and you should change your link to point to the new location.</div></div>
+<div class="dtr"><div class="dtd" id="W3xx">W3xx</div><div class="dtd">Problem with link: <var>MESSAGE FROM WEB SERVER</var></div><div class="dtd">Check your web server logs to determine the cause.</div></div>
+</div>
+</div>
+
+<!-- <p class="helpnav"><a class="dropdown" href="spelling.html" title="Spell Check Issues">&lt;</a><a class="dropdown" href="index.html" title="Reference Contents">Contents</a><a class="dropdown" href="xhtml.html" title="HTML Issues">&gt;</a></p> -->
+</main>
+
+<footer><div class="footer">
+<p class="footer">&copy; 2005-2023 Total Validator</p>
+</div></footer>
+
+</div>
+</body>
+</html>

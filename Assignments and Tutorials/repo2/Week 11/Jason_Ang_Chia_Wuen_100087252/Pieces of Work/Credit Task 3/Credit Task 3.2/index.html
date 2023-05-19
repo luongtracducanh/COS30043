@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="">
+<head>
+    <title>Rail Scooter (A Corporate Website)</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Responsive Navigation Bar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#burgerNavigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Rail Scooter</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="burgerNavigation">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Enquiry</a></li>
+                    <li><a href="#">Sign In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Jumbotron Section (Outside of container so can extend to page end) -->
+    <div class="jumbotron">
+        <h1 class="jumbo_text text-center">The <strong>Best</strong> Site To Look For The Best Electric Scooters In The World!</h1>
+        <p class="jumbo_text text-center">We cater for <strong>all</strong> scooter enthusiasts, whether you're a kid or an adult!</p>
+    </div>
+    
+    <!-- Information and Images taken from https://gotrax.com/collections/electric-scooters/products/gxl-commuter-scooter-hand-brake-edition#a_aid=mpsgotrax&a_bid=1cba5f02 -->
+    <div class="container">
+        <!-- Main Product Highlight -->
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <h2 class="text-center">Here's our featured product!</h2>
+                <img id="main_image" class="img-responsive" src="images/scooter_highlight.png" />
+                <h2>Product Name: GXL V2 COMMUTER SCOOTER</h2>
+                <h2>Price: $499.99</h2>
+            </div>
+        </div>
+        
+        <!-- Product Feature 1 -->
+        <div class="row product_feature">
+            <div class="col-md-6 col-xs-6">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="images/scooter_1.png" alt="Scooter Feature 1" />
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-6">
+                <h3>Love Your Commute</h3>
+                <p class="text-justify">Designed with the commuter in mind, the V2 features 8.5" air-filled, shock absorbing tires. With a max speed of 15.5mph and range of up to 12 miles per charge, the GXL V2 is the perfect solution for your every day commute.</p>
+            </div>
+        </div>
+        
+        <!-- Product Feature 2 -->
+        <div class="row product_feature">
+            <div class="col-md-6 col-xs-6">
+                <h3>What's New About The V2?</h3>
+                <p class="text-justify">The GOTRAX GXL V2 features a hand operated electric/disc brake hybrid giving you more control over your ride, and is made with a reinforced fender and base-board.</p>
+            </div>
+            <div class="col-md-6 col-xs-6">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="images/scooter_2.png" alt="Scooter Feature 2" />
+                </div>
+            </div>
+        </div>
+        
+        <!-- Product Feature 3 -->
+        <div class="row product_feature">
+            <div class="col-md-6 col-xs-6">
+                <img class="img-responsive" src="images/scooter_3.png" alt="Scooter Feature 3" />
+            </div>
+            <div class="col-md-6 col-xs-6">
+                <h3>The Perfect Fit</h3>
+                <p class="text-justify">At just 15" x 44" x 6" when folded, the GXL V2 is always a perfect fit. Store it under your desk at work, or take it on the bus. It's convenient and compact for wherever your travels may take you!</p>
+            </div>
+        </div>
+        
+        <!-- Additional -->
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <h3>Choosing the right Electric Scooter</h3>
+                <p class="text-justify">You are currently viewing our GXL V2 Electric Scooter. This scooter is meant for means of transportation and has been designed with commuters in mind. The Air filled tires absorb the shock of bumpy roads and the folding frame makes it easy to store at your destination. While anyone can have fun on the GXL Version 2 we made this electric scooter for adults and it can support a weight of up to 220lbs. Check out the table below to compare our other electric scooters and their features.</p>
+            </div>
+        </div>
+        <div id="scooter_table" class="row" data-ng-init="scooterArray = [{model:'GXL V2', motor:'250w', speed:'15.5 mph', distance:'12.5 miles', size:'8.5 inches', type:'Air Filled', brake:'Disc Brake', weight:'220 lb', charge:'4 hours'}, {model:'G2', motor:'200w', speed:'15.5 mph', distance:'9 miles', size:'6.5 inches', type:'Solid Rubber', brake:'Electromagnetic', weight:'220 lb', charge:'4 hours'}, {model:'GKS', motor:'150w', speed:'7.5 mph', distance:'4 miles', size:'6 inches', type:'Solid Rubber', brake:'Pressure Sensor', weight:'154 lb', charge:'7 hours'}]">
+            <div class="col-md-12  col-xs-12 table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <caption class="text-center">Table of Comparisons Between Different Scooter Models</caption>
+                    <thead>
+                        <tr>
+                            <th id="model">Model</th>
+                            <th id="motor">Motor</th>
+                            <th id="speed">Max Speed</th>
+                            <th id="distance">Distance</th>
+                            <th id="size">Wheel Size</th>
+                            <th id="type">Wheel Type</th>
+                            <th id="brake">Braking Type</th>
+                            <th id="weight">Weight Limit</th>
+                            <th id="charge">Charging Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="scooter in scooterArray">
+                            <td>{{ scooter.model }}</td>
+                            <td>{{ scooter.motor }}</td>
+                            <td>{{ scooter.speed }}</td>
+                            <td>{{ scooter.distance }}</td>
+                            <td>{{ scooter.size }}</td>
+                            <td>{{ scooter.type }}</td>
+                            <td>{{ scooter.brake }}</td>
+                            <td>{{ scooter.weight }}</td>
+                            <td>{{ scooter.charge }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Navigation Bar -->
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="contained-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    
+    <script src="framework/js/jquery.min.js"></script>
+    <noscript></noscript>
+    <script src="framework/js/bootstrap.min.js"></script>
+    <noscript></noscript>
+    <script src="framework/js/angular.min.js"></script>
+    <noscript></noscript>
+</body>
+
+</html>

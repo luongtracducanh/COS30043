@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Template that uses Bootstrap</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Variable Initialisation -->
+    <div class="container" ng-app="" ng-init="numWt = 0;numHt = 0">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Health App</h1>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-12">
+                <label for="kg">Please enter your weight in kilograms (kg): </label>
+                <input id="kg" class="form-control" type="text" ng-model="numWt"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <label for="cm">Please enter your height in centimeters (cm): </label>
+                <input id="cm" class="form-control" type="text" ng-model="numHt"/>
+            </div>
+        </div>
+        
+    </div>
+   
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BMI Calculation & Output -->
+            <p>Your BMI is : {{ (numWt / ((numHt / 100) * (numHt / 100))) | number:'2' }}
+            <!-- Underweight BMI -->
+            <!-- 'bg-warning' gives a yellowish color to the text background -->
+            <span class="bg-warning" ng-if="(numWt/((numHt/100)*(numHt/100)))< 18.5">Underweight</span>
+        
+            <!-- Normal Weight BMI -->
+            <!-- 'bg-success' gives a green color to the text background -->
+            <span class="bg-success" ng-if="((numWt/((numHt/100)*(numHt/100)))>= 18.5) && ((numWt/((numHt/100)*(numHt/100)))< 24.99)">Normal Weight</span>
+            
+            <!-- Overweight BMI -->
+            <span class="bg-warning" ng-if="((numWt/((numHt/100)*(numHt/100)))>= 25) && ((numWt/((numHt/100)*(numHt/100)))< 29.99)">Overweight</span>
+        
+            <!-- Obese BMI -->
+            <!-- 'bg-danger' gives a red color to the text background -->
+            <span class="bg-danger" ng-if="(numWt/((numHt/100)*(numHt/100)))>= 30">Obese</span>
+            </p>
+        </div>
+    </div>
+        
+    </div>
+    <script src="framework/js/jquery.min.js"></script>
+    <script src="framework/js/bootstrap.min.js"></script>
+    <script src="framework/js/angular.min.js"></script>
+</body>
+
+</html>

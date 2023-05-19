@@ -1,0 +1,7 @@
+body{
+    background-color:#C7D0B4;
+}
+
+input.ng-invalid{
+    border: 3px solid red;
+  }

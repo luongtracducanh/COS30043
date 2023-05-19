@@ -1,0 +1,69 @@
+<!DOCTYPE html> 
+<html data-ng-app = 'MyApp'> 
+    <head> 
+        <title>Lecture 7 - Form Static Demo</title> 
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+        <!-- Bootstrap --> 
+        <link href="css/bootstrap.min.css" rel="stylesheet" />  
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 
+        elements and media queries --> 
+        <!-- WARNING: Respond.js doesn't work if you view the 
+        page via file:// --> 
+        <!--[if lt IE 9]> 
+            <script src="js/html5shiv.js"></script> 
+            <script src="js/respond.min.js"></script> 
+        <![endif]--> 
+        <link type="text/css" href="Lec7-style.css" rel="stylesheet"/>
+        <style>
+
+        </style>
+    </head> 
+    <body> 
+
+<div class="col-md-12">
+<form class="form-horizontal" role="form"> 
+  <div class="form-group"> 
+  <!-- If you need to insert plain text next to a form label 
+  within a horizontal form, use the .form-control-static class on a <p> element -->
+    <label class="col-sm-2 control-label">
+	Static Text</label> 
+    <div class="col-sm-3"> 
+      <p class="form-control-static">No input control</p> 
+    </div> 
+	 <div class="col-sm-3"> 
+      <p class="form-control-static">No input control 2</p> 
+    </div> 
+  </div> 
+  <div class="form-group"> 
+    <label for="inputPassword" 
+	class="col-sm-2 control-label">Password</label> 
+    <div class="col-sm-10"> 
+      <input type="password" 
+		class="form-control" id="inputPassword"  
+         	placeholder="Password" /> 
+    </div> 
+  </div> 
+</form> 
+
+</div>
+
+
+        
+
+
+        
+
+        <!-- jQuery – required for Bootstrap's JavaScript plugins) --> 
+        <script src="js/jquery.min.js"></script> 
+        <!-- All Bootstrap  plug-ins  file --> 
+        <script src="js/bootstrap.min.js"></script> 
+        <!-- Basic AngularJS --> 
+        <script src="js/angular.min.js"></script> 
+        <!-- AngularJS - Routing --> 
+        <script src="js/angular-route.min.js"></script>
+        
+        
+   
+    </body> 
+</html>
