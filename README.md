@@ -1,2 +1,2 @@
 # COS30043
-Interface Design and Development (Swinburne)
+Assignments and labs of COS30043 - Interface Design and Development (May 2023)
