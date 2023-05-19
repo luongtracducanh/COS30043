@@ -1,5 +1,0 @@
-https://dzone.com/articles/introduction-to-mvc-architecture-web-developer-poi
-
-https://www.guru99.com/mvc-tutorial.html
-
-https://www.ongraph.com/what-is-mvc-architecture-in-a-web-based-application/
