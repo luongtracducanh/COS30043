@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>First Vue</title>
+	<meta charset="utf-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+</head>
+
+<body>
+	<h1>First Vue</h1>
+	<div id="app">
+		<p>Please enter the programming language name:
+		<input v-model="progName"  ></p>
+		
+		<p>Please enter your name:
+		<input v-model="yourName"  /> 
+		</p>
+		<!-- Directives are special attributes with the v- prefix. -->
+		
+
+		<p >Hello {{progName}}!</p>   <!--text interpolation -->
+		<p>I am {{yourName  }}.</p>
+		
+	</div>
+ 
+	<!-- <script src="https://unpkg.com/vue@3"></script>    -->
+	<script src="js/vue.js"></script>
+	
+	<script>
+ 		//creating new Vue instance
+		Vue.createApp({  //create a new application instance
+			data() {      //data 
+				return {progName:"",  yourName:""}
+				}
+		}).mount('#app');
+	</script>
+</body>
+
+</html>

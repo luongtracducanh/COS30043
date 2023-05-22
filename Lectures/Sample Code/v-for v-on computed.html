@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>v-on computed</title>
+	<meta charset="utf-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+	
+	<style rel="stylesheet">
+	.fade-enter-active,
+	.fade-leave-active {
+	  transition: opacity 3s ease;
+	}
+
+	.fade-enter-from,
+	.fade-leave-to {
+	  opacity: 0;
+	}
+	</style>
+</head>
+
+<body>
+	<h1> v-for   v-on   computed</h1>
+	<div id="app">
+		<!-- ---------------  v-for -->		
+		<ul>
+            <li v-for="s in students" >
+              {{s}}
+            </li>
+        </ul>
+
+		<!-- ---------------  v-on -->		
+		<p><input type="button" value="Click Me" 
+			v-on:dblclick="clk = 'Double Click'" 
+			v-on:click="clk = 'Single Click'"> {{clk}}
+		</p>
+
+		<!-- ---------------  transition wrapper -->		
+		<p><button @click="show = !show">   Toggle  </button></p>
+		<transition name="fade">
+			<h2 v-if="show">hello vue</h2>
+		</transition>
+
+		<!-- ---------------  computed -->
+		<p>Original message: <input v-model="msg"></p>
+		<p>Computed reversed message: "{{ reversedMessage }}"</p>
+		
+
+	</div>
+
+	<script src="https://unpkg.com/vue@3"></script>
+	<script>
+	Vue.createApp({
+		//***************  data   ************
+		data() { 
+			return {
+				msg: '',
+				show: true,
+				clk:'',
+				students: ["Amy", "Bill", "Casey", "David", "Edward"]
+			}  
+		},
+
+		//***************  computed   ************	 				
+		computed: {
+			reversedMessage: function () {
+				// `this` points to the instance
+				 return this.msg.split('').reverse().join('')
+			}
+			
+		}		
+	}).mount('#app');
+	</script>
+</body>
+</html>

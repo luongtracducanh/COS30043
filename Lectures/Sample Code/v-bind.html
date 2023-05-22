@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>v-bind</title>
+	<meta charset="utf-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+</head>
+
+<body>
+	<h1>v-bind  </h1>
+	<div id="app">
+ 		<p>This is a <a v-bind:href ="someUrl">website </a> </p>
+		<img v-bind:src="imageSrc">	
+	</div>
+
+	<script src="https://unpkg.com/vue@3"></script>
+	<script>
+	Vue.createApp({
+		data() { 
+			return {
+				someUrl: "https://swin.edu.au",
+				imageSrc: "flower.jpg",
+			}  
+		}					
+	}).mount('#app');
+	</script>
+</body>
+
+</html>
