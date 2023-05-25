@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Compute App</h1>
+    <div id="app">
+      <p>
+        Enter weight in kilograms:&nbsp;<input type="number" v-model="numWt" />
+      </p>
+      <p>
+        Enter height in centimeters:&nbsp;<input
+          type="number"
+          v-model="numHt"
+        />
+      </p>
+      <p>
+        Computed BMI is:
+        <span v-if="numHt==0"></span>
+        <span v-else-if="numHt!=0">
+          {{(numWt/(numHt*0.01*numHt*0.01)).toFixed(2)}}
+          <span v-if="numWt/(numHt*0.01*numHt*0.01) < 18.5"> Underweight</span>
+          <span v-else-if="numWt/(numHt*0.01*numHt*0.01) < 25"> Normal</span>
+          <span v-else-if="numWt/(numHt*0.01*numHt*0.01) < 30"> Overweight</span>
+          <span v-else-if="numWt/(numHt*0.01*numHt*0.01) >= 30"> Obese</span>
+        </span>
+      </p>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            numWt: 0,
+            numHt: 0,
+            msg: "",
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

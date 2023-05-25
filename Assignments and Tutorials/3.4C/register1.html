@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <style>
+      .row {
+        margin: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h1>Registration App: Cloud Service</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <h2>Login Information</h2>
+            <p>
+              Enter user name:&nbsp;<input type="text" v-model="userName" />
+            </p>
+            <p>
+              Enter password:&nbsp;<input type="password" v-model="password" />
+            </p>
+            <p>
+              Re-enter password:&nbsp;<input
+                type="password"
+                v-model="password2"
+              />
+              <span v-if="password2!==password"
+                >&nbsp;Password does not match</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <h2>Phone Information</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <h3>Operating System</h3>
+            <input
+              type="radio"
+              v-model="phone.os"
+              value="Android"
+              checked="checked"
+            />&nbsp;Android
+            <input type="radio" v-model="phone.os" value="IOS" />&nbsp;IOS
+            <input
+              type="radio"
+              v-model="phone.os"
+              value="Windows"
+            />&nbsp;Windows
+          </div>
+          <div class="col-sm-6">
+            <h3>Model</h3>
+            <p>
+              Select phone model:&nbsp;<select v-model="phone.model">
+                <option v-for="phone in phones" :value="phone.model">
+                  {{phone.model}}
+                </option>
+              </select>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <h3>Summary</h3>
+            <ul>
+              <li>Username: {{userName}}</li>
+              <li>OS: {{phone.os}}</li>
+              <li>Phone: {{phone.model}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            userName: "",
+            password: "",
+            password2: "",
+            phone: { model: "", os: "Android" },
+            dataSet: [
+              { model: "HTC 10", os: "Android" },
+              { model: "Nokia 6", os: "Android" },
+              { model: "Samsung Galaxy 20 Ultra", os: "Android" },
+              { model: "IDD VIOS Non Windows", os: "Android" },
+              { model: "iPhone X", os: "IOS" },
+              { model: "iPhone Xs Max", os: "IOS" },
+              { model: "iPhone 11 Pro Max", os: "IOS" },
+              { model: "IDD Windows Non Android", os: "IOS" },
+              { model: "HP Elite x3", os: "Windows" },
+              { model: "Microsoft 950", os: "Windows" },
+              { model: "Microsoft 950XL", os: "Windows" },
+              { model: "IDD VIOS Non Android", os: "Windows" },
+            ],
+          };
+        },
+        computed: {
+          phones: function () {
+            return this.dataSet.filter((phone) =>
+              phone.os.match(this.phone.os)
+            );
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

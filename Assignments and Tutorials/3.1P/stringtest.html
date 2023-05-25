@@ -22,18 +22,18 @@
     <div id="app">
       <p>
         Please enter your name:&nbsp;
-        <input v-model="name" />
+        <input v-model="strName" />
       </p>
-      <p v-if="name.toLowerCase() == 'duc anh'">Awesome name!</p>
-      <p v-else-if="name == ''"></p>
-      <p v-else="">{{name}} is not my name!</p>
+      <p v-if="strName.toLowerCase() == 'duc anh'">Awesome name!</p>
+      <p v-else-if="strName == ''"></p>
+      <p v-else>{{strName}} is not my name!</p>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
       Vue.createApp({
         data() {
           return {
-            name: "",
+            strName: "",
           };
         },
       }).mount("#app");
