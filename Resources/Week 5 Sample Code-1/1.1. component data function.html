@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Component Data Function</title>
+	<meta charset="utf-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+</head>
+
+<body>
+	<h1>Component Data Function</h1>
+	<div id="app">
+		<data_function_example></data_function_example>
+		<data_function_example></data_function_example>
+		<data_function_example></data_function_example>		
+	</div>
+	
+	<script src="https://unpkg.com/vue@3"></script>   
+	<!-- Linked to CDN (content delivery network) for easy distribution. You can download these libraries to your own computer and link to them -->
+
+	<script>
+	const app = Vue.createApp({	})
+	
+	app.component('data_function_example',
+	{	 
+		data: function(){
+			return  {counter: 0} 
+		},
+		template: "<button v-on:click='counter++'>Counter: {{ counter }} </button>"
+	})
+	
+	app.mount('#app')
+
+	</script>
+</body>
+
+</html>

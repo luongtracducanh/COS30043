@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Custom Directives</title>
+	<meta charset="utf-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+</head>
+
+<body>
+	<h1>Custom Directives</h1>
+	<div id="app">
+		<p v-highlight  > Colour changed to light green</p>   
+		<p v-highlight1="'pink'"  > Colour - pass value</p>   
+		<p v-highlight2="{color:'lightblue', border:'navy 3px solid', font: 'italic' }" > Colour - pass object</p>   
+ 		   
+	</div>
+	
+	<script src="https://unpkg.com/vue@3"></script>   
+	<!-- Linked to CDN (content delivery network) for easy distribution. You can download these libraries to your own computer and link to them -->
+
+	<script>
+	const app = Vue.createApp({})
+
+	app.directive('highlight', {  
+		created(el, binding, vnode) {
+			el.style.backgroundColor = 'lightgreen'
+		}
+	})
+	
+	app.directive('highlight1', {  
+		created(el, binding, vnode) {
+			el.style.backgroundColor = binding.value
+		}
+	})
+
+	app.directive('highlight2', {  
+		created(el, binding, vnode) {
+			el.style.backgroundColor = binding.value.color
+			el.style.border = binding.value.border
+			el.style.fontStyle = binding.value.font		
+		}
+	})
+
+	app.mount('#app')
+
+	</script>
+</body>
+
+</html>

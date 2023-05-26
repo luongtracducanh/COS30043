@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+	<title>getJSON</title> 
+	<meta charset="utf-8" />
+ 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+	<link href="js/vuetify-v3.0.0-beta.0.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head> 
+<body> 
+	<div id="app">
+      	<app-readjson></app-readjson>  
+	</div>
+      
+	<script src="js/vue.js"></script>
+ 	<script src="js/vuetify-v3.0.0-beta.0.min.js"></script>
+
+	<script>  <!--   embedded this short js here. So you can see the js and html on the same page -->
+	const vuetify = Vuetify.createVuetify( )  
+	const app = Vue.createApp({	})
+
+	app.component('app-readjson', {
+		data: function(){
+			return  {title:'',body:'',err:'',msg:''} 
+		},  
+		template: `	
+			<v-app> 
+				<v-form>
+				<v-text-field label="Title" v-model="title" ></v-text-field>
+				<v-text-field label="Message" v-model="body" ></v-text-field>
+				   <v-btn  
+					v-on:click="postData(title,body)"
+					color="success">
+					Add
+				  </v-btn>
+				</v-form>
+				<p>Message:{{msg}}</p>
+			</v-app>
+		`,
+	methods: {
+		
+		
+			postData: async function(title, body){
+			var self = this;
+
+			let response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+				method: 'POST',
+				headers: {
+				  'Content-Type': 'application/json'
+				},			
+				body: JSON.stringify({
+						userId:1,
+						id:1,
+						title: title,
+						body: body
+				})
+			});
+			
+			const data = await response.json( );
+			
+			self.msg=data;
+}
+}
+})
+app.use(vuetify)
+app.mount('#app')
+	</script>
+</body> 
+</html>

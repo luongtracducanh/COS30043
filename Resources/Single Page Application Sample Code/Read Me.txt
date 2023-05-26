@@ -1,0 +1,12 @@
+Read Me
+
+1. Create two database tables follow the scripts in db_person.sql
+
+2. for api_user.php and apis.php: open the files, find the statements as below, change to your own login credentials in both files. 
+
+// ***********  connect to the mysql database, provide the appropriate credentials, such as
+
+$conn = mysqli_connect('feenix-mariadb.swin.edu.au', 's1234567', 'your-password', 's1234567_db');
+$conn = mysqli_connect('localhost', 'root', '', 'test');
+
+3. Upload the entire folder to Mercury or your localhost, run your web application from a browser. 

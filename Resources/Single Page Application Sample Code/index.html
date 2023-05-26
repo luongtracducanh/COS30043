@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Unit Information</title>
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<!-- vuetify -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+	<link href="css/vuetify-v3.0.0-beta.0.min.css" rel="stylesheet">
+
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/font.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div id="app">
+		<v-app id="inspire">
+			<v-main>
+				<v-container>
+					<v-app-bar v-if="authenticated" >
+						<app-nav></app-nav>
+					</v-app-bar>
+
+					<!-- show the component -->
+					<router-view @authenticated="setAuthenticated" ></router-view>
+				</v-container>
+			</v-main>
+		</v-app>
+
+	</div>
+
+
+	<!-- Load Basic Vue JS file-->
+	<script src="js/vue.js"></script>
+
+	<!-- Load Vuetify JS file-->
+ 	<script src="js/vuetify-v3.0.0-beta.0.min.js"></script>
+
+	<!-- Load Vue Router JS file-->
+	<script src="js/vue-router.js"></script>
+
+	<!-- Load Vue Paginate JS file-->
+	<script src="js/vuejs-paginate.js"></script>
+
+
+	<!-- Load the custom component js files -->
+	<script src="js/components/app-dashboard.js"></script>
+	<script src="js/components/app-read.js"></script>
+	<script src="js/components/app-delete.js"></script>
+	<script src="js/components/app-post.js"></script>
+	<script src="js/components/app-update.js"></script> 
+	<script src="js/components/app-login.js"></script>
+
+	<!-- Load the custom main js file -->
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>

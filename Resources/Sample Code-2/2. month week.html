@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Month Week</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<h1>Month Week</h1>
+	<div id="app">
+		<!-- -------------------   select week or month ------------ -->
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+				
+				<input type="radio" v-model="sele" value="week">Day of Week
+				<input type="radio" v-model="sele" value="month">Month
+				
+				<button v-on:click="sele='week'" >Day of Week</button>
+				<button v-on:click="sele='month'" >Month</button>
+				</div>
+			</div>
+		</div>
+		<!-- -------------------   show months ------------ -->
+		<div v-if="sele == 'month'" class="container">
+			<div class="row">
+				<div class="col-3 border">January</div>
+				<div class="col-3 border">Feburary</div>
+				<div class="col-3 border">March</div>
+				<div class="col-3 border">April</div>
+				<div class="col-3 border">May</div>
+				<div class="col-3 border">June</div>
+				<div class="col-3 border">July</div>
+				<div class="col-3 border">August</div>
+				<div class="col-3 border">September</div>
+				<div class="col-3 border">October</div>
+				<div class="col-3 border">November</div>
+				<div class="col-3 border">December</div>					
+			</div>
+		</div>
+		<!-- -------------------   show day of week  ------------ -->
+		<div v-else class="container">
+			<div class="row">
+				<div class="col-4 border">Monday</div>
+				<div class="col-4 border">Tuesday</div>
+				<div class="col-4 border">Wednesday</div>
+				<div class="col-4 border">Thursday</div>
+				<div class="col-4 border">Friday</div>
+				<div class="col-4 border">Saturday</div>
+				<div class="col-4 border">Sunday</div>
+			</div>
+		</div>
+  
+	<script src="https://unpkg.com/vue@3"></script>   <!-- link to vue js version 3  -->
+	
+	<script>
+		Vue.createApp({  //create a new application instance
+			data() {     // data option
+				return {sele:'month'
+				}
+			}
+		}).mount('#app')   // mount the app to dom element
+	</script>
+</body>
+
+</html>

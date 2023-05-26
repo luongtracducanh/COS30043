@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Watch</title>
+	<meta charset="utf-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+</head>
+
+<body>
+	<h1>Watch</h1>
+	<div id="app">
+		<p>Please enter your first name:<input type="text" v-model.lazy="fName"  />{{fName}} 
+		<p>Please enter your last name:<input type="text" v-model.lazy="lName"  /> {{lName}}
+		<!--  By default, v-model is evaluated every time the input event is fired (ie. on keypress or paste.) If you’d rather wait until the user has finished inputting and unfocused the field, you can use the v-model.lazy modifier to have v-model listen to the change event instead.   -->
+		</p>
+	</div>
+	<script src="https://unpkg.com/vue@3"></script>   <!-- link to vue js version 3  -->
+	
+	<script>
+		Vue.createApp({  //create a new application instance
+			data() {     // data
+				return {fName:'', lName:''
+				}
+			},
+			watch:  { //watch
+				fName: function (newV, oldV){
+					alert(" Old first name: " + oldV +"   New first name: " + newV);
+				},
+				lName: function (newVar, oldVar){
+					alert(" Old last name: " + oldVar +"   New last name: " + newVar);
+				}
+			}
+
+		}).mount('#app')   // mount the app to dom element
+	</script>
+	
+</body>
+
+</html>

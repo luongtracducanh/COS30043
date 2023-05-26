@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+	<link href="js/vuetify-v3.0.0-beta.0.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div id="app">
+    <v-app>
+		<v-app-bar app>
+			<p> this is an app bar</p>
+		</v-app-bar>
+
+ 		<v-main>
+        <v-container fluid>
+			<p>Hello World!</p>
+
+			<v-btn  color="primary" >
+				<v-icon>mdi-pencil</v-icon>    <!-- mdi: material design icon -->
+			</v-btn>
+			<v-btn   color="error" >
+				<v-icon>mdi-alarm</v-icon>
+			</v-btn>
+        </v-container>
+        
+        <v-container fluid>
+			<v-alert type="success">
+				I'm a success alert.
+			</v-alert>
+      
+			<v-alert type="info">
+				I'm an info alert.
+			</v-alert>
+        </v-container>
+		</v-main>
+
+		<v-footer app>
+			<p> this is a footer</p>      
+		</v-footer>
+    </v-app>  
+	</div>
+
+
+	<script src="js/vue.js"></script>
+ 	<script src="js/vuetify-v3.0.0-beta.0.min.js"></script>
+	
+	<script>
+		const app = Vue.createApp({ })
+		const vuetify = Vuetify.createVuetify( )  
+		app.use(vuetify)
+		app.mount('#app')
+	</script>
+</body> 
+</html>

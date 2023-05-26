@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Guess Number</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+</head>
+
+<body>
+	<h1>Guess Odd or Even Number</h1>
+	<div id="app">
+	<p>You are be given a nummber from 1 to 100, guess it is an odd number or even number (enter 'odd' or 'even'):</p>
+	<p><input type="text" v-model="guess" /></p>
+
+	<p>
+		<button v-on:click="checkGuess()">Check Guess</button>
+		<button v-on:click="giveUp()">Give Up</button>
+		<button v-on:click="startOver()">Start</button>
+	</p>
+
+	<p>Message: {{ msg }}</p>			
+	<hr>
+	<p>For your information, the secret number randomly generated is: {{ secret }}</p>		
+	 
+		 
+	</div>
+	
+	
+	<script src="https://unpkg.com/vue@3"></script>   <!-- link to vue js version 3  -->
+	<!-- You can link to the vue.js in your own computer. I linked to the CDN for easy distribution. -->
+	
+	<script>
+	Vue.createApp({  //create a new application instance
+		data() {     // data option
+			return {guess:'', msg:'', secret:0 
+			}
+		},
+		
+		methods: {
+			genRandomNum: function () { // generate random number from 1 to 100
+			  return Math.floor(Math.random() * 100) + 1;
+			},
+     
+			checkGuess: function () {     
+				if (this.secret%2==0 && this.guess=='even'  || this.secret%2==1 && this.guess=='odd')
+					this.msg = "Correct.";
+				else
+					this.msg = "Incorrect.";
+			},
+			startOver: function () {     
+				this.msg = "Start guessing.";
+				this.secret = this.genRandomNum();
+			},
+			giveUp: function () {     
+				this.msg = "The secret number is " + this.secret;
+			}
+			
+		},
+		
+		created: function () {//Called after the instance is created
+			this.msg = "Start guessing.";
+			this.secret = this.genRandomNum();
+		}
+		}).mount('#app')   // mount the app to dom element
+	</script>
+
+</body>
+
+</html>

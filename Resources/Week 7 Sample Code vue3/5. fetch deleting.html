@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+	<title>getJSON</title> 
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+</head> 
+<body> 
+	<div id="app">
+      	<app-readjson></app-readjson>   
+	</div>
+    <script src="js/vue.js"></script> 
+	<script src="js/vuetify.js"></script> 
+	<script>  <!--   embedded this short js here. So you can see the js and html on the same page -->
+	const app = Vue.createApp({	})
+	app.component('app-readjson', {
+		data: function(){
+			return  { } 
+		},  
+		template: `		
+       <button v-on:click="deleteData( )" >Delete</button>
+		`,
+	methods: {
+			
+			deleteData: function(){
+				fetch('https://jsonplaceholder.typicode.com/posts/1', {
+					method: 'DELETE',
+					headers: {
+					  'Content-Type': 'application/json'
+					},
+					body: null
+				})
+				.then(response => {
+					return response.json( )
+				})
+				.then(data => 
+					// this is the data we get after response.json()
+					console.log(data) 
+				)
+				.catch(error => console.log('error is', error));				
+				}
+				
+}
+})
+app.mount('#app')
+	</script>
+</body> 
+</html>

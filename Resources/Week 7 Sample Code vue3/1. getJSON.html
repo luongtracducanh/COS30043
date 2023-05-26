@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+	<title>getJSON</title> 
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+</head> 
+<body> 
+	<div id="app">
+      	<app-readjson></app-readjson>   
+	</div>
+      
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	
+    <script src="js/vue.js"></script> 
+	
+	<script>  <!--   embedded this short js here for easy distribution  -->
+	const app = Vue.createApp({	})
+	app.component('app-readjson', {   
+		data: function(){
+			return  {msg: [ ]} 
+		},  
+		template: `	
+		<ul>
+			<li v-for="m in msg">
+             {{ m }}     
+			</li>
+		</ul>
+		`,
+		mounted() { 
+			var self = this;
+			$.getJSON('https://jsonplaceholder.typicode.com/posts', function(data) {
+				self.msg = data;
+    			})
+			.fail(function() { alert('getJSON request failed! '); })
+  		}
+	})
+	
+	app.mount('#app')
+	</script>
+</body> 
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<title>component</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	<h1>Component with Props</h1>
+	<div id="app" >
+		<blog-post title="My journey with Vue"></blog-post>
+		<blog-post title="Blogging with Vue"></blog-post>
+		<hr>
+		<my-component v-bind:fruits="['apple','banana','orange']"></my-component>
+	</div>
+
+	<script src="https://unpkg.com/vue@3"></script> 
+	<!-- Linked to CDN (content delivery network) for easy distribution. You can download these libraries to your own computer and link to them -->
+
+	<script>
+	const app = Vue.createApp({	})
+	app.component('blog-post', {
+		props: ['title'],
+		template: '<p>{{ title }}</p>'
+	})
+
+	app.component('my-component', {
+		props: ['fruits'],
+		template: '<p v-for="f in fruits">{{ f }}</p>'
+	})
+
+	app.mount('#app')
+	</script>
+
+</body>
+</html>

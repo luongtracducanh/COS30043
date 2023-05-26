@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" >
+	<meta name="description" content="... ...">
+	<meta name="keywords" content="... ...">
+	<meta name="author" content="... ...">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+	<title>Simple Form</title>
+</head>
+
+<body>
+	<h1>Simple Form</h1>
+	<div id="app">	
+		<form  method="post"  @submit="checkForm"
+		action="https://mercury.swin.edu.au/it000000/formtest.php"  >
+			<div v-if="errors.length">
+				<ul>
+					<li v-for="e in errors">{{e}}</li>
+				</ul>
+			</div>
+			
+			<p> 
+				<label for="fName">First Name</label>
+				<input type="text" name="fName" id="fName" v-model="fName"  >
+			</p>
+			<p> 
+				<label for="lName">First Name</label>
+				<input type="text" name="lName" id="lName" v-model="lName"  >
+			</p>
+			
+			<p>
+				<input type="submit" value="submit">
+			</p>
+		</form>
+	</div>
+	
+	<script src="js/vue.js"></script>
+	<script src="simple form.js"></script>
+	
+</body>
+</html>

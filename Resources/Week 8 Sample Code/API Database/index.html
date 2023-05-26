@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+	<title>Consuming Externale Data Demo</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+
+	<!-- vuetify -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+	<link href="css/vuetify-v3.0.0-beta.0.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<div id="app">
+		<v-app id="inspire">
+			<v-main>
+				<v-container>
+
+					<!-- Reading from JSON file -->
+					<app-readjson></app-readjson>
+					<v-divider></v-divider>
+					<!-- Reading from External API -->
+					<app-readextapi></app-readextapi>
+					<v-divider></v-divider>
+					<!-- Reading from MySQL table -->
+					<app-readmysql></app-readmysql>
+					<v-divider></v-divider>
+					<!-- Inserting into mySQL Table -->
+					<app-postdata></app-postdata>
+					<v-divider></v-divider>
+					<!-- Updating  mySQL Table -->
+					<app-putdata></app-putdata>
+					<v-divider></v-divider>
+					<!-- Deleting  mySQL Table -->
+					<app-deldata></app-deldata>
+					<v-divider></v-divider>			
+				</v-container>
+			</v-main>
+		</v-app>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/vue.js"></script>
+ 	<script src="js/vuetify-v3.0.0-beta.0.min.js"></script>
+	<script src="js/api1.js"></script>
+</body>
+
+
+</html>
