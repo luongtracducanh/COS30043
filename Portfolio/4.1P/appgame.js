@@ -2,8 +2,8 @@ Vue.createApp({
   data() {
     return {
       guess: 0,
-      secret: 0,
-      msg: "",
+      secret: this.genRandomNum(),
+      msg: "Start guessing.",
     };
   },
   methods: {
@@ -27,9 +27,5 @@ Vue.createApp({
       this.guess = 0;
       this.msg = "Start guessing.";
     },
-  },
-  created: function () {
-    this.secret = this.genRandomNum();
-    this.msg = "Start guessing.";
   },
 }).mount("#app");

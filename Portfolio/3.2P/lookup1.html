@@ -72,7 +72,7 @@
                   <tr v-for="obj in objs">
                     <td>{{obj.code}}</td>
                     <td>{{obj.desc}}</td>
-                    <td>{{obj.cp}}</td>
+                    <td>{{obj.cp.toFixed(2)}}</td>
                     <td>{{obj.type}}</td>
                   </tr>
                 </tbody>
@@ -87,7 +87,7 @@
       Vue.createApp({
         data() {
           return {
-            obj: { code: "", desc: "", cp: "", type: "" },
+            obj: { code: "", desc: "", cp: 0.0, type: "" },
             dataSet: [
               {
                 code: "ICT10001",
@@ -239,12 +239,16 @@
 
         computed: {
           objs: function () {
-            return this.dataSet.filter(
-              (obj) =>
-                obj.code.toLowerCase().match(this.obj.code.toLowerCase()) &&
-                obj.desc.toLowerCase().match(this.obj.desc.toLowerCase()) &&
-                obj.type.toLowerCase().match(this.obj.type.toLowerCase())
-            );
+            return this.dataSet
+              .sort((a, b) =>
+                a.desc.toLowerCase().localeCompare(b.desc.toLowerCase())
+              )
+              .filter(
+                (obj) =>
+                  obj.code.toLowerCase().match(this.obj.code.toLowerCase()) &&
+                  obj.desc.toLowerCase().match(this.obj.desc.toLowerCase()) &&
+                  obj.type.toLowerCase().match(this.obj.type.toLowerCase())
+              );
           },
         },
       }).mount("#app");
