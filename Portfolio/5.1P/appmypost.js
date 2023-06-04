@@ -13,35 +13,31 @@ app.component(
     // define the template for the component
     template:
       // your code here
-      '',
+      `
+      <div>
+        <p>
+          <b>Status:</b>&nbsp;<input v-model="strStatus" />&nbsp;
+          <button v-on:click="add(strStatus)">Post</button>
+        </p>
+        <p v-for="(status, index) in statPosts" :key="index">
+          {{ status }}
+          <button v-on:click="remove(index)">Del</button>
+        </p>
+      </div>
+      `,
     // defining the methods for add and remove status messages
     methods: {
       add: function (status) {
         // push status into statPosts array
-        this.strStatus.push(status);
+        this.statPosts.push(status);
+        // clear strStatus after posting
+        this.strStatus = "";
       },
       remove: function (index) {
         // delete status from statPost using index
-        this.strStatus.splice(index, 1);
+        this.statPosts.splice(index, 1);
       },
     },
   }
 );
 app.mount("#app");
-
-// Vue.createApp({
-//   data() {
-//     return {
-//       statPosts: [],
-//       strStatus: "",
-//     };
-//   },
-//   methods: {
-//     add: function (status) {
-//       this.statPosts.push(status);
-//     },
-//     remove: function (index) {
-//       this.statPosts.splice(index, 1);
-//     },
-//   },
-// }).mount("#app");
