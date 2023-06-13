@@ -80,7 +80,7 @@ const router = VueRouter.createRouter({
     {
       path: "/unit/:id",
       component: Unit,
-      //defining path and the component
+      // Defining path and the component
     },
   ],
 });
