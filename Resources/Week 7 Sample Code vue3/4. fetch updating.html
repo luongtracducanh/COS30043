@@ -1,57 +1,56 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-	<title>getJSON</title> 
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-</head> 
-<body> 
-	<div id="app">
-      	<app-readjson></app-readjson>   
-	</div>
-      
-    <script src="js/vue.js"></script> 
-	<script>  <!--   embedded this short js here. So you can see the js and html on the same page -->
-	const app = Vue.createApp({	})
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>getJSON</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div id="app">
+      <app-readjson></app-readjson>
+    </div>
 
-	app.component('app-readjson', {
-		data: function(){
-			return  { } 
-		},  
-		template: `			
+    <script src="js/vue.js"></script>
+    <script>
+      <!--   embedded this short js here. So you can see the js and html on the same page -->
+      const app = Vue.createApp({});
+
+      app.component("app-readjson", {
+        data: function () {
+          return {};
+        },
+        template: `			
        <button  v-on:click="updateData( )" >Update</button>
 		`,
-	methods: {
-			
-			updateData: function(){
-				//your data to send
-				const myObject = {
-					"userId": 1,
-					"id": 1 ,
-					"title":'COS30043',
-					"body":' a great unit'
-				};
+        methods: {
+          updateData: function () {
+            //your data to send
+            const myObject = {
+              userId: 1,
+              id: 1,
+              title: "COS30043",
+              body: " a great unit",
+            };
 
-				fetch('https://jsonplaceholder.typicode.com/posts/1', {
-					method: 'PUT',
-					headers: {
-					  'Content-Type': 'application/json'
-					},
-					body: JSON.stringify(myObject)
-				})
-				.then(response => {
-					return response.json( )
-				})
-				.then(data => {
-					// this is the data we get after response.json
-					console.log(data) 
-				})
-				.catch(error => console.log('The error is: ', error))	
-			}
-				
-}
-})
-app.mount('#app')
-	</script>
-</body> 
+            fetch("https://jsonplaceholder.typicode.com/posts/1", {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(myObject),
+            })
+              .then((response) => {
+                return response.json();
+              })
+              .then((data) => {
+                // this is the data we get after response.json
+                console.log(data);
+              })
+              .catch((error) => console.log("The error is: ", error));
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
 </html>

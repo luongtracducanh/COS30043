@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@3.3.4/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <h1>Registration web form</h1>
+        <v-app>
+          <v-main>
+            <v-container>
+              <v-form
+                ref="myForm"
+                v-model="valid"
+                method="post"
+                action="http://mercury.swin.edu.au/it000000/formtest.php"
+              >
+                <div class="row">
+                  <div class="col-md-6">
+                    <v-text-field
+                      name="fName"
+                      v-model="fName"
+                      :rules="nameRules"
+                      label="First name"
+                    ></v-text-field>
+                  </div>
+                  <div class="col-md-6">
+                    <v-text-field
+                      name="lName"
+                      v-model="lName"
+                      :rules="nameRules"
+                      label="Last name"
+                    ></v-text-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <v-text-field
+                      name="uName"
+                      v-model="uName"
+                      :rules="userNameRules"
+                      label="User name"
+                    ></v-text-field>
+                  </div>
+                  <div class="col-md-4">
+                    <v-text-field
+                      name="pwd"
+                      v-model="pwd"
+                      :rules="pwdRules"
+                      label="Password"
+                      type="password"
+                    ></v-text-field>
+                  </div>
+                  <div class="col-md-4">
+                    <v-text-field
+                      name="pwd2"
+                      v-model="pwd2"
+                      :rules="[(pwd === pwd2) || 'Passwords do not match']"
+                      label="Confirm password"
+                      type="password"
+                    ></v-text-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <v-text-field
+                      name="email"
+                      v-model="email"
+                      :rules="emailRules"
+                      label="Email"
+                    ></v-text-field>
+                  </div>
+                  <div class="col-md-6">
+                    <v-text-field
+                      name="mobile"
+                      v-model="mobile"
+                      :rules="mobileRules"
+                      label="Mobile number"
+                    ></v-text-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <v-text-field
+                      name="add"
+                      v-model="add"
+                      label="Street address (optional)"
+                      maxlength="40"
+                    ></v-text-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <v-text-field
+                      name="sub"
+                      v-model="sub"
+                      label="Suburb (optional)"
+                      maxlength="20"
+                    ></v-text-field>
+                  </div>
+                  <div class="col-md-6">
+                    <v-text-field
+                      name="post"
+                      v-model="post"
+                      :rules="postRules"
+                      label="Postcode"
+                    ></v-text-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <v-btn color="primary" @click="show = !show">
+                      Terms and Condition </v-btn
+                    >&nbsp;
+                    <v-btn
+                      type="submit"
+                      :disabled="!valid"
+                      color="success"
+                      @click="validate"
+                      >Submit</v-btn
+                    >
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <v-card v-if="show" style="margin-top: 20px">
+                      <v-card-title>Terms and Condition</v-card-title>
+                      <v-card-text>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Perspiciatis atque officia et. Tempore delectus,
+                        corporis eligendi sed molestiae ipsa magnam, mollitia
+                        officiis qui nostrum illo animi magni aspernatur quaerat
+                        sequi?
+                      </v-card-text>
+                    </v-card>
+                  </div>
+                </div>
+              </v-form>
+            </v-container>
+          </v-main>
+        </v-app>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@3.3.4/dist/vuetify.min.js"></script>
+    <script src="js/appregistration2.js"></script>
+  </body>
+</html>
