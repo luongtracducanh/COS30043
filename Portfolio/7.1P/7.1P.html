@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <app-request-data></app-request-data>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({});
+      app.component("app-request-data", {
+        data() {
+          return { msg: [] };
+        },
+        template: `
+        <div>
+          <p v-for="m in msg">
+            {{ m.id }} -- {{ m.title }}
+          </p>
+        </div>
+        `,
+        mounted() {
+          var self = this;
+          var url = "https://jsonplaceholder.typicode.com/posts";
+
+          $.getJSON(url, function (data) {
+            self.msg = data;
+          }).fail(function () {
+            alert("getJSON request failed! ");
+          });
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div id="app">
+        <h1>Units</h1>
+        <app-retrieve-data></app-retrieve-data>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({});
+      app.component("app-retrieve-data", {
+        data() {
+          return { err: "none", msg: "" };
+        },
+        template: `
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+                <th>cp</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="m in msg">
+                <td>{{m.code}}</td>
+                <td>{{m.desc}}</td>
+                <td>{{m.cp}}</td>
+                <td>{{m.type}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <p><b>Error:</b> {{err}}</p>
+        </div>
+        `,
+        mounted() {
+          var self = this;
+          var url = "units.json";
+
+          fetch(url)
+            .then((response) => {
+              return response.json();
+            })
+            .then((data) => {
+              self.msg = data;
+            })
+            .catch((error) => {
+              self.err = error;
+            });
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

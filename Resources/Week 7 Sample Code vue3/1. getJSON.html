@@ -26,12 +26,12 @@
           return { msg: [] };
         },
         template: `
-      <ul>
-      	<li v-for="m in msg">
-          {{ m }}
-      	</li>
-      </ul>
-      `,
+        <ul>
+          <li v-for="m in msg">
+            {{ m }}
+          </li>
+        </ul>
+        `,
         mounted() {
           var self = this;
           $.getJSON(
