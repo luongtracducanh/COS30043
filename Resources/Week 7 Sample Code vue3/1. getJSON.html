@@ -19,19 +19,19 @@
     <script src="js/vue.js"></script>
 
     <script>
-      // embedded this short js here for easy distribution
+      <!--   embedded this short js here for easy distribution  -->
       const app = Vue.createApp({});
       app.component("app-readjson", {
         data: function () {
           return { msg: [] };
         },
-        template: `
-        <ul>
-          <li v-for="m in msg">
-            {{ m }}
-          </li>
-        </ul>
-        `,
+        template: `	
+		<ul>
+			<li v-for="m in msg">
+             {{ m }}     
+			</li>
+		</ul>
+		`,
         mounted() {
           var self = this;
           $.getJSON(

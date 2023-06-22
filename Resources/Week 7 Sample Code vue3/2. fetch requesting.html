@@ -12,32 +12,30 @@
 
     <script src="js/vue.js"></script>
     <script>
-      // embedded this short js here, for easy distribution
+      <!--   embedded this short js here, for easy distribution -->
       const app = Vue.createApp({});
       app.component("app-readjson", {
         data: function () {
           return { err: "", msg: "" };
         },
-        template: `
-        <div>
-		      <ul><li v-for="m in msg">{{m}}</li></ul>
-		      <p>Error: {{err}}</p>
-		    </div>
-        `,
+        template: `	<div>
+		<ul><li v-for="m in msg">{{m}}</li></ul>
+		<p>Error: {{err}}</p>
+		</div>`,
 
         mounted() {
-          // Called after the instance has been mounted
+          //Called after the instance has been mounted
           var self = this;
           var url = "https://jsonplaceholder.typicode.com/posts";
           // var url = 'https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric&output=json&tzshift=0';//whether forecasting
 
-          fetch(url) // javascript fetch api
+          fetch(url) //javascript fetch api
             .then((response) => {
-              //t urning the response into the usable data
+              //turning the response into the usable data
               return response.json();
             })
             .then((data) => {
-              // This is the data you wanted to get from url
+              //This is the data you wanted to get from url
               self.msg = data;
             })
             .catch((error) => {

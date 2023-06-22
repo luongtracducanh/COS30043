@@ -12,7 +12,7 @@
 
     <script src="js/vue.js"></script>
     <script>
-      // embedded this short js here. So you can see the js and html on the same page
+      <!--   embedded this short js here. So you can see the js and html on the same page -->
       const app = Vue.createApp({});
 
       app.component("app-readjson", {
@@ -20,11 +20,11 @@
           return {};
         },
         template: `			
-        <button  v-on:click="updateData( )" >Update</button>
-		    `,
+       <button  v-on:click="updateData( )" >Update</button>
+		`,
         methods: {
           updateData: function () {
-            // your data to send
+            //your data to send
             const myObject = {
               userId: 1,
               id: 1,

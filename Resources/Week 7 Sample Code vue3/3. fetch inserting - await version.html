@@ -26,7 +26,7 @@
     <script src="js/vuetify-v3.0.0-beta.0.min.js"></script>
 
     <script>
-      // embedded this short js here. So you can see the js and html on the same page
+      <!--   embedded this short js here. So you can see the js and html on the same page -->
       const vuetify = Vuetify.createVuetify();
       const app = Vue.createApp({});
 
@@ -35,19 +35,19 @@
           return { title: "", body: "", err: "", msg: "" };
         },
         template: `	
-        <v-app> 
-          <v-form>
-          <v-text-field label="Title" v-model="title" ></v-text-field>
-          <v-text-field label="Message" v-model="body" ></v-text-field>
-            <v-btn  
-            v-on:click="postData(title,body)"
-            color="success">
-            Add
-            </v-btn>
-          </v-form>
-          <p>Message:{{msg}}</p>
-        </v-app>
-        `,
+			<v-app> 
+				<v-form>
+				<v-text-field label="Title" v-model="title" ></v-text-field>
+				<v-text-field label="Message" v-model="body" ></v-text-field>
+				   <v-btn  
+					v-on:click="postData(title,body)"
+					color="success">
+					Add
+				  </v-btn>
+				</v-form>
+				<p>Message:{{msg}}</p>
+			</v-app>
+		`,
         methods: {
           postData: async function (title, body) {
             var self = this;
