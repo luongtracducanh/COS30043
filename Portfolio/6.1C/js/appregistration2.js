@@ -1,16 +1,3 @@
-// 1. First name (letters only and required)
-// 2. Last name (letters only and required)
-// 3. User name (min 3 characters and required)
-// 4. Password (must contain at least 1 special character, minimum 8 characters and required, special characters are $, %, ^, &, and *
-// 5. Confirm password (must match above password)
-// 6. Email (must be in email format and required)
-// 7. Street address (maximum 40 characters, optional)
-// 8. Suburb (maximum 20 characters, optional)
-// 9. Postcode (exactly 4 numeric digits and required, note some postcodes start with 0)
-// 10. Mobile number (10 digits, must start with 04)
-// 11. Submit button (form data is submitted to the server only if the form data are valid)
-// 12. Show “Terms and Condition” button (hides/unhides a brief text on terms and condition, random text is acceptable)
-
 const vuetify = Vuetify.createVuetify();
 const app = Vue.createApp({
   methods: {
@@ -47,10 +34,10 @@ const app = Vue.createApp({
         "Password must contain at least 1 special character ($, %, ^, &, or *)",
     ],
     emailRules: [
-      (v) => !!v || "E-mail required",
+      (v) => !!v || "Email required",
       (v) =>
         /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(v) ||
-        "E-mail must be valid",
+        "Email must be valid",
     ],
     postRules: [
       (v) => !!v || "Postcode required",
