@@ -47,7 +47,7 @@ const app = Vue.createApp({
         "Password must contain at least 1 special character ($, %, ^, &, or *)",
     ],
     emailRules: [
-      (v) => !!v || "E-mail is required",
+      (v) => !!v || "E-mail required",
       (v) =>
         /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(v) ||
         "E-mail must be valid",
