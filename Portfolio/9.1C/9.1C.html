@@ -16,18 +16,31 @@
     />
   </head>
   <body>
+    <div id="app">
+      <v-app id="inspire">
+        <v-main>
+          <v-container>
+            <v-app-bar v-if="authenticated">
+              <app-nav></app-nav>
+            </v-app-bar>
+            <!-- show the component -->
+            <router-view @authenticated="setAuthenticated"></router-view>
+          </v-container>
+        </v-main>
+      </v-app>
+    </div>
     <!-- CDN links for VueJS, Vue Router, Vuetify, Vue Paginate -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://unpkg.com/vue-router@4.0.15/dist/vue-router.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@3.3.5/dist/vuetify.min.js"></script>
     <script src="https://unpkg.com/vuejs-paginate-next@latest/dist/vuejs-paginate-next.umd.js"></script>
     <!-- Custom component files -->
-    <script src="js/components/login.js"></script>
-    <script src="js/components/dashboard.js"></script>
-    <script src="js/components/read.js"></script>
-    <script src="js/components/post"></script>
-    <script src="js/components/update"></script>
-    <script src="js/components/delete.js"></script>
+    <script src="js/components/app-login.js"></script>
+    <script src="js/components/app-dashboard.js"></script>
+    <script src="js/components/app-read.js"></script>
+    <script src="js/components/app-post.js"></script>
+    <script src="js/components/app-update.js"></script>
+    <script src="js/components/app-delete.js"></script>
     <!-- Custom js file -->
     <script src="js/9.1C.js"></script>
   </body>
