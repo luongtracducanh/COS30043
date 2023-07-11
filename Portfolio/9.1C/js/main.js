@@ -47,13 +47,15 @@ const app = Vue.createApp({
 // Create components
 app.component("app-nav", {
   template: `
-	<div>
+  <div>
     <v-spacer></v-spacer>
     <v-btn>
-        <router-link  to="/login" v-on:click="logout()" replace>Logout<v-icon>mdi-logout</v-icon></router-link>
-		          <!-- replace: the navigation will not leave a history record.  -->
+      <router-link to="/login" v-on:click="logout()" replace
+        >Logout<v-icon>mdi-logout</v-icon></router-link
+      >
+      <!-- replace: the navigation will not leave a history record.  -->
     </v-btn>
-    </div>
+  </div>
   `,
   methods: {
     logout() {

@@ -18,16 +18,12 @@ const Dashboard = {
         <v-tabs v-model="tab" background-color="transparent" color="basil" grow>
           <v-tab v-for="item in items" :key="item"> {{ item }} </v-tab>
         </v-tabs>
-        <v-tabs-items v-model="tab">
-          <v-tab-item>
-            <v-card flat>
-              <app-read v-if="tab==0"></app-read>
-              <app-post v-show="tab==1"></app-post>
-              <app-update v-show="tab==2"></app-update>
-              <app-delete v-show="tab==3"></app-delete>
-            </v-card>
-          </v-tab-item>
-        </v-tabs-items>
+          <v-card flat>
+            <app-read v-if="tab==0"></app-read>
+            <app-post v-show="tab==1"></app-post>
+            <app-update v-show="tab==2"></app-update>
+            <app-delete v-show="tab==3"></app-delete>
+          </v-card>
       </v-card-text>
     </v-card>
   </div>
