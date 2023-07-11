@@ -6,15 +6,19 @@ const PostData = {
       <v-card class="mx-auto" max-width="90%">
         <v-card-text>
           <v-form>
-            <v-text-field label="Name" v-model="name1" />
-            <v-text-field label="Age" v-model="age1" />
-            <v-radio-group label="Smiley Color" v-model="imgVar">
-              <v-radio label="White" value="1"></v-radio>
-              <v-radio label="Yellow" value="2"></v-radio>
+            <v-text-field label="Unit Code" v-model="code1" />
+            <v-text-field label="Description" v-model="description1" />
+            <v-text-field label="Credit Points" v-model="cp1" />
+
+            <v-radio-group label="Type" v-model="type1">
+              <v-radio label="Core" value="Core"></v-radio>
+              <v-radio label="Software Development" value="Software Development"></v-radio>
+              <v-radio label="System Analysis" value="System Analysis"></v-radio>
             </v-radio-group>
+
             <v-btn
               depressed
-              v-on:click="postData(name1,age1, imgVar)"
+              v-on:click="postData(code1, description1, cp1, type1)"
               color="primary"
             >
               Add
@@ -38,10 +42,11 @@ const PostData = {
   `,
   data: function () {
     return {
-      age1: "",
-      name1: "",
+      code1: "",
+      description1: "",
+      cp1: "",
+      type1: "",
       msg: "",
-      imgVar: "",
       statusVal: "",
       statusText: "",
       headers: "",
@@ -49,7 +54,7 @@ const PostData = {
     };
   },
   methods: {
-    postData: function (nm, age, img) {
+    postData: function (code, description, cp, type) {
       //define url for api
       var postSQLApiURL = "resources/apis.php/";
 
@@ -61,9 +66,10 @@ const PostData = {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: nm,
-          age: age,
-          fpath: "img/smiley" + img + ".png",
+          code: code,
+          description: description,
+          cp: cp,
+          type: type,
         }),
       };
 
@@ -77,7 +83,7 @@ const PostData = {
           self.msg = "Data Inserted Successfully.";
         })
         .catch((error) => {
-          self.msg = "There was an error!" + error;
+          self.msg = "There was an error: " + error;
         });
     },
   },

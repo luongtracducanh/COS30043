@@ -6,8 +6,8 @@ const DeleteData = {
       <v-card class="mx-auto" max-width="90%">
         <v-card-text>
           <v-form>
-            <v-text-field label="Name" v-model="name3" />
-            <v-btn depressed v-on:click="delData(name3)" color="primary"
+            <v-text-field label="Unit Code" v-model="code3" />
+            <v-btn depressed v-on:click="delData(code3)" color="primary"
               >Delete</v-btn
             >
           </v-form>
@@ -31,7 +31,7 @@ const DeleteData = {
   // variable initialization
   data: function () {
     return {
-      name3: "",
+      code3: "",
       msg: "",
       statusVal: "",
       statusText: "",
@@ -40,8 +40,8 @@ const DeleteData = {
   },
 
   methods: {
-    delData: function (nm, age) {
-      var delSQLApiURL = "resources/apis.php/name/" + nm;
+    delData: function (code) {
+      var delSQLApiURL = "resources/apis.php/code/" + code;
 
       var self = this;
       // DELETE request using fetch with error handling
@@ -51,7 +51,7 @@ const DeleteData = {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: nm,
+          code: code,
         }),
       };
 

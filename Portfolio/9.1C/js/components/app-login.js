@@ -38,7 +38,7 @@ const Login = {
           }),
         };
 
-        fetch("resources/users.php/", requestOptions)
+        fetch("resources/api_user.php/", requestOptions)
           .then((response) => {
             //turning the response into the usable data
             return response.json();

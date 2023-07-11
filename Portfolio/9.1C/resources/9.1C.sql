@@ -1,10 +1,15 @@
 -- Table "users" structure
 CREATE TABLE `IDD`.`users` (
-  `id` INT(10) NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
+
+-- Insert data into "users"
+INSERT INTO users (username, password)
+VALUES 
+  ('ducanh', '12341234');
 
 -- Table "units" structure
 CREATE TABLE `IDD`.`units` (

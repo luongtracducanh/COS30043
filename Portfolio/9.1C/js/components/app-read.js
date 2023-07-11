@@ -6,31 +6,36 @@ const ReadData = {
     <v-col cols="12" md="12 ">
       <v-card class="mx-auto" max-width="90%">
         <v-card-title>
-          <h2>List of People in Database</h2>
+          <h2>List of Units in Database</h2>
         </v-card-title>
         <v-card-text>
-          <ul class="list-group">
-            <li
-              class="list-group-item"
-              v-for="person in getItems"
-              :key="person.name"
-            >
-              <img
-                v-bind:src="person.fpath"
-                class="img-rounded"
-                alt="smiley"
-                height="30"
-              />
-              {{person.name}} {{person.age}}
-            </li>
-          </ul>
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th scope="col" id="codeHeader">Code</th>
+                  <th scope="col" id="descHeader">Description</th>
+                  <th scope="col" id="cpHeader">cp</th>
+                  <th scope="col" id="typeHeader">Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="unit in getItems" :key="unit.code">
+                  <td headers="codeHeader">{{ unit.code }}</td>
+                  <td headers="descHeader">{{ unit.description }}</td>
+                  <td headers="cpHeader">{{ unit.cp }}</td>
+                  <td headers="typeHeader">{{ unit.type }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </v-card-text>
       </v-card>
     </v-col>
     <v-col cols="12" md="12">
       <paginate
         :page-count="getPageCount"
-        :page-range="3"
+        :page-range="4"
         :margin-pages="1"
         :click-handler="clickCallback"
         :prev-text=" 'Prev' "
@@ -46,9 +51,9 @@ const ReadData = {
   // variable initialization
   data: function () {
     return {
-      perPage: 3,
+      perPage: 5,
       currentPage: 1,
-      persons: [],
+      units: [],
     };
   },
   components: {
@@ -59,11 +64,11 @@ const ReadData = {
     getItems: function () {
       let current = this.currentPage * this.perPage;
       let start = current - this.perPage;
-      return this.persons.slice(start, current);
+      return this.units.slice(start, current);
     },
     //returns total number of pages required according to the total rows of data
     getPageCount: function () {
-      return Math.ceil(this.persons.length / this.perPage);
+      return Math.ceil(this.units.length / this.perPage);
     },
   },
   methods: {
@@ -85,7 +90,7 @@ const ReadData = {
       })
       .then((data) => {
         //This is the data you wanted to get from url
-        self.persons = data;
+        self.units = data;
       })
       .catch((error) => {
         self.errorMessage = error;

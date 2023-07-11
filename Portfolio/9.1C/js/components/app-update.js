@@ -8,9 +8,15 @@ const UpdateData = {
         <v-card-text>
           <!-- Input -->
           <v-form name="myForm2" class="form-horizontal">
-            <v-text-field label="Name" v-model="name2" />
-            <v-text-field label="Age" v-model="age2" />
-            <v-btn depressed v-on:click="putData(name2,age2)" color="primary">
+            <v-text-field label="Unit Code" v-model="code2" />
+            <v-text-field label="Description" v-model="description2" />
+            <v-text-field label="Credit Points" v-model="cp2" />
+            <v-radio-group label="Type" v-model="type2">
+              <v-radio label="Core" value="Core"></v-radio>
+              <v-radio label="Software Development" value="Software Development"></v-radio>
+              <v-radio label="System Analysis" value="System Analysis"></v-radio>
+            </v-radio-group>
+            <v-btn depressed v-on:click="putData(code2, description2, cp2, type2)" color="primary">
               Update
             </v-btn>
           </v-form>
@@ -33,8 +39,10 @@ const UpdateData = {
   //variable initialization
   data: function () {
     return {
-      age2: "",
-      name2: "",
+      code2: "",
+      description2: "",
+      cp2: "",
+      type2: "",
       msg: "",
       statusVal: "",
       statusText: "",
@@ -42,8 +50,8 @@ const UpdateData = {
     };
   },
   methods: {
-    putData: function (nm, age) {
-      var putSQLApiURL = "resources/apis.php/name/" + nm;
+    putData: function (code, description, cp, type) {
+      var putSQLApiURL = "resources/apis.php/code/" + code;
 
       var self = this;
       // POST request using fetch with error handling
@@ -53,8 +61,10 @@ const UpdateData = {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: nm,
-          age: age,
+          code: code,
+          description: description,
+          cp: cp,
+          type: type,
         }),
       };
 
