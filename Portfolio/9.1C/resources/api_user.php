@@ -11,7 +11,8 @@ $request = explode('/', trim($_SERVER['PATH_INFO'], '/'));
 $input = json_decode(file_get_contents('php://input'), true);  // json string to associative array(true)
 
 // connect to the mysql database, provide the appropriate credentials
-$conn = mysqli_connect('localhost', 'ducanh', 'ducanh2003', 'IDD');
+require_once('settings.php');
+$conn = mysqli_connect($host, $username, $password, $dbname);
 
 mysqli_set_charset($conn, 'utf8');
 
