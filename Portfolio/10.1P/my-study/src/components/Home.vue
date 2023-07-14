@@ -13,7 +13,13 @@
       checked
     />
     <label for="ocean">Ocean</label>
-    <input id="mountain" type="radio" name="location" value="mountain" v-model="checked" />
+    <input
+      id="mountain"
+      type="radio"
+      name="location"
+      value="mountain"
+      v-model="checked"
+    />
     <label for="mountain">Mountain</label>
   </p>
   <span v-if="checked === 'mountain'"
