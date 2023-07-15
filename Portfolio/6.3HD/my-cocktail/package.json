@@ -1,5 +1,5 @@
 {
-  "name": "my-study",
+  "name": "my-cocktail",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -34,9 +34,7 @@
     "parserOptions": {
       "parser": "@babel/eslint-parser"
     },
-    "rules": {
-      "vue/multi-word-component-names": "off"
-    }
+    "rules": {}
   },
   "browserslist": [
     "> 1%",
