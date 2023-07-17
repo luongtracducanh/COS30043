@@ -11,7 +11,6 @@
     "
   >
     <CocktailPreview :cocktail="cocktail" />
-    <p>{{ cocktail.strDrink }}</p>
   </div>
 </template>
 

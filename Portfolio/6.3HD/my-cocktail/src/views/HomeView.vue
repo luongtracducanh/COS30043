@@ -1,18 +1,36 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Featured cocktail for today</h1>
+    <img :src="cocktailToday.strDrinkThumb" />
+    <p>Name: {{ cocktailToday.strDrink }}</p>
+    <button
+      @click="
+        $router.push({
+          name: 'DetailView',
+          params: { idDrink: cocktailToday.idDrink },
+        })
+      "
+    >
+      Click here for more information
+    </button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import CocktailAPI from "@/apis/CocktailAPI";
 
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
+  name: "HomeView",
+  data() {
+    return {
+      cocktailToday: "",
+    };
+  },
+  mounted() {
+    CocktailAPI.getRandomCocktail().then((cocktail) => {
+      this.cocktailToday = cocktail;
+    });
+  },
+};
 </script>

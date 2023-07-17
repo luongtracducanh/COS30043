@@ -2,6 +2,10 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import DetailView from "../views/DetailView.vue";
 import SearchView from "../views/SearchView.vue";
+import CategoryView from "../views/CategoryView.vue";
+import IngredientView from "../views/IngredientView.vue";
+import IngredientDetail from "../views/IngredientDetail.vue";
+import AlcoholicView from "../views/AlcoholicView.vue";
 
 const routes = [
   {
@@ -30,7 +34,31 @@ const routes = [
     name: "SearchView",
     component: SearchView,
     props: true,
-  }
+  },
+  {
+    path: "/categories/",
+    name: "CategoryView",
+    component: CategoryView,
+    props: true,
+  },
+  {
+    path: "/ingredients/",
+    name: "IngredientView",
+    component: IngredientView,
+    props: true,
+  },
+  {
+    path: "/ingredient/:name",
+    name: "IngredientDetail",
+    component: IngredientDetail,
+    props: true,
+  },
+  {
+    path: "/alcoholics/",
+    name: "AlcoholicView",
+    component: AlcoholicView,
+    props: true,
+  },
 ];
 
 const router = createRouter({

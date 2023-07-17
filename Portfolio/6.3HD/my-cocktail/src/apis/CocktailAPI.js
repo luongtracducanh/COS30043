@@ -40,8 +40,12 @@ export default {
     const response = await CocktailAPI.get("/list.php?i=list");
     return response.data.drinks;
   },
-  async getAllTypes() {
+  async getAlcoholicFilters() {
     const response = await CocktailAPI.get("/list.php?a=list");
     return response.data.drinks;
+  },
+  async getIngredientByName(name) {
+    const response = await CocktailAPI.get(`/search.php?i=${name}`);
+    return response.data.ingredients[0];
   },
 };
