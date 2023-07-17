@@ -2,9 +2,42 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
+    <form>
+      <input type="text" placeholder="Search cocktails" v-model="name" />
+      <button type="submit" @click.stop.prevent="submit()">Search</button>
+    </form>
   </nav>
-  <router-view/>
+  <router-view />
 </template>
+
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      name: "",
+    };
+  },
+  methods: {
+    submit() {
+      if (this.name === "" && Object.keys(this.$route.query).includes("name")) {
+        let newQuery = this.$route.query;
+        delete newQuery.name;
+        console.log(newQuery);
+        this.$router.push({
+          name: "SearchView",
+          query: { ...newQuery },
+        });
+      } else if (this.name !== this.$route.query.name) {
+        this.$router.push({
+          name: "SearchView",
+          query: { name: this.name },
+        });
+      }
+    },
+  },
+};
+</script>
 
 <style>
 #app {
