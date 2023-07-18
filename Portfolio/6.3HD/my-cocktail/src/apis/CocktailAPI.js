@@ -48,4 +48,8 @@ export default {
     const response = await CocktailAPI.get(`/search.php?i=${name}`);
     return response.data.ingredients[0];
   },
+  async getAllGlasses() {
+    const response = await CocktailAPI.get("/list.php?g=list");
+    return response.data.drinks;
+  },
 };

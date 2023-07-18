@@ -3,7 +3,8 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/categories">Categories</router-link> |
     <router-link to="/ingredients">Ingredients</router-link> |
-    <router-link to="/alcoholics">Alcoholic</router-link> |
+    <router-link to="/alcoholics">Alcoholic Options</router-link> |
+    <router-link to="/glasses">Glasses</router-link> |
     <router-link to="/about">About</router-link>
     <form>
       <input type="text" placeholder="Search cocktails" v-model="name" />

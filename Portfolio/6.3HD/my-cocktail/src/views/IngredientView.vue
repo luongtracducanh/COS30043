@@ -6,8 +6,8 @@
     :key="ingredient.strIngredient1"
     @click="
       $router.push({
-        name: 'SearchView',
-        query: { ingredient: ingredient.strIngredient1 },
+        name: 'IngredientDetail',
+        params: { name: ingredient.strIngredient1 },
       })
     "
   >

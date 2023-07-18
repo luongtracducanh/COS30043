@@ -6,6 +6,7 @@ import CategoryView from "../views/CategoryView.vue";
 import IngredientView from "../views/IngredientView.vue";
 import IngredientDetail from "../views/IngredientDetail.vue";
 import AlcoholicView from "../views/AlcoholicView.vue";
+import GlassView from "../views/GlassView.vue";
 
 const routes = [
   {
@@ -59,6 +60,7 @@ const routes = [
     component: AlcoholicView,
     props: true,
   },
+  { path: "/glasses/", name: "GlassView", component: GlassView, props: true },
 ];
 
 const router = createRouter({
