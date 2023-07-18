@@ -45,7 +45,6 @@ export default {
   },
   methods: {
     getCocktails() {
-      // search cocktails by name
       if (Object.keys(this.$route.query).includes("name")) {
         CocktailAPI.getCocktailByName(this.$route.query.name)
           .then((newCocktails) => {
@@ -69,52 +68,17 @@ export default {
                   return cocktail.strAlcoholic === this.$route.query.type;
                 });
               }
+              if (Object.keys(this.$route.query).includes("glass")) {
+                newCocktails = newCocktails.filter((cocktail) => {
+                  return cocktail.strGlass === this.$route.query.glass;
+                });
+              }
               this.cocktails = newCocktails;
             }
           })
           .catch((err) => {
             console.log(err);
           });
-      } else {
-        let newCocktails = [];
-        CocktailAPI.getCocktailByCategory(this.$route.query.category).then(
-          (cocktailCategory) => {
-            CocktailAPI.getCocktailByIngredient(
-              this.$route.query.ingredient
-            ).then((cocktailIngredient) => {
-              CocktailAPI.getCocktailByType(this.$route.query.type).then(
-                (cocktailType) => {
-                  if (Object.keys(this.$route.query).includes("category")) {
-                    newCocktails === []
-                      ? (newCocktails = cocktailCategory)
-                      : (newCocktails = newCocktails.filter((cocktail) => {
-                          return cocktailCategory
-                            .map((cocktail) => {
-                              return cocktail.idDrink;
-                            })
-                            .includes(cocktail.idDrink);
-                        }));
-                  }
-                  if (Object.keys(this.$route.query).includes("ingredient")) {
-                    newCocktails === []
-                      ? (newCocktails = cocktailIngredient)
-                      : (newCocktails = newCocktails.filter((cocktail) => {
-                          return cocktailIngredient
-                            .map((cocktail) => {
-                              return cocktail.idDrink;
-                            })
-                            .includes(cocktail.idDrink);
-                        }));
-                  }
-                  if (Object.keys(this.$route.query).includes("type")) {
-                    newCocktails = cocktailType;
-                  }
-                  this.cocktails = newCocktails;
-                }
-              );
-            });
-          }
-        );
       }
     },
     deleteFromQuery: function (property) {

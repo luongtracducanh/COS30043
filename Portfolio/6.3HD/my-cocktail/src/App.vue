@@ -5,8 +5,8 @@
     <router-link to="/ingredients">Ingredients</router-link> |
     <router-link to="/alcoholics">Alcoholic Options</router-link> |
     <router-link to="/glasses">Glasses</router-link> |
-    <router-link to="/about">About</router-link>
-    <form>
+    <router-link to="/about">About</router-link> |
+    <form style="display: inline">
       <input type="text" placeholder="Search cocktails" v-model="name" />
       <button type="submit" @click.stop.prevent="submit()">Search</button>
     </form>
