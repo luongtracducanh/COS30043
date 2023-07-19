@@ -1,4 +1,5 @@
 <template>
+  <SearchFilter />
   <p>{{ msg }}</p>
   <div
     v-for="cocktail in cocktails"
@@ -17,6 +18,7 @@
 <script>
 import CocktailAPI from "../apis/CocktailAPI";
 import CocktailPreview from "../components/CocktailPreview.vue";
+import SearchFilter from "../components/SearchFilter.vue";
 
 export default {
   name: "SearchView",
@@ -27,6 +29,7 @@ export default {
   },
   components: {
     CocktailPreview,
+    SearchFilter,
   },
   mounted() {
     this.getCocktails();
