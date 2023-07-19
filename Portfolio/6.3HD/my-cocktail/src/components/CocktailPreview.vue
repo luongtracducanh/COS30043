@@ -21,3 +21,10 @@ export default {
   },
 };
 </script>
+
+<style>
+img {
+  width: 250px;
+  height: 250px;
+}
+</style>

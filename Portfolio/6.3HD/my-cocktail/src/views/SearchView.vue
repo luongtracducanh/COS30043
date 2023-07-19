@@ -79,6 +79,41 @@ export default {
           .catch((err) => {
             console.log(err);
           });
+      } else {
+        let newCocktails = [];
+        CocktailAPI.getCocktailByType(this.$route.query.type)
+          .then((cocktailByType) => {
+            CocktailAPI.getCocktailByCategory(this.$route.query.category).then(
+              (cocktailByCategory) => {
+                CocktailAPI.getCocktailByIngredient(
+                  this.$route.query.ingredient
+                ).then((cocktailByIngredient) => {
+                  CocktailAPI.getCocktailByGlass(this.$route.query.glass).then(
+                    (cocktailByGlass) => {
+                      if (Object.keys(this.$route.query).includes("type")) {
+                        newCocktails = cocktailByType;
+                      }
+                      if (Object.keys(this.$route.query).includes("category")) {
+                        newCocktails = cocktailByCategory;
+                      }
+                      if (
+                        Object.keys(this.$route.query).includes("ingredient")
+                      ) {
+                        newCocktails = cocktailByIngredient;
+                      }
+                      if (Object.keys(this.$route.query).includes("glass")) {
+                        newCocktails = cocktailByGlass;
+                      }
+                      this.cocktails = newCocktails;
+                    }
+                  );
+                });
+              }
+            );
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     },
     deleteFromQuery: function (property) {

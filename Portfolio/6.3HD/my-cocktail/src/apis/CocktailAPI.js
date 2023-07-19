@@ -32,6 +32,10 @@ export default {
     const response = await CocktailAPI.get(`/filter.php?a=${type}`);
     return response.data.drinks;
   },
+  async getCocktailByGlass(glass) {
+    const response = await CocktailAPI.get(`/filter.php?g=${glass}`);
+    return response.data.drinks;
+  },
   async getAllCategories() {
     const response = await CocktailAPI.get("/list.php?c=list");
     return response.data.drinks;

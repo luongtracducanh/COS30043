@@ -1,5 +1,6 @@
 <template>
   <h1>Ingredient Information</h1>
+  <p><img :src="image" /></p>
   <p>Name: {{ ingredient.strIngredient }}</p>
   <p>
     Description:
@@ -14,7 +15,6 @@
   </p>
   <p>Alcoholic: {{ ingredient.strAlcohol }}</p>
   <p>Alcohol by volume: {{ ingredient.strABV ? ingredient.strABV : 0 }}%</p>
-  <p><img :src="image" /></p>
   <button
     @click="
       $router.push({
@@ -53,3 +53,10 @@ export default {
   },
 };
 </script>
+
+<style>
+img {
+  width: 250px;
+  height: 250px;
+}
+</style>

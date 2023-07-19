@@ -1,5 +1,6 @@
 <template>
   <h1>Cocktail Information</h1>
+  <img :src="cocktail.strDrinkThumb" />
   <p>Name: {{ cocktail.strDrink }}</p>
   <p>Category: {{ cocktail.strCategory }}</p>
   <p>Alcoholic: {{ cocktail.strAlcoholic }}</p>
@@ -19,7 +20,6 @@
     </button>
   </div>
   <br />
-  <img :src="cocktail.strDrinkThumb" />
 </template>
 
 <script>
@@ -59,3 +59,10 @@ export default {
   },
 };
 </script>
+
+<style>
+img {
+  width: 250px;
+  height: 250px;
+}
+</style>

@@ -9,7 +9,7 @@
         })
       "
     >
-      {{ category.strCategory }}
+      {{ category.strCategory === "Beer" ? "Dads' fav" : category.strCategory }} 
     </button>
   </div>
 </template>
