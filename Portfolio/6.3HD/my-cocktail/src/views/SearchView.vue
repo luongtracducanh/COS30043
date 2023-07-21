@@ -20,6 +20,35 @@ import CocktailAPI from "../apis/CocktailAPI";
 import CocktailPreview from "../components/CocktailPreview.vue";
 import SearchFilter from "../components/SearchFilter.vue";
 
+function hasMatchingIngredient(cocktail, ingredient) {
+  const ingredientProperties = [
+    "strIngredient1",
+    "strIngredient2",
+    "strIngredient3",
+    "strIngredient4",
+    "strIngredient5",
+    "strIngredient6",
+    "strIngredient7",
+    "strIngredient8",
+    "strIngredient9",
+    "strIngredient10",
+    "strIngredient11",
+    "strIngredient12",
+    "strIngredient13",
+    "strIngredient14",
+    "strIngredient15",
+  ];
+  for (const property of ingredientProperties) {
+    if (
+      cocktail[property] !== null &&
+      cocktail[property].toLowerCase() === ingredient.toLowerCase()
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
 export default {
   name: "SearchView",
   data() {
@@ -60,11 +89,9 @@ export default {
                 });
               }
               if (Object.keys(this.$route.query).includes("ingredient")) {
-                newCocktails = newCocktails.filter((cocktail) => {
-                  return Object.values(cocktail).includes(
-                    this.$route.query.ingredient
-                  );
-                });
+                newCocktails = newCocktails.filter((cocktail) =>
+                  hasMatchingIngredient(cocktail, this.$route.query.ingredient)
+                );
               }
               if (Object.keys(this.$route.query).includes("type")) {
                 newCocktails = newCocktails.filter((cocktail) => {
@@ -83,40 +110,7 @@ export default {
             console.log(err);
           });
       } else {
-        let newCocktails = [];
-        CocktailAPI.getCocktailByType(this.$route.query.type)
-          .then((cocktailByType) => {
-            CocktailAPI.getCocktailByCategory(this.$route.query.category).then(
-              (cocktailByCategory) => {
-                CocktailAPI.getCocktailByIngredient(
-                  this.$route.query.ingredient
-                ).then((cocktailByIngredient) => {
-                  CocktailAPI.getCocktailByGlass(this.$route.query.glass).then(
-                    (cocktailByGlass) => {
-                      if (Object.keys(this.$route.query).includes("type")) {
-                        newCocktails = cocktailByType;
-                      }
-                      if (Object.keys(this.$route.query).includes("category")) {
-                        newCocktails = cocktailByCategory;
-                      }
-                      if (
-                        Object.keys(this.$route.query).includes("ingredient")
-                      ) {
-                        newCocktails = cocktailByIngredient;
-                      }
-                      if (Object.keys(this.$route.query).includes("glass")) {
-                        newCocktails = cocktailByGlass;
-                      }
-                      this.cocktails = newCocktails;
-                    }
-                  );
-                });
-              }
-            );
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        // if there is no name, search with other parameters
       }
     },
     deleteFromQuery: function (property) {

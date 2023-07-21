@@ -19,7 +19,7 @@
     @click="
       $router.push({
         name: 'SearchView',
-        query: { ingredient: ingredient.strIngredient },
+        query: { ingredient: ingredient.strIngredient.toLowerCase() },
       })
     "
   >
@@ -32,6 +32,12 @@ import CocktailAPI from "@/apis/CocktailAPI";
 
 export default {
   name: "IngredientDetail",
+  props: {
+    name: {
+      type: "",
+      required: true,
+    },
+  },
   data() {
     return {
       ingredient: "",
