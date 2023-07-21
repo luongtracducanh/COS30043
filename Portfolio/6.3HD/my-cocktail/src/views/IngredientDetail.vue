@@ -34,7 +34,7 @@ export default {
   name: "IngredientDetail",
   props: {
     name: {
-      type: "",
+      type: String,
       required: true,
     },
   },
