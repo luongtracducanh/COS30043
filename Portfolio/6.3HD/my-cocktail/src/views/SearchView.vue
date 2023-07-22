@@ -54,6 +54,7 @@ export default {
   data() {
     return {
       cocktails: [],
+      appendedCocktails: [],
     };
   },
   components: {
@@ -70,48 +71,87 @@ export default {
   },
   computed: {
     msg() {
-      return `Showing ${this.cocktails.length} results${
-        this.$route.query.name ? " for " + this.$route.query.name : ""
-      }`;
+      return `${this.cocktails.length} results found`;
     },
   },
   methods: {
     getCocktails() {
-      if (Object.keys(this.$route.query).includes("name")) {
+      // querry using name as parameter
+      if (Object.keys(this.$route.query).includes("name"))
         CocktailAPI.getCocktailByName(this.$route.query.name)
           .then((newCocktails) => {
-            if (newCocktails === null) {
-              this.cocktails = [];
-            } else {
-              if (Object.keys(this.$route.query).includes("category")) {
+            if (newCocktails === null) this.cocktails = [];
+            else {
+              if (Object.keys(this.$route.query).includes("category"))
                 newCocktails = newCocktails.filter((cocktail) => {
                   return cocktail.strCategory === this.$route.query.category;
                 });
-              }
-              if (Object.keys(this.$route.query).includes("ingredient")) {
+              if (Object.keys(this.$route.query).includes("ingredient"))
                 newCocktails = newCocktails.filter((cocktail) =>
                   hasMatchingIngredient(cocktail, this.$route.query.ingredient)
                 );
-              }
-              if (Object.keys(this.$route.query).includes("type")) {
+              if (Object.keys(this.$route.query).includes("type"))
                 newCocktails = newCocktails.filter((cocktail) => {
                   return cocktail.strAlcoholic === this.$route.query.type;
                 });
-              }
-              if (Object.keys(this.$route.query).includes("glass")) {
+              if (Object.keys(this.$route.query).includes("glass"))
                 newCocktails = newCocktails.filter((cocktail) => {
                   return cocktail.strGlass === this.$route.query.glass;
                 });
-              }
               this.cocktails = newCocktails;
             }
           })
           .catch((err) => {
             console.log(err);
           });
-      } else {
-        // if there is no name, search with other parameters
-      }
+      // query using ingredient as parameter
+      else if (Object.keys(this.$route.query).includes("ingredient"))
+        CocktailAPI.getCocktailByIngredient(this.$route.query.ingredient)
+          .then((newCocktails) => {
+            if (newCocktails === null) this.cocktails = [];
+            else {
+              this.cocktails = newCocktails;
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      // query using category as parameter
+      else if (Object.keys(this.$route.query).includes("category"))
+        CocktailAPI.getCocktailByCategory(this.$route.query.category)
+          .then((newCocktails) => {
+            if (newCocktails === null) this.cocktails = [];
+            else {
+              this.cocktails = newCocktails;
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      // query using type as parameter
+      else if (Object.keys(this.$route.query).includes("type"))
+        CocktailAPI.getCocktailByType(this.$route.query.type)
+          .then((newCocktails) => {
+            if (newCocktails === null) this.cocktails = [];
+            else {
+              this.cocktails = newCocktails;
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      // query using glass as parameter
+      else if (Object.keys(this.$route.query).includes("glass"))
+        CocktailAPI.getCocktailByGlass(this.$route.query.glass)
+          .then((newCocktails) => {
+            if (newCocktails === null) this.cocktails = [];
+            else {
+              this.cocktails = newCocktails;
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
     },
     deleteFromQuery: function (property) {
       let query = Object.assign({}, this.$route.query);

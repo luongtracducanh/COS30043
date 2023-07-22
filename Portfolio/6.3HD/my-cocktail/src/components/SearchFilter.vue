@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-3">
-        <span>Alcoholic Options</span>
+        <span>Alcoholic Option: </span>
         <select
           v-model="selectedType"
           @change="updateType($event.target.value)"
@@ -14,7 +14,7 @@
         </select>
       </div>
       <div class="col-3">
-        <span>Categories</span>
+        <span>Category: </span>
         <select
           v-model="selectedCategory"
           @change="updateCategory($event.target.value)"
@@ -34,7 +34,7 @@
         </select>
       </div>
       <div class="col-3">
-        <span>Glasses</span>
+        <span>Glass: </span>
         <select
           v-model="selectedGlass"
           @change="updateGlass($event.target.value)"
@@ -46,7 +46,7 @@
         </select>
       </div>
       <div class="col-3">
-        <span>Ingredients</span>
+        <span>Ingredient: </span>
         <select
           v-model="selectedIngredient"
           @change="updateIngredient($event.target.value)"
