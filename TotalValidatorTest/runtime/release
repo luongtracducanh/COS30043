@@ -1,2 +1,0 @@
-JAVA_VERSION="17.0.7"
-MODULES="java.base java.datatransfer java.xml java.prefs java.desktop com.formdev.flatlaf java.logging java.net.http jdk.accessibility com.totalvalidator java.security.sasl java.naming java.security.jgss jdk.crypto.ec jdk.crypto.cryptoki jdk.security.auth jdk.security.jgss"
