@@ -34,26 +34,32 @@
             </p>
           </div>
           <div class="col-lg-4">
-            <p>
-              Unit Type:<br />
-              <input type="radio" v-model="obj.type" value="Core" />Core<br />
-              <input
-                type="radio"
-                v-model="obj.type"
-                value="Software Development"
-              />Software Development<br />
-              <input
-                type="radio"
-                v-model="obj.type"
-                value="Systems Analysis"
-              />Systems Analysis<br />
-              <input
-                type="radio"
-                v-model="obj.type"
-                value=""
-                checked="checked"
-              />All<br />
-            </p>
+            Unit Type:<br />
+            <input
+              id="core"
+              type="radio"
+              v-model="obj.type"
+              value="Core"
+            /><label for="core">Core</label><br />
+            <input
+              id="software"
+              type="radio"
+              v-model="obj.type"
+              value="Software Development"
+            /><label for="software">Software Development</label><br />
+            <input
+              id="systems"
+              type="radio"
+              v-model="obj.type"
+              value="Systems Analysis"
+            /><label for="systems">Systems Analysis</label><br />
+            <input
+              id="all"
+              type="radio"
+              v-model="obj.type"
+              value=""
+              checked="checked"
+            /><label for="all">All</label><br />
           </div>
         </div>
         <div class="row">
